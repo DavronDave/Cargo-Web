@@ -26,10 +26,12 @@ class DatabaseSeeder extends Seeder
         $this->call(CompanyContractsTableSeeder::class);
         $this->call(ProjectsTableSeeder::class);
 
-        $this->call(SenderPeopleTableSeeder::class);
-        $this->call(ReceiverPeopleTableSeeder::class);
-        $this->call(DriversTableSeeder::class);
         $this->call(InvoicesTableSeeder::class);
         $this->call(InvoiceProductsTableSeeder::class);
+        $this->call(DriversTableSeeder::class);
+        $this->call(SenderPeopleTableSeeder::class);
+        $this->call(ReceiverPeopleTableSeeder::class);
+
+
     }
 }
