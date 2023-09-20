@@ -22,4 +22,9 @@ class ReceiverPerson extends Model
     {
         return $this->belongsTo(Region::class);
     }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class, 'receiver_passport', 'passport');
+    }
 }

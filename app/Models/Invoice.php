@@ -32,4 +32,9 @@ class Invoice extends Model
     {
         return $this->invoiceProducts->sum('price');
     }
+
+    public function receiver()
+    {
+        return $this->belongsTo(ReceiverPerson::class, 'receiver_passport', 'passport');
+    }
 }

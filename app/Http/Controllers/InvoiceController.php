@@ -13,6 +13,7 @@ use App\Models\SenderPerson;
 use Carbon\Carbon;
 use Carbon\Traits\Date;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
 {
@@ -22,10 +23,62 @@ class InvoiceController extends Controller
     public function index(Project $project)
     {
 //        dd($project->id);
+        $passport = 'FA1391255';
+
+//        $receiverPeopleWithTotalPrice = ReceiverPerson::with('invoices.invoiceProducts')
+//            ->get()
+//            ->map(function ($receiverPeople) {
+//                $totalPrice = $receiverPeople->invoices->flatMap(function ($invoice) {
+//                    return $invoice->invoiceProducts->pluck('price');
+//                })->sum();
+//
+//                return [
+//                    'full_name' => $receiverPeople->full_name,
+//                    'passport' => $receiverPeople->passport,
+//                    'total_price' => $totalPrice,
+//                ];
+//            });
+        $threeMonthsAgo = Carbon::now()->subMonths(3);
+
+//        $receiverPeopleWithTotalPrice = ReceiverPerson::with(['invoices.invoiceProducts' => function ($query) use ($threeMonthsAgo) {
+//            $query->where('created_at', '>=', $threeMonthsAgo);
+//        }])
+//            ->get()
+//            ->map(function ($receiverPeople) {
+//                $totalPrice = $receiverPeople->invoices->flatMap(function ($invoice) {
+//                    return $invoice->invoiceProducts->pluck('price');
+//                })->sum();
+//
+//                return [
+//                    'full_name' => $receiverPeople->full_name,
+//                    'passport' => $receiverPeople->passport,
+//                    'total_price' => $totalPrice,
+//                ];
+//            });
+
+        $receiverPeopleWithTotalPrice = ReceiverPerson::with(['invoices' => function ($query) use ($threeMonthsAgo) {
+            $query->where('created_at', '>=', $threeMonthsAgo);
+        }, 'invoices.invoiceProducts'])
+            ->get()
+            ->map(function ($receiverPeople) {
+                $totalPrice = $receiverPeople->invoices->flatMap(function ($invoice) {
+                    return $invoice->invoiceProducts->pluck('price');
+                })->sum();
+
+                return [
+                    'full_name' => $receiverPeople->full_name,
+                    'passport' => $receiverPeople->passport,
+                    'total_price' => $totalPrice,
+                ];
+            });
+//        dd($receiverPeopleWithTotalPrice);
+
+
+//        dd($totalPrice);
         $drivers = Driver::all();
         $invoices = Invoice::where('project_id', '=', $project->id)->orderBy('isCompleted')->orderBy('number', 'asc')->paginate(400);
 
-        return view('admin.invoices.list', compact('project', 'invoices', 'drivers'));
+        return view('admin.invoices.list', compact('project', 'invoices', 'drivers', 'receiverPeopleWithTotalPrice'));
     }
 
     /**

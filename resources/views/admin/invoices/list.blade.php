@@ -54,8 +54,9 @@
                                             <th style="width: 100px">@sortablelink('name', 'Инвойс')</th>
                                             <th>@sortablelink('name', 'Отправитель')</th>
                                             <th>@sortablelink('name', 'Получатель')</th>
-                                            <th>@sortablelink('name', 'Паспорт получателя')</th>
-                                            <th>@sortablelink('key', 'День рож получателя')</th>
+                                            <th>@sortablelink('name', 'Паспорт пол')</th>
+                                            <th>@sortablelink('key', 'День.рож пол')</th>
+                                            <th style="width: 130px">@sortablelink('name', 'Общая цена ?')</th>
                                             <th style="width: 120px">@sortablelink('name', 'Выполнен ?')</th>
                                             <th style="width: 100px">@sortablelink('name', 'Инвойс')</th>
                                             <th style="width: 100px; text-align: center"><b>Действия</b></th>
@@ -95,6 +96,12 @@
                                                 <td>
                                                     <input style="width: 100%;" type="text" class="form-control"
                                                            id="filter"
+                                                           name="name" placeholder="Общая цена..."
+                                                           value="{{request('name')}}">
+                                                </td>
+                                                <td>
+                                                    <input style="width: 100%;" type="text" class="form-control"
+                                                           id="filter"
                                                            name="name" placeholder="Выполнен..."
                                                            value="{{request('name')}}">
                                                 </td>
@@ -121,10 +128,21 @@
                                                 <td>{{$invoice->receiver_fullname}}</td>
                                                 <td>{{$invoice->receiver_passport}}</td>
                                                 <td>{{$invoice->receiver_date}}</td>
+                                                <td style="background-color:
+                                                    @if(($totalPrice = $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? null) >= 1000) red
+                                                    @else
+                                                    @endif;
+                                                    color: @if(($totalPrice ?? 0) >= 1000) white @else black @endif;">
+                                                    {{ $totalPrice ?? 0 }}
+                                                </td>
 {{--                                                <td>{{$invoice->ready_date}}</td>--}}
 {{--                                                <td><i class="fa fa" style="font-size: 2rem; color: red;"></i></td>--}}
                                                 <td style="text-align: center">@if($invoice->isCompleted==1) <i style="color: green; font-size: 16px" class=" fa fa-check"></i>@elseif($invoice->isCompleted==0) <i style="color: red; font-size: 16px" class=" fa fa-close"></i> @endif</td>
                                                 <td>{{$invoice->number}}</td>
+{{--                                                <td>{{ $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? 0 }}</td>--}}
+
+
+
                                                 <td>
                                                     <a href="{{route('admin.invoice.edit', ['invoice' => $invoice->id, 'project' => $project->id])}}" class=" btn btn-xs btn-info"
                                                        title="Изменить">
