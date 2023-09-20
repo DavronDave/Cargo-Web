@@ -56,8 +56,8 @@ class InvoiceController extends Controller
             'address_id' => 'required|numeric',
 //            'ready_date' => 'required|date',
             'weight' => 'required',
-            'quantity' => 'required',
-            'quantity.*' => 'required|array'
+//            'quantity' => 'required',
+//            'quantity.*' => 'required|array'
         ]);
         $cleanedPhoneNumber = preg_replace('/[^0-9]/', '', $request->receiver_phone);
 
