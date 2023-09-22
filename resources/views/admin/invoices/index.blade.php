@@ -81,7 +81,8 @@
                                 <div class="col-md-3 ui-sortable">
                                     <div class="form-group" >
                                         <label for="receiver_date">День рождения получателя</label><br>
-                                        <input data-mask='dd/mm/yyyy' name="receiver_date" id="receiver_date" placeholder="dd/mm/yyyy" class="form-control">
+                                        <input type="date" name="receiver_date" id="receiver_date" placeholder="dd/mm/yyyy" class="form-control">
+{{--                                        data-mask='dd/mm/yyyy'--}}
                                         <br>
                                         @error('receiver_date')
                                         <span class="text-danger">{{$message}}</span>
@@ -167,7 +168,7 @@
         </div>
     </div>
     <!-- Include jQuery -->
-    <script src="https://jsuites.net/v4/jsuites.js"></script>
+{{--    <script src="https://jsuites.net/v4/jsuites.js"></script>--}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />

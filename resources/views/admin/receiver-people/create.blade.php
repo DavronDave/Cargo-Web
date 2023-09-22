@@ -27,7 +27,8 @@
 {{--                                    <input type="date" name="birthdate" id="create_birthdate"  class="form-control">--}}
 {{--                                    <input type="date" data-date="" data-date-format="DD/MM/YYYY" value="2020-08-29">--}}
 {{--                                    <input type="text" name="birthdate" id="create_birthdate" placeholder="Введите Дата рождения" class="form-control" oninput="formatDate(this)">--}}
-                                    <input data-mask='dd/mm/yyyy' name="birthdate" id="create_birthdate" placeholder="dd/mm/yyyy" class="birthdate form-control">
+                                    <input type="date"  name="birthdate" id="create_birthdate" placeholder="dd/mm/yyyy" class="birthdate form-control">
+{{--                                    data-mask='dd/mm/yyyy'--}}
                                 </div>
                             </div>
 

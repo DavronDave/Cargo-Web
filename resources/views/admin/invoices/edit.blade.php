@@ -82,7 +82,8 @@
                                 <div class="col-md-3 ui-sortable">
                                     <div class="form-group" >
                                         <label for="receiver_date">День рождения получателя</label><br>
-                                        <input data-mask='dd/mm/yyyy' name="receiver_date" id="receiver_date" placeholder="dd/mm/yyyy" class="form-control" value="{{ old('receiver_date') ?? $invoice->receiver_date }}">
+                                        <input type="date" name="receiver_date" id="receiver_date" placeholder="dd/mm/yyyy" class="form-control" value="{{ old('receiver_date') ?? $invoice->receiver_date }}">
+{{--                                        data-mask='dd/mm/yyyy'--}}
                                         <br>
                                         @error('receiver_date')
                                         <span class="text-danger">{{$message}}</span>
