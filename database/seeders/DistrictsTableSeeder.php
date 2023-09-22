@@ -45,8 +45,8 @@ class DistrictsTableSeeder extends Seeder
                 'updated_at' => '2023-09-04 13:34:16',
             ),
         ));
-
-        $id = DB::table('districts')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence districts_id_seq restart with '.($id->id+1));
+//
+//        $id = DB::table('districts')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence districts_id_seq restart with '.($id->id+1));
     }
 }

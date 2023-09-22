@@ -33,7 +33,7 @@ class CompanyContractsTableSeeder extends Seeder
             ),
         ));
 
-        $id = DB::table('company_contracts')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence company_contracts_id_seq restart with '.($id->id+1));
+//        $id = DB::table('company_contracts')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence company_contracts_id_seq restart with '.($id->id+1));
     }
 }

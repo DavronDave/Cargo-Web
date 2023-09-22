@@ -35,8 +35,8 @@ class ProjectsTableSeeder extends Seeder
             ),
         ));
 
-        $id = DB::table('projects')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence projects_id_seq restart with '.($id->id+1));
+//        $id = DB::table('projects')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence projects_id_seq restart with '.($id->id+1));
 
     }
 }

@@ -586,7 +586,7 @@ class ReceiverPeopleTableSeeder extends Seeder
             ),
         ));
 
-        $id = DB::table('receiver_people')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence receiver_people_id_seq restart with '.($id->id+1));
+//        $id = DB::table('receiver_people')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence receiver_people_id_seq restart with '.($id->id+1));
     }
 }

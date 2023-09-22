@@ -30,7 +30,7 @@ class DriversTableSeeder extends Seeder
             ),
         ));
 
-        $id = DB::table('drivers')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence drivers_id_seq restart with '.($id->id+1));
+//        $id = DB::table('drivers')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence drivers_id_seq restart with '.($id->id+1));
     }
 }

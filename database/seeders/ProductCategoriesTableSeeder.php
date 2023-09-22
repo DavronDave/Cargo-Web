@@ -110,7 +110,7 @@ class ProductCategoriesTableSeeder extends Seeder
             ),
         ));
 
-        $id = DB::table('product_categories')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence product_categories_id_seq restart with '.($id->id+1));
+//        $id = DB::table('product_categories')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence product_categories_id_seq restart with '.($id->id+1));
     }
 }

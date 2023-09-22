@@ -29,7 +29,7 @@ class IncotermsTableSeeder extends Seeder
             ),
         ));
 
-        $id = DB::table('incoterms')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence incoterms_id_seq restart with '.($id->id+1));
+//        $id = DB::table('incoterms')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence incoterms_id_seq restart with '.($id->id+1));
     }
 }

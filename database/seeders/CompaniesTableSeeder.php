@@ -45,8 +45,8 @@ class CompaniesTableSeeder extends Seeder
                 'updated_at' => '2023-09-04 13:37:40',
             ),
         ));
-        $id = DB::table('companies')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence companies_id_seq restart with '.($id->id+1));
+//        $id = DB::table('companies')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence companies_id_seq restart with '.($id->id+1));
 
     }
 }

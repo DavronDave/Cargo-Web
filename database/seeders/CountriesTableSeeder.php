@@ -38,8 +38,8 @@ class CountriesTableSeeder extends Seeder
             ),
         ));
 
-        $id = DB::table('countries')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence countries_id_seq restart with '.($id->id+1));
+//        $id = DB::table('countries')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence countries_id_seq restart with '.($id->id+1));
 
     }
 }

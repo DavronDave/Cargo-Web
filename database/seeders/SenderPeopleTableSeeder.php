@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SenderPeopleTableSeeder extends Seeder
 {
@@ -721,7 +722,7 @@ class SenderPeopleTableSeeder extends Seeder
             ),
         ));
 
-        $id = DB::table('sender_people')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence sender_people_id_seq restart with '.($id->id+1));
+//        $id = DB::table('sender_people')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence sender_people_id_seq restart with '.($id->id+1));
     }
 }

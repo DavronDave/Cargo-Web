@@ -3062,7 +3062,7 @@ class ProductsTableSeeder extends Seeder
             ),
         ));
 
-        $id = DB::table('products')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence products_id_seq restart with '.($id->id+1));
+//        $id = DB::table('products')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence products_id_seq restart with '.($id->id+1));
     }
 }

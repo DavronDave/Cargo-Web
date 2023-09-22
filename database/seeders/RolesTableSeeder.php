@@ -36,7 +36,7 @@ class RolesTableSeeder extends Seeder
                 ),
         ));
 
-        $id = DB::table('roles')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence roles_id_seq restart with '.($id->id+1));
+//        $id = DB::table('roles')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence roles_id_seq restart with '.($id->id+1));
     }
 }

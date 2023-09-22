@@ -26,7 +26,7 @@ class AboutTableSeeder extends Seeder
                 ),
         ));
 
-        $id = DB::table('about')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence about_id_seq restart with '.($id->id+1));
+//        $id = DB::table('about')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence about_id_seq restart with '.($id->id+1));
     }
 }

@@ -3478,7 +3478,7 @@ class InvoicesTableSeeder extends Seeder
             ),
         ));
 
-        $id = DB::table('invoices')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence invoices_id_seq restart with '.($id->id+1));
+//        $id = DB::table('invoices')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence invoices_id_seq restart with '.($id->id+1));
     }
 }

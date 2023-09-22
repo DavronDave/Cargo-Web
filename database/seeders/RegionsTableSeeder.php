@@ -118,7 +118,7 @@ class RegionsTableSeeder extends Seeder
             ),
         ));
 
-        $id = DB::table('regions')->orderBy('id', 'DESC')->first();
-        DB::statement('alter sequence regions_id_seq restart with '.($id->id+1));
+//        $id = DB::table('regions')->orderBy('id', 'DESC')->first();
+//        DB::statement('alter sequence regions_id_seq restart with '.($id->id+1));
     }
 }
