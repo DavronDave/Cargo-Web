@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProductsTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('products')->delete();
-        
+
         \DB::table('products')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 3,
                 'name' => 'Kurtka mujskiy',
@@ -29,7 +30,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:45:35',
                 'updated_at' => '2023-09-14 18:45:35',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 76,
                 'name' => 'Karcher',
@@ -39,7 +40,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:11:17',
                 'updated_at' => '2023-09-15 06:11:17',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 48,
                 'name' => 'Rezetka',
@@ -49,7 +50,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:14:53',
                 'updated_at' => '2023-09-14 19:14:53',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 77,
                 'name' => 'Lopatka',
@@ -59,7 +60,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:12:29',
                 'updated_at' => '2023-09-15 06:12:29',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 92,
                 'name' => 'Adyol',
@@ -69,7 +70,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:42:39',
                 'updated_at' => '2023-09-15 06:42:39',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 5,
                 'name' => 'Tufli jenksiy',
@@ -79,7 +80,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:48:41',
                 'updated_at' => '2023-09-14 18:48:41',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 8,
                 'name' => 'Jinfer',
@@ -89,7 +90,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:49:56',
                 'updated_at' => '2023-09-14 18:49:56',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 9,
                 'name' => 'Jenifer',
@@ -99,7 +100,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:50:07',
                 'updated_at' => '2023-09-14 18:50:07',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 10,
                 'name' => 'Kofe',
@@ -109,7 +110,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:50:38',
                 'updated_at' => '2023-09-14 18:50:38',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 11,
                 'name' => 'Shampun',
@@ -119,7 +120,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:51:04',
                 'updated_at' => '2023-09-14 18:51:04',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 12,
                 'name' => 'Sovun',
@@ -129,7 +130,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:51:31',
                 'updated_at' => '2023-09-14 18:51:31',
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 13,
                 'name' => 'Shkolad',
@@ -139,7 +140,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:52:02',
                 'updated_at' => '2023-09-14 18:52:02',
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 14,
                 'name' => 'Utyuk',
@@ -149,7 +150,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:52:29',
                 'updated_at' => '2023-09-14 18:52:29',
             ),
-            13 => 
+            13 =>
             array (
                 'id' => 15,
                 'name' => 'Utuk',
@@ -159,7 +160,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:52:42',
                 'updated_at' => '2023-09-14 18:52:42',
             ),
-            14 => 
+            14 =>
             array (
                 'id' => 16,
                 'name' => 'Kurtka detskiy',
@@ -169,7 +170,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:53:33',
                 'updated_at' => '2023-09-14 18:53:33',
             ),
-            15 => 
+            15 =>
             array (
                 'id' => 17,
                 'name' => 'Shapka',
@@ -179,7 +180,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:53:56',
                 'updated_at' => '2023-09-14 18:53:56',
             ),
-            16 => 
+            16 =>
             array (
                 'id' => 18,
                 'name' => 'Kostyum mujskiy',
@@ -189,7 +190,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:54:31',
                 'updated_at' => '2023-09-14 18:54:31',
             ),
-            17 => 
+            17 =>
             array (
                 'id' => 19,
                 'name' => 'Kastyum',
@@ -199,7 +200,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:54:46',
                 'updated_at' => '2023-09-14 18:54:46',
             ),
-            18 => 
+            18 =>
             array (
                 'id' => 78,
                 'name' => 'Masterok',
@@ -209,7 +210,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:12:48',
                 'updated_at' => '2023-09-15 06:12:48',
             ),
-            19 => 
+            19 =>
             array (
                 'id' => 21,
                 'name' => 'Igrushka',
@@ -219,7 +220,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:55:35',
                 'updated_at' => '2023-09-14 18:56:40',
             ),
-            20 => 
+            20 =>
             array (
                 'id' => 24,
                 'name' => 'Instrument',
@@ -229,7 +230,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:58:01',
                 'updated_at' => '2023-09-14 18:58:01',
             ),
-            21 => 
+            21 =>
             array (
                 'id' => 25,
                 'name' => 'Instrumentlar',
@@ -239,7 +240,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:58:35',
                 'updated_at' => '2023-09-14 18:58:35',
             ),
-            22 => 
+            22 =>
             array (
                 'id' => 26,
                 'name' => 'Perchatka',
@@ -249,7 +250,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:59:03',
                 'updated_at' => '2023-09-14 18:59:03',
             ),
-            23 => 
+            23 =>
             array (
                 'id' => 27,
                 'name' => 'Klyuch nabor',
@@ -259,7 +260,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:00:07',
                 'updated_at' => '2023-09-14 19:00:07',
             ),
-            24 => 
+            24 =>
             array (
                 'id' => 29,
                 'name' => 'Ruchka',
@@ -269,7 +270,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:00:47',
                 'updated_at' => '2023-09-14 19:00:47',
             ),
-            25 => 
+            25 =>
             array (
                 'id' => 30,
                 'name' => 'Qalam',
@@ -279,7 +280,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:01:04',
                 'updated_at' => '2023-09-14 19:01:04',
             ),
-            26 => 
+            26 =>
             array (
                 'id' => 31,
                 'name' => 'Stakan',
@@ -289,7 +290,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:02:10',
                 'updated_at' => '2023-09-14 19:02:10',
             ),
-            27 => 
+            27 =>
             array (
                 'id' => 32,
                 'name' => 'Skvarodka',
@@ -299,7 +300,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:02:46',
                 'updated_at' => '2023-09-14 19:02:46',
             ),
-            28 => 
+            28 =>
             array (
                 'id' => 34,
                 'name' => 'Postelni belyo',
@@ -309,7 +310,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:04:32',
                 'updated_at' => '2023-09-14 19:04:32',
             ),
-            29 => 
+            29 =>
             array (
                 'id' => 35,
                 'name' => 'Batariya',
@@ -319,7 +320,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:05:18',
                 'updated_at' => '2023-09-14 19:05:34',
             ),
-            30 => 
+            30 =>
             array (
                 'id' => 36,
                 'name' => 'Velosped',
@@ -329,7 +330,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:06:15',
                 'updated_at' => '2023-09-14 19:06:15',
             ),
-            31 => 
+            31 =>
             array (
                 'id' => 38,
                 'name' => 'Lopatka',
@@ -339,7 +340,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:09:09',
                 'updated_at' => '2023-09-14 19:09:09',
             ),
-            32 => 
+            32 =>
             array (
                 'id' => 39,
                 'name' => 'Arra',
@@ -349,7 +350,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:09:31',
                 'updated_at' => '2023-09-14 19:09:31',
             ),
-            33 => 
+            33 =>
             array (
                 'id' => 37,
                 'name' => 'Kolyaska',
@@ -359,7 +360,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:08:07',
                 'updated_at' => '2023-09-14 19:10:14',
             ),
-            34 => 
+            34 =>
             array (
                 'id' => 40,
                 'name' => 'Kreslo',
@@ -369,7 +370,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:11:00',
                 'updated_at' => '2023-09-14 19:11:00',
             ),
-            35 => 
+            35 =>
             array (
                 'id' => 41,
                 'name' => 'Kuylak jenskiy',
@@ -379,7 +380,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:11:26',
                 'updated_at' => '2023-09-14 19:11:26',
             ),
-            36 => 
+            36 =>
             array (
                 'id' => 42,
                 'name' => 'Gitara',
@@ -389,7 +390,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:11:46',
                 'updated_at' => '2023-09-14 19:11:46',
             ),
-            37 => 
+            37 =>
             array (
                 'id' => 43,
                 'name' => 'Getara',
@@ -399,7 +400,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:11:58',
                 'updated_at' => '2023-09-14 19:11:58',
             ),
-            38 => 
+            38 =>
             array (
                 'id' => 44,
                 'name' => 'Tikuv moshina',
@@ -409,7 +410,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:12:35',
                 'updated_at' => '2023-09-14 19:12:35',
             ),
-            39 => 
+            39 =>
             array (
                 'id' => 45,
                 'name' => 'Balon',
@@ -419,7 +420,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:13:13',
                 'updated_at' => '2023-09-14 19:13:13',
             ),
-            40 => 
+            40 =>
             array (
                 'id' => 46,
                 'name' => 'Shina',
@@ -429,7 +430,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:13:26',
                 'updated_at' => '2023-09-14 19:13:26',
             ),
-            41 => 
+            41 =>
             array (
                 'id' => 47,
                 'name' => 'Fen',
@@ -439,7 +440,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:14:05',
                 'updated_at' => '2023-09-14 19:14:05',
             ),
-            42 => 
+            42 =>
             array (
                 'id' => 49,
                 'name' => 'Rezitka',
@@ -449,7 +450,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:15:09',
                 'updated_at' => '2023-09-14 19:15:09',
             ),
-            43 => 
+            43 =>
             array (
                 'id' => 50,
                 'name' => 'Kalyaska',
@@ -459,7 +460,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:18:19',
                 'updated_at' => '2023-09-14 19:18:19',
             ),
-            44 => 
+            44 =>
             array (
                 'id' => 51,
                 'name' => 'Kalonka',
@@ -469,7 +470,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:34:58',
                 'updated_at' => '2023-09-15 05:34:58',
             ),
-            45 => 
+            45 =>
             array (
                 'id' => 53,
                 'name' => 'Moloko',
@@ -479,7 +480,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:36:27',
                 'updated_at' => '2023-09-15 05:36:27',
             ),
-            46 => 
+            46 =>
             array (
                 'id' => 54,
                 'name' => 'Sut',
@@ -489,7 +490,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:36:39',
                 'updated_at' => '2023-09-15 05:36:39',
             ),
-            47 => 
+            47 =>
             array (
                 'id' => 55,
                 'name' => 'Asal',
@@ -499,7 +500,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:36:54',
                 'updated_at' => '2023-09-15 05:36:54',
             ),
-            48 => 
+            48 =>
             array (
                 'id' => 56,
                 'name' => 'Un',
@@ -509,7 +510,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:37:30',
                 'updated_at' => '2023-09-15 05:37:30',
             ),
-            49 => 
+            49 =>
             array (
                 'id' => 57,
                 'name' => 'Muka',
@@ -519,7 +520,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:37:46',
                 'updated_at' => '2023-09-15 05:37:46',
             ),
-            50 => 
+            50 =>
             array (
                 'id' => 58,
                 'name' => 'Konfet',
@@ -529,7 +530,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:38:11',
                 'updated_at' => '2023-09-15 05:38:11',
             ),
-            51 => 
+            51 =>
             array (
                 'id' => 59,
                 'name' => 'Vino',
@@ -539,7 +540,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:39:03',
                 'updated_at' => '2023-09-15 05:39:03',
             ),
-            52 => 
+            52 =>
             array (
                 'id' => 60,
                 'name' => 'Viski',
@@ -549,7 +550,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:39:23',
                 'updated_at' => '2023-09-15 05:39:23',
             ),
-            53 => 
+            53 =>
             array (
                 'id' => 61,
                 'name' => 'Vodka',
@@ -559,7 +560,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:39:39',
                 'updated_at' => '2023-09-15 05:39:39',
             ),
-            54 => 
+            54 =>
             array (
                 'id' => 62,
                 'name' => 'Aroq',
@@ -569,7 +570,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:39:54',
                 'updated_at' => '2023-09-15 05:39:54',
             ),
-            55 => 
+            55 =>
             array (
                 'id' => 63,
                 'name' => 'Sigaret',
@@ -579,7 +580,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:40:18',
                 'updated_at' => '2023-09-15 05:40:18',
             ),
-            56 => 
+            56 =>
             array (
                 'id' => 64,
                 'name' => 'Elektr segaret',
@@ -589,7 +590,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:41:02',
                 'updated_at' => '2023-09-15 05:41:02',
             ),
-            57 => 
+            57 =>
             array (
                 'id' => 65,
                 'name' => 'Kraska',
@@ -599,7 +600,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:41:42',
                 'updated_at' => '2023-09-15 05:41:42',
             ),
-            58 => 
+            58 =>
             array (
                 'id' => 66,
                 'name' => 'Kiraska',
@@ -609,7 +610,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:41:57',
                 'updated_at' => '2023-09-15 05:41:57',
             ),
-            59 => 
+            59 =>
             array (
                 'id' => 67,
                 'name' => 'Pena, Kley germetika',
@@ -619,7 +620,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:42:32',
                 'updated_at' => '2023-09-15 05:42:32',
             ),
-            60 => 
+            60 =>
             array (
                 'id' => 69,
                 'name' => 'Zubnaya pasta',
@@ -629,7 +630,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:43:10',
                 'updated_at' => '2023-09-15 05:43:10',
             ),
-            61 => 
+            61 =>
             array (
                 'id' => 68,
                 'name' => 'Tish pasta',
@@ -639,7 +640,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:42:56',
                 'updated_at' => '2023-09-15 05:43:21',
             ),
-            62 => 
+            62 =>
             array (
                 'id' => 70,
                 'name' => 'Jidkoe milo',
@@ -649,7 +650,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:43:49',
                 'updated_at' => '2023-09-15 05:43:49',
             ),
-            63 => 
+            63 =>
             array (
                 'id' => 71,
                 'name' => 'Kley',
@@ -659,7 +660,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:44:07',
                 'updated_at' => '2023-09-15 05:44:07',
             ),
-            64 => 
+            64 =>
             array (
                 'id' => 72,
                 'name' => 'Rakvina',
@@ -669,7 +670,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:44:34',
                 'updated_at' => '2023-09-15 05:44:34',
             ),
-            65 => 
+            65 =>
             array (
                 'id' => 73,
                 'name' => 'Mikser',
@@ -679,7 +680,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:04:01',
                 'updated_at' => '2023-09-15 06:04:01',
             ),
-            66 => 
+            66 =>
             array (
                 'id' => 74,
                 'name' => 'Topar',
@@ -689,7 +690,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:07:55',
                 'updated_at' => '2023-09-15 06:07:55',
             ),
-            67 => 
+            67 =>
             array (
                 'id' => 75,
                 'name' => 'Svarka apparat',
@@ -699,7 +700,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:10:16',
                 'updated_at' => '2023-09-15 06:10:16',
             ),
-            68 => 
+            68 =>
             array (
                 'id' => 80,
                 'name' => 'Perforator',
@@ -709,7 +710,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:24:44',
                 'updated_at' => '2023-09-15 06:24:44',
             ),
-            69 => 
+            69 =>
             array (
                 'id' => 81,
                 'name' => 'Mikrovolnovka',
@@ -719,7 +720,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:29:12',
                 'updated_at' => '2023-09-15 06:29:12',
             ),
-            70 => 
+            70 =>
             array (
                 'id' => 83,
                 'name' => 'Matras',
@@ -729,7 +730,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:31:52',
                 'updated_at' => '2023-09-15 06:31:52',
             ),
-            71 => 
+            71 =>
             array (
                 'id' => 84,
                 'name' => 'Material',
@@ -739,7 +740,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:35:33',
                 'updated_at' => '2023-09-15 06:35:33',
             ),
-            72 => 
+            72 =>
             array (
                 'id' => 85,
                 'name' => 'Shurpavyor',
@@ -749,7 +750,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:38:00',
                 'updated_at' => '2023-09-15 06:38:00',
             ),
-            73 => 
+            73 =>
             array (
                 'id' => 86,
                 'name' => 'Shlang',
@@ -759,7 +760,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:38:57',
                 'updated_at' => '2023-09-15 06:38:57',
             ),
-            74 => 
+            74 =>
             array (
                 'id' => 87,
                 'name' => 'Shilang',
@@ -769,7 +770,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:39:10',
                 'updated_at' => '2023-09-15 06:39:10',
             ),
-            75 => 
+            75 =>
             array (
                 'id' => 88,
                 'name' => 'Plitka rez',
@@ -779,7 +780,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:40:06',
                 'updated_at' => '2023-09-15 06:40:06',
             ),
-            76 => 
+            76 =>
             array (
                 'id' => 90,
                 'name' => 'Podayalnik',
@@ -789,7 +790,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:42:02',
                 'updated_at' => '2023-09-15 06:42:02',
             ),
-            77 => 
+            77 =>
             array (
                 'id' => 91,
                 'name' => 'Padayalnik',
@@ -799,7 +800,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:42:13',
                 'updated_at' => '2023-09-15 06:42:13',
             ),
-            78 => 
+            78 =>
             array (
                 'id' => 93,
                 'name' => 'Plesos',
@@ -809,7 +810,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:00:23',
                 'updated_at' => '2023-09-15 10:00:23',
             ),
-            79 => 
+            79 =>
             array (
                 'id' => 94,
                 'name' => 'Elektr pech',
@@ -819,7 +820,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:02:00',
                 'updated_at' => '2023-09-15 10:02:00',
             ),
-            80 => 
+            80 =>
             array (
                 'id' => 95,
                 'name' => 'Sumka',
@@ -829,7 +830,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:06:51',
                 'updated_at' => '2023-09-15 10:06:51',
             ),
-            81 => 
+            81 =>
             array (
                 'id' => 96,
                 'name' => 'Telefon',
@@ -839,7 +840,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:12:57',
                 'updated_at' => '2023-09-15 10:12:57',
             ),
-            82 => 
+            82 =>
             array (
                 'id' => 23,
                 'name' => 'Qozon',
@@ -849,7 +850,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:57:07',
                 'updated_at' => '2023-09-14 18:57:07',
             ),
-            83 => 
+            83 =>
             array (
                 'id' => 79,
                 'name' => 'Shpatel',
@@ -859,7 +860,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:13:26',
                 'updated_at' => '2023-09-15 06:13:26',
             ),
-            84 => 
+            84 =>
             array (
                 'id' => 22,
                 'name' => 'Igrushka detskiy',
@@ -869,7 +870,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:55:59',
                 'updated_at' => '2023-09-14 18:55:59',
             ),
-            85 => 
+            85 =>
             array (
                 'id' => 28,
                 'name' => 'Daftar',
@@ -879,7 +880,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:00:30',
                 'updated_at' => '2023-09-14 19:00:30',
             ),
-            86 => 
+            86 =>
             array (
                 'id' => 6,
                 'name' => 'Krasovka mujskiy',
@@ -889,7 +890,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:49:05',
                 'updated_at' => '2023-09-14 18:49:05',
             ),
-            87 => 
+            87 =>
             array (
                 'id' => 2,
                 'name' => 'Buryuk mujskiy',
@@ -899,7 +900,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-04 13:42:31',
                 'updated_at' => '2023-09-14 18:46:30',
             ),
-            88 => 
+            88 =>
             array (
                 'id' => 33,
                 'name' => 'Parashok',
@@ -909,7 +910,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 19:03:52',
                 'updated_at' => '2023-09-14 19:03:52',
             ),
-            89 => 
+            89 =>
             array (
                 'id' => 1,
                 'name' => 'Buryuk jenskiy',
@@ -919,7 +920,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-07-05 00:00:00',
                 'updated_at' => '2023-09-14 18:46:58',
             ),
-            90 => 
+            90 =>
             array (
                 'id' => 52,
                 'name' => 'Manti qozon',
@@ -929,7 +930,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:35:34',
                 'updated_at' => '2023-09-15 05:35:34',
             ),
-            91 => 
+            91 =>
             array (
                 'id' => 7,
                 'name' => 'Krasovka jenskiy',
@@ -939,7 +940,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:49:18',
                 'updated_at' => '2023-09-14 18:49:18',
             ),
-            92 => 
+            92 =>
             array (
                 'id' => 82,
                 'name' => 'Tarelka',
@@ -949,7 +950,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:31:03',
                 'updated_at' => '2023-09-15 06:31:03',
             ),
-            93 => 
+            93 =>
             array (
                 'id' => 20,
                 'name' => 'Etik mujskiy',
@@ -959,7 +960,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:55:08',
                 'updated_at' => '2023-09-19 11:18:23',
             ),
-            94 => 
+            94 =>
             array (
                 'id' => 98,
                 'name' => 'Zaryadchik telefon',
@@ -969,7 +970,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:13:48',
                 'updated_at' => '2023-09-15 10:13:48',
             ),
-            95 => 
+            95 =>
             array (
                 'id' => 99,
                 'name' => 'Magnitofon',
@@ -979,7 +980,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:17:10',
                 'updated_at' => '2023-09-15 10:17:10',
             ),
-            96 => 
+            96 =>
             array (
                 'id' => 100,
                 'name' => 'Voda nagrevatel',
@@ -989,7 +990,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:17:55',
                 'updated_at' => '2023-09-15 10:17:55',
             ),
-            97 => 
+            97 =>
             array (
                 'id' => 101,
                 'name' => 'Avtomobil fara',
@@ -999,7 +1000,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:19:22',
                 'updated_at' => '2023-09-15 10:19:22',
             ),
-            98 => 
+            98 =>
             array (
                 'id' => 102,
                 'name' => 'Avtomobil zapchast',
@@ -1009,7 +1010,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:19:59',
                 'updated_at' => '2023-09-15 10:19:59',
             ),
-            99 => 
+            99 =>
             array (
                 'id' => 103,
                 'name' => 'Avto detskiy kreslo',
@@ -1019,7 +1020,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:20:40',
                 'updated_at' => '2023-09-15 10:20:40',
             ),
-            100 => 
+            100 =>
             array (
                 'id' => 105,
                 'name' => 'Turba',
@@ -1029,7 +1030,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:29:04',
                 'updated_at' => '2023-09-15 10:29:04',
             ),
-            101 => 
+            101 =>
             array (
                 'id' => 106,
                 'name' => 'Suv nasos',
@@ -1039,7 +1040,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:29:46',
                 'updated_at' => '2023-09-15 10:29:46',
             ),
-            102 => 
+            102 =>
             array (
                 'id' => 107,
                 'name' => 'Protsessor',
@@ -1049,7 +1050,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:30:36',
                 'updated_at' => '2023-09-15 10:30:36',
             ),
-            103 => 
+            103 =>
             array (
                 'id' => 108,
                 'name' => 'DVD',
@@ -1059,7 +1060,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:30:55',
                 'updated_at' => '2023-09-15 10:30:55',
             ),
-            104 => 
+            104 =>
             array (
                 'id' => 109,
                 'name' => 'Projector',
@@ -1069,7 +1070,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:31:27',
                 'updated_at' => '2023-09-15 10:31:27',
             ),
-            105 => 
+            105 =>
             array (
                 'id' => 110,
                 'name' => 'Dril',
@@ -1079,7 +1080,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:32:58',
                 'updated_at' => '2023-09-15 10:32:58',
             ),
-            106 => 
+            106 =>
             array (
                 'id' => 111,
                 'name' => 'Diril',
@@ -1089,7 +1090,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:33:08',
                 'updated_at' => '2023-09-15 10:33:08',
             ),
-            107 => 
+            107 =>
             array (
                 'id' => 112,
                 'name' => 'Klaviatura',
@@ -1099,7 +1100,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:34:05',
                 'updated_at' => '2023-09-15 10:34:05',
             ),
-            108 => 
+            108 =>
             array (
                 'id' => 113,
                 'name' => 'Telivizor',
@@ -1109,7 +1110,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:43:15',
                 'updated_at' => '2023-09-15 10:43:15',
             ),
-            109 => 
+            109 =>
             array (
                 'id' => 114,
                 'name' => 'Blendr',
@@ -1119,7 +1120,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:43:47',
                 'updated_at' => '2023-09-15 10:43:47',
             ),
-            110 => 
+            110 =>
             array (
                 'id' => 115,
                 'name' => 'Bilinder',
@@ -1129,7 +1130,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:43:58',
                 'updated_at' => '2023-09-15 10:43:58',
             ),
-            111 => 
+            111 =>
             array (
                 'id' => 116,
                 'name' => 'Zontik',
@@ -1139,7 +1140,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:44:39',
                 'updated_at' => '2023-09-15 10:44:39',
             ),
-            112 => 
+            112 =>
             array (
                 'id' => 117,
                 'name' => 'Gorshok',
@@ -1149,7 +1150,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:48:02',
                 'updated_at' => '2023-09-15 10:48:02',
             ),
-            113 => 
+            113 =>
             array (
                 'id' => 119,
                 'name' => 'Choy',
@@ -1159,7 +1160,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:50:48',
                 'updated_at' => '2023-09-15 10:50:48',
             ),
-            114 => 
+            114 =>
             array (
                 'id' => 121,
                 'name' => 'Bolgarka',
@@ -1169,7 +1170,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:54:22',
                 'updated_at' => '2023-09-15 10:54:22',
             ),
-            115 => 
+            115 =>
             array (
                 'id' => 122,
                 'name' => 'Balgarka',
@@ -1179,7 +1180,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:54:38',
                 'updated_at' => '2023-09-15 10:54:38',
             ),
-            116 => 
+            116 =>
             array (
                 'id' => 123,
                 'name' => 'Soat',
@@ -1189,7 +1190,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:57:56',
                 'updated_at' => '2023-09-15 10:57:56',
             ),
-            117 => 
+            117 =>
             array (
                 'id' => 125,
                 'name' => 'Tabaka kalyana',
@@ -1199,7 +1200,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:00:55',
                 'updated_at' => '2023-09-15 11:00:55',
             ),
-            118 => 
+            118 =>
             array (
                 'id' => 126,
                 'name' => 'Molotok',
@@ -1209,7 +1210,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:03:58',
                 'updated_at' => '2023-09-15 11:03:58',
             ),
-            119 => 
+            119 =>
             array (
                 'id' => 127,
                 'name' => 'Malatok',
@@ -1219,7 +1220,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:04:08',
                 'updated_at' => '2023-09-15 11:04:08',
             ),
-            120 => 
+            120 =>
             array (
                 'id' => 128,
                 'name' => 'Wi-fi',
@@ -1229,7 +1230,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:09:19',
                 'updated_at' => '2023-09-15 11:09:19',
             ),
-            121 => 
+            121 =>
             array (
                 'id' => 129,
                 'name' => 'Rezetka, Vilka',
@@ -1239,7 +1240,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:12:50',
                 'updated_at' => '2023-09-15 11:12:50',
             ),
-            122 => 
+            122 =>
             array (
                 'id' => 130,
                 'name' => 'Antiradar',
@@ -1249,7 +1250,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:15:03',
                 'updated_at' => '2023-09-15 11:15:03',
             ),
-            123 => 
+            123 =>
             array (
                 'id' => 131,
                 'name' => 'Tefal',
@@ -1259,7 +1260,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:19:29',
                 'updated_at' => '2023-09-15 11:19:29',
             ),
-            124 => 
+            124 =>
             array (
                 'id' => 132,
                 'name' => 'Termos',
@@ -1269,7 +1270,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:26:33',
                 'updated_at' => '2023-09-15 11:26:33',
             ),
-            125 => 
+            125 =>
             array (
                 'id' => 133,
                 'name' => 'Santexnik Utyuk',
@@ -1279,7 +1280,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:29:28',
                 'updated_at' => '2023-09-15 11:29:28',
             ),
-            126 => 
+            126 =>
             array (
                 'id' => 135,
                 'name' => 'Noj nabor',
@@ -1289,7 +1290,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:32:06',
                 'updated_at' => '2023-09-15 11:32:06',
             ),
-            127 => 
+            127 =>
             array (
                 'id' => 136,
                 'name' => 'Nojnitsa',
@@ -1299,7 +1300,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:32:33',
                 'updated_at' => '2023-09-15 11:32:33',
             ),
-            128 => 
+            128 =>
             array (
                 'id' => 137,
                 'name' => 'Qaychi',
@@ -1309,7 +1310,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:35:26',
                 'updated_at' => '2023-09-15 11:35:26',
             ),
-            129 => 
+            129 =>
             array (
                 'id' => 138,
                 'name' => 'Pichoq kuxni',
@@ -1319,7 +1320,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:37:33',
                 'updated_at' => '2023-09-15 11:37:33',
             ),
-            130 => 
+            130 =>
             array (
                 'id' => 140,
                 'name' => 'Stiralka',
@@ -1329,7 +1330,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:05:22',
                 'updated_at' => '2023-09-15 12:05:22',
             ),
-            131 => 
+            131 =>
             array (
                 'id' => 141,
                 'name' => 'Kir moshina',
@@ -1339,7 +1340,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:05:33',
                 'updated_at' => '2023-09-15 12:05:33',
             ),
-            132 => 
+            132 =>
             array (
                 'id' => 144,
                 'name' => 'Pult',
@@ -1349,7 +1350,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:13:12',
                 'updated_at' => '2023-09-15 12:13:12',
             ),
-            133 => 
+            133 =>
             array (
                 'id' => 145,
                 'name' => 'Avto zapchast',
@@ -1359,7 +1360,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:14:05',
                 'updated_at' => '2023-09-15 12:14:05',
             ),
-            134 => 
+            134 =>
             array (
                 'id' => 146,
                 'name' => 'Pampers',
@@ -1369,7 +1370,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:18:07',
                 'updated_at' => '2023-09-15 12:18:07',
             ),
-            135 => 
+            135 =>
             array (
                 'id' => 148,
                 'name' => 'Polotinsa',
@@ -1379,7 +1380,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:20:07',
                 'updated_at' => '2023-09-15 12:20:07',
             ),
-            136 => 
+            136 =>
             array (
                 'id' => 150,
                 'name' => 'Fonar',
@@ -1389,7 +1390,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:31:41',
                 'updated_at' => '2023-09-15 12:31:41',
             ),
-            137 => 
+            137 =>
             array (
                 'id' => 151,
                 'name' => 'Fanar',
@@ -1399,7 +1400,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:31:53',
                 'updated_at' => '2023-09-15 12:31:53',
             ),
-            138 => 
+            138 =>
             array (
                 'id' => 152,
                 'name' => 'Naushnik',
@@ -1409,7 +1410,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:32:33',
                 'updated_at' => '2023-09-15 12:32:33',
             ),
-            139 => 
+            139 =>
             array (
                 'id' => 154,
                 'name' => 'Instrument zapchastlar',
@@ -1419,7 +1420,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:37:42',
                 'updated_at' => '2023-09-15 12:37:42',
             ),
-            140 => 
+            140 =>
             array (
                 'id' => 155,
                 'name' => 'Elektr samokat',
@@ -1429,7 +1430,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:41:25',
                 'updated_at' => '2023-09-15 12:41:25',
             ),
-            141 => 
+            141 =>
             array (
                 'id' => 156,
                 'name' => 'Samokat',
@@ -1439,7 +1440,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:41:45',
                 'updated_at' => '2023-09-15 12:41:45',
             ),
-            142 => 
+            142 =>
             array (
                 'id' => 158,
                 'name' => 'Umivalnik',
@@ -1449,7 +1450,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 13:12:10',
                 'updated_at' => '2023-09-15 13:12:10',
             ),
-            143 => 
+            143 =>
             array (
                 'id' => 159,
                 'name' => 'Jelezni list',
@@ -1459,7 +1460,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 13:15:08',
                 'updated_at' => '2023-09-15 13:15:08',
             ),
-            144 => 
+            144 =>
             array (
                 'id' => 160,
                 'name' => 'Vanna',
@@ -1469,7 +1470,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 13:23:21',
                 'updated_at' => '2023-09-15 13:23:21',
             ),
-            145 => 
+            145 =>
             array (
                 'id' => 161,
                 'name' => 'Britva',
@@ -1479,7 +1480,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 13:24:41',
                 'updated_at' => '2023-09-15 13:24:41',
             ),
-            146 => 
+            146 =>
             array (
                 'id' => 163,
                 'name' => 'Kitob',
@@ -1489,7 +1490,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 13:33:37',
                 'updated_at' => '2023-09-15 13:33:37',
             ),
-            147 => 
+            147 =>
             array (
                 'id' => 164,
                 'name' => 'Skotch',
@@ -1499,7 +1500,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:14:32',
                 'updated_at' => '2023-09-15 15:14:32',
             ),
-            148 => 
+            148 =>
             array (
                 'id' => 165,
                 'name' => 'Stellaj',
@@ -1509,7 +1510,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:15:37',
                 'updated_at' => '2023-09-15 15:15:37',
             ),
-            149 => 
+            149 =>
             array (
                 'id' => 167,
                 'name' => 'Bolta',
@@ -1519,7 +1520,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:19:49',
                 'updated_at' => '2023-09-15 15:19:49',
             ),
-            150 => 
+            150 =>
             array (
                 'id' => 168,
                 'name' => 'Klyuch',
@@ -1529,7 +1530,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:20:45',
                 'updated_at' => '2023-09-15 15:20:45',
             ),
-            151 => 
+            151 =>
             array (
                 'id' => 169,
                 'name' => 'Kabel',
@@ -1539,7 +1540,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:24:50',
                 'updated_at' => '2023-09-15 15:24:50',
             ),
-            152 => 
+            152 =>
             array (
                 'id' => 170,
                 'name' => 'Udilnetil',
@@ -1549,7 +1550,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:25:03',
                 'updated_at' => '2023-09-15 15:25:03',
             ),
-            153 => 
+            153 =>
             array (
                 'id' => 171,
                 'name' => 'Stol',
@@ -1559,7 +1560,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:34:49',
                 'updated_at' => '2023-09-15 15:34:49',
             ),
-            154 => 
+            154 =>
             array (
                 'id' => 173,
                 'name' => 'Lampa',
@@ -1569,7 +1570,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:37:18',
                 'updated_at' => '2023-09-15 15:37:18',
             ),
-            155 => 
+            155 =>
             array (
                 'id' => 175,
                 'name' => 'Payalnik',
@@ -1579,7 +1580,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:44:30',
                 'updated_at' => '2023-09-15 15:44:30',
             ),
-            156 => 
+            156 =>
             array (
                 'id' => 176,
                 'name' => 'Kastrulka',
@@ -1589,7 +1590,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:48:59',
                 'updated_at' => '2023-09-15 15:48:59',
             ),
-            157 => 
+            157 =>
             array (
                 'id' => 178,
                 'name' => 'Masaj aparati',
@@ -1599,7 +1600,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:55:59',
                 'updated_at' => '2023-09-15 15:55:59',
             ),
-            158 => 
+            158 =>
             array (
                 'id' => 179,
                 'name' => 'Lazer uroven',
@@ -1609,7 +1610,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 16:00:43',
                 'updated_at' => '2023-09-15 16:00:43',
             ),
-            159 => 
+            159 =>
             array (
                 'id' => 180,
                 'name' => 'Multivarka',
@@ -1619,7 +1620,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 16:02:44',
                 'updated_at' => '2023-09-15 16:02:44',
             ),
-            160 => 
+            160 =>
             array (
                 'id' => 183,
                 'name' => 'Metr',
@@ -1629,7 +1630,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 16:15:53',
                 'updated_at' => '2023-09-15 16:15:53',
             ),
-            161 => 
+            161 =>
             array (
                 'id' => 184,
                 'name' => 'Ruletka',
@@ -1639,7 +1640,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 16:16:06',
                 'updated_at' => '2023-09-15 16:16:06',
             ),
-            162 => 
+            162 =>
             array (
                 'id' => 185,
                 'name' => 'Polka',
@@ -1649,7 +1650,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 16:25:05',
                 'updated_at' => '2023-09-15 16:25:05',
             ),
-            163 => 
+            163 =>
             array (
                 'id' => 186,
                 'name' => 'Trinojka',
@@ -1659,7 +1660,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 16:25:20',
                 'updated_at' => '2023-09-15 16:25:20',
             ),
-            164 => 
+            164 =>
             array (
                 'id' => 187,
                 'name' => 'Taxta',
@@ -1669,7 +1670,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 16:27:16',
                 'updated_at' => '2023-09-15 16:27:16',
             ),
-            165 => 
+            165 =>
             array (
                 'id' => 188,
                 'name' => 'Eshik ramka',
@@ -1679,7 +1680,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:12:05',
                 'updated_at' => '2023-09-15 17:12:05',
             ),
-            166 => 
+            166 =>
             array (
                 'id' => 189,
                 'name' => 'Deraza ramka',
@@ -1689,7 +1690,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:12:28',
                 'updated_at' => '2023-09-15 17:12:28',
             ),
-            167 => 
+            167 =>
             array (
                 'id' => 190,
                 'name' => 'Tachka rama',
@@ -1699,7 +1700,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:25:01',
                 'updated_at' => '2023-09-15 17:25:01',
             ),
-            168 => 
+            168 =>
             array (
                 'id' => 191,
                 'name' => 'Arava',
@@ -1709,7 +1710,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:25:12',
                 'updated_at' => '2023-09-15 17:25:12',
             ),
-            169 => 
+            169 =>
             array (
                 'id' => 97,
                 'name' => 'Aksessuar telefon',
@@ -1719,7 +1720,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:13:17',
                 'updated_at' => '2023-09-15 10:13:17',
             ),
-            170 => 
+            170 =>
             array (
                 'id' => 104,
                 'name' => 'Akvarium zapchast',
@@ -1729,7 +1730,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:22:28',
                 'updated_at' => '2023-09-15 10:22:28',
             ),
-            171 => 
+            171 =>
             array (
                 'id' => 118,
                 'name' => 'Sapog detskiy',
@@ -1739,7 +1740,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:49:07',
                 'updated_at' => '2023-09-15 10:49:07',
             ),
-            172 => 
+            172 =>
             array (
                 'id' => 147,
                 'name' => 'Pasuda detskiy',
@@ -1749,7 +1750,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:18:46',
                 'updated_at' => '2023-09-15 12:18:46',
             ),
-            173 => 
+            173 =>
             array (
                 'id' => 134,
                 'name' => 'Krovat',
@@ -1759,7 +1760,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:31:23',
                 'updated_at' => '2023-09-15 11:31:23',
             ),
-            174 => 
+            174 =>
             array (
                 'id' => 149,
                 'name' => 'Sokvijimalka',
@@ -1769,7 +1770,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:22:00',
                 'updated_at' => '2023-09-15 12:22:00',
             ),
-            175 => 
+            175 =>
             array (
                 'id' => 153,
                 'name' => 'Unitaz',
@@ -1779,7 +1780,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:35:07',
                 'updated_at' => '2023-09-15 12:35:07',
             ),
-            176 => 
+            176 =>
             array (
                 'id' => 162,
                 'name' => 'Parashok',
@@ -1789,7 +1790,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 13:28:44',
                 'updated_at' => '2023-09-15 13:28:44',
             ),
-            177 => 
+            177 =>
             array (
                 'id' => 157,
                 'name' => 'Xadinok',
@@ -1799,7 +1800,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:46:10',
                 'updated_at' => '2023-09-15 12:46:10',
             ),
-            178 => 
+            178 =>
             array (
                 'id' => 181,
                 'name' => 'Xadinok',
@@ -1809,7 +1810,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 16:06:23',
                 'updated_at' => '2023-09-15 16:06:23',
             ),
-            179 => 
+            179 =>
             array (
                 'id' => 182,
                 'name' => 'Misrovka',
@@ -1819,7 +1820,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 16:08:05',
                 'updated_at' => '2023-09-15 16:08:05',
             ),
-            180 => 
+            180 =>
             array (
                 'id' => 166,
                 'name' => 'Sushilka',
@@ -1829,7 +1830,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:18:45',
                 'updated_at' => '2023-09-15 15:18:45',
             ),
-            181 => 
+            181 =>
             array (
                 'id' => 172,
                 'name' => 'Svetadiodli lampa',
@@ -1839,7 +1840,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:36:53',
                 'updated_at' => '2023-09-15 15:36:53',
             ),
-            182 => 
+            182 =>
             array (
                 'id' => 174,
                 'name' => 'Veshilka',
@@ -1849,7 +1850,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:41:38',
                 'updated_at' => '2023-09-15 15:41:38',
             ),
-            183 => 
+            183 =>
             array (
                 'id' => 177,
                 'name' => 'Massaj aparati',
@@ -1859,7 +1860,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:55:45',
                 'updated_at' => '2023-09-15 15:55:45',
             ),
-            184 => 
+            184 =>
             array (
                 'id' => 124,
                 'name' => 'Kofevarka',
@@ -1869,7 +1870,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:59:59',
                 'updated_at' => '2023-09-15 10:59:59',
             ),
-            185 => 
+            185 =>
             array (
                 'id' => 143,
                 'name' => 'Kolesa',
@@ -1879,7 +1880,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:07:01',
                 'updated_at' => '2023-09-15 12:07:01',
             ),
-            186 => 
+            186 =>
             array (
                 'id' => 120,
                 'name' => 'Choynak',
@@ -1889,7 +1890,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 10:51:08',
                 'updated_at' => '2023-09-15 10:51:08',
             ),
-            187 => 
+            187 =>
             array (
                 'id' => 142,
                 'name' => 'Soch moshinka',
@@ -1899,7 +1900,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:05:58',
                 'updated_at' => '2023-09-15 12:05:58',
             ),
-            188 => 
+            188 =>
             array (
                 'id' => 192,
                 'name' => 'Konyak',
@@ -1909,7 +1910,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:29:17',
                 'updated_at' => '2023-09-15 17:29:17',
             ),
-            189 => 
+            189 =>
             array (
                 'id' => 193,
                 'name' => 'Kanyak',
@@ -1919,7 +1920,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:29:27',
                 'updated_at' => '2023-09-15 17:29:27',
             ),
-            190 => 
+            190 =>
             array (
                 'id' => 194,
                 'name' => 'Sapog mujskiy',
@@ -1929,7 +1930,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:30:14',
                 'updated_at' => '2023-09-15 17:30:14',
             ),
-            191 => 
+            191 =>
             array (
                 'id' => 195,
                 'name' => 'Sapog jenskiy',
@@ -1939,7 +1940,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:30:27',
                 'updated_at' => '2023-09-15 17:30:27',
             ),
-            192 => 
+            192 =>
             array (
                 'id' => 197,
                 'name' => 'Tonometr',
@@ -1949,7 +1950,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:50:03',
                 'updated_at' => '2023-09-15 17:50:03',
             ),
-            193 => 
+            193 =>
             array (
                 'id' => 199,
                 'name' => 'Dovleniya o\'lchagich',
@@ -1959,7 +1960,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:50:45',
                 'updated_at' => '2023-09-15 17:50:45',
             ),
-            194 => 
+            194 =>
             array (
                 'id' => 201,
                 'name' => 'Boks kaska',
@@ -1969,7 +1970,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:52:17',
                 'updated_at' => '2023-09-15 17:52:17',
             ),
-            195 => 
+            195 =>
             array (
                 'id' => 202,
                 'name' => 'Krem dilya ruka',
@@ -1979,7 +1980,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:55:17',
                 'updated_at' => '2023-09-15 17:55:17',
             ),
-            196 => 
+            196 =>
             array (
                 'id' => 203,
                 'name' => 'Krem ot zagara',
@@ -1989,7 +1990,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:55:41',
                 'updated_at' => '2023-09-15 17:55:41',
             ),
-            197 => 
+            197 =>
             array (
                 'id' => 205,
                 'name' => 'Rubashka mujskiy',
@@ -1999,7 +2000,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:03:39',
                 'updated_at' => '2023-09-15 18:04:05',
             ),
-            198 => 
+            198 =>
             array (
                 'id' => 206,
                 'name' => 'Rubashka jenskiy',
@@ -2009,7 +2010,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:04:24',
                 'updated_at' => '2023-09-15 18:04:24',
             ),
-            199 => 
+            199 =>
             array (
                 'id' => 207,
                 'name' => 'Truba',
@@ -2019,7 +2020,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:04:45',
                 'updated_at' => '2023-09-15 18:04:45',
             ),
-            200 => 
+            200 =>
             array (
                 'id' => 208,
                 'name' => 'Turba',
@@ -2029,7 +2030,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:04:59',
                 'updated_at' => '2023-09-15 18:04:59',
             ),
-            201 => 
+            201 =>
             array (
                 'id' => 209,
                 'name' => 'Osvejitel',
@@ -2039,7 +2040,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:05:43',
                 'updated_at' => '2023-09-15 18:05:43',
             ),
-            202 => 
+            202 =>
             array (
                 'id' => 211,
                 'name' => 'Avto monitor',
@@ -2049,7 +2050,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:27:17',
                 'updated_at' => '2023-09-15 18:27:17',
             ),
-            203 => 
+            203 =>
             array (
                 'id' => 212,
                 'name' => 'Pojarni shlang',
@@ -2059,7 +2060,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:28:18',
                 'updated_at' => '2023-09-15 18:28:18',
             ),
-            204 => 
+            204 =>
             array (
                 'id' => 213,
                 'name' => 'Detskiy kasha',
@@ -2069,7 +2070,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:31:35',
                 'updated_at' => '2023-09-15 18:31:35',
             ),
-            205 => 
+            205 =>
             array (
                 'id' => 214,
                 'name' => 'Noski mujskiy',
@@ -2079,7 +2080,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:32:32',
                 'updated_at' => '2023-09-15 18:32:32',
             ),
-            206 => 
+            206 =>
             array (
                 'id' => 215,
                 'name' => 'Noski jenskiy',
@@ -2089,7 +2090,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:32:56',
                 'updated_at' => '2023-09-15 18:32:56',
             ),
-            207 => 
+            207 =>
             array (
                 'id' => 216,
                 'name' => 'Chulki',
@@ -2099,7 +2100,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:33:11',
                 'updated_at' => '2023-09-15 18:33:11',
             ),
-            208 => 
+            208 =>
             array (
                 'id' => 217,
                 'name' => 'Kalgotka',
@@ -2109,7 +2110,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:33:28',
                 'updated_at' => '2023-09-15 18:33:28',
             ),
-            209 => 
+            209 =>
             array (
                 'id' => 218,
                 'name' => 'Lampochka',
@@ -2119,7 +2120,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:36:39',
                 'updated_at' => '2023-09-15 18:36:39',
             ),
-            210 => 
+            210 =>
             array (
                 'id' => 220,
                 'name' => 'Bolgarka disk',
@@ -2129,7 +2130,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:44:55',
                 'updated_at' => '2023-09-15 18:44:55',
             ),
-            211 => 
+            211 =>
             array (
                 'id' => 221,
                 'name' => 'Sharf',
@@ -2139,7 +2140,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:48:17',
                 'updated_at' => '2023-09-15 18:48:17',
             ),
-            212 => 
+            212 =>
             array (
                 'id' => 222,
                 'name' => 'Elektr pila',
@@ -2149,7 +2150,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:50:08',
                 'updated_at' => '2023-09-15 18:50:08',
             ),
-            213 => 
+            213 =>
             array (
                 'id' => 223,
                 'name' => 'Elektr pela',
@@ -2159,7 +2160,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:50:22',
                 'updated_at' => '2023-09-15 18:50:22',
             ),
-            214 => 
+            214 =>
             array (
                 'id' => 224,
                 'name' => 'Pela',
@@ -2169,7 +2170,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:50:35',
                 'updated_at' => '2023-09-15 18:50:35',
             ),
-            215 => 
+            215 =>
             array (
                 'id' => 225,
                 'name' => 'Pila',
@@ -2179,7 +2180,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:50:50',
                 'updated_at' => '2023-09-15 18:50:50',
             ),
-            216 => 
+            216 =>
             array (
                 'id' => 227,
                 'name' => 'Sportivka',
@@ -2189,7 +2190,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:01:40',
                 'updated_at' => '2023-09-15 19:01:40',
             ),
-            217 => 
+            217 =>
             array (
                 'id' => 228,
                 'name' => 'Magnitola',
@@ -2199,7 +2200,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:03:24',
                 'updated_at' => '2023-09-15 19:03:24',
             ),
-            218 => 
+            218 =>
             array (
                 'id' => 229,
                 'name' => 'Postel',
@@ -2209,7 +2210,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:09:12',
                 'updated_at' => '2023-09-15 19:09:12',
             ),
-            219 => 
+            219 =>
             array (
                 'id' => 230,
                 'name' => 'Padstavka',
@@ -2219,7 +2220,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:13:35',
                 'updated_at' => '2023-09-15 19:13:35',
             ),
-            220 => 
+            220 =>
             array (
                 'id' => 231,
                 'name' => 'Smestetil',
@@ -2229,7 +2230,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:18:10',
                 'updated_at' => '2023-09-15 19:18:10',
             ),
-            221 => 
+            221 =>
             array (
                 'id' => 232,
                 'name' => 'Gazovoy klyuch',
@@ -2239,7 +2240,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:18:45',
                 'updated_at' => '2023-09-15 19:18:45',
             ),
-            222 => 
+            222 =>
             array (
                 'id' => 233,
                 'name' => 'Pokrishka velosped',
@@ -2249,7 +2250,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:21:57',
                 'updated_at' => '2023-09-15 19:21:57',
             ),
-            223 => 
+            223 =>
             array (
                 'id' => 234,
                 'name' => 'Pechka',
@@ -2259,7 +2260,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:23:17',
                 'updated_at' => '2023-09-15 19:23:17',
             ),
-            224 => 
+            224 =>
             array (
                 'id' => 235,
                 'name' => 'Bolt',
@@ -2269,7 +2270,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:42:18',
                 'updated_at' => '2023-09-15 19:42:18',
             ),
-            225 => 
+            225 =>
             array (
                 'id' => 236,
                 'name' => 'Mix',
@@ -2279,7 +2280,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:43:49',
                 'updated_at' => '2023-09-15 19:43:49',
             ),
-            226 => 
+            226 =>
             array (
                 'id' => 237,
                 'name' => 'Shurp',
@@ -2289,7 +2290,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:44:16',
                 'updated_at' => '2023-09-15 19:44:16',
             ),
-            227 => 
+            227 =>
             array (
                 'id' => 238,
                 'name' => 'Tapochka',
@@ -2299,7 +2300,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:45:55',
                 'updated_at' => '2023-09-15 19:45:55',
             ),
-            228 => 
+            228 =>
             array (
                 'id' => 239,
                 'name' => 'Futbolka mujskiy',
@@ -2309,7 +2310,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:49:52',
                 'updated_at' => '2023-09-15 19:49:52',
             ),
-            229 => 
+            229 =>
             array (
                 'id' => 240,
                 'name' => 'Kafel rezka',
@@ -2319,7 +2320,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 20:03:46',
                 'updated_at' => '2023-09-15 20:03:46',
             ),
-            230 => 
+            230 =>
             array (
                 'id' => 241,
                 'name' => 'Ventilyator',
@@ -2329,7 +2330,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 20:05:52',
                 'updated_at' => '2023-09-15 20:05:52',
             ),
-            231 => 
+            231 =>
             array (
                 'id' => 242,
                 'name' => 'Cho\'mich',
@@ -2339,7 +2340,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:04:11',
                 'updated_at' => '2023-09-16 04:04:11',
             ),
-            232 => 
+            232 =>
             array (
                 'id' => 244,
                 'name' => 'Kapkir',
@@ -2349,7 +2350,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:04:44',
                 'updated_at' => '2023-09-16 04:04:44',
             ),
-            233 => 
+            233 =>
             array (
                 'id' => 245,
                 'name' => 'Ploskugubsi',
@@ -2359,7 +2360,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:20:53',
                 'updated_at' => '2023-09-16 04:20:53',
             ),
-            234 => 
+            234 =>
             array (
                 'id' => 246,
                 'name' => 'Klyuchatel avtomatiskiy',
@@ -2369,7 +2370,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:21:56',
                 'updated_at' => '2023-09-16 04:21:56',
             ),
-            235 => 
+            235 =>
             array (
                 'id' => 247,
                 'name' => 'Klyuchatel',
@@ -2379,7 +2380,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:22:11',
                 'updated_at' => '2023-09-16 04:22:11',
             ),
-            236 => 
+            236 =>
             array (
                 'id' => 249,
                 'name' => 'Paket',
@@ -2389,7 +2390,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:24:58',
                 'updated_at' => '2023-09-16 04:24:58',
             ),
-            237 => 
+            237 =>
             array (
                 'id' => 251,
                 'name' => 'Mujskiy tursiki',
@@ -2399,7 +2400,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:27:42',
                 'updated_at' => '2023-09-16 04:27:42',
             ),
-            238 => 
+            238 =>
             array (
                 'id' => 252,
                 'name' => 'Stul',
@@ -2409,7 +2410,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:30:00',
                 'updated_at' => '2023-09-16 04:30:00',
             ),
-            239 => 
+            239 =>
             array (
                 'id' => 253,
                 'name' => 'Koptok',
@@ -2419,7 +2420,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:37:03',
                 'updated_at' => '2023-09-16 04:37:03',
             ),
-            240 => 
+            240 =>
             array (
                 'id' => 257,
                 'name' => 'Elektr nabor',
@@ -2429,7 +2430,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 05:07:26',
                 'updated_at' => '2023-09-16 05:07:26',
             ),
-            241 => 
+            241 =>
             array (
                 'id' => 258,
                 'name' => 'Gaz pilta',
@@ -2439,7 +2440,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-17 10:20:15',
                 'updated_at' => '2023-09-17 10:20:15',
             ),
-            242 => 
+            242 =>
             array (
                 'id' => 139,
                 'name' => 'Detskiy velosped',
@@ -2449,7 +2450,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:41:10',
                 'updated_at' => '2023-09-15 11:41:10',
             ),
-            243 => 
+            243 =>
             array (
                 'id' => 256,
                 'name' => 'Krovat',
@@ -2459,7 +2460,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:46:15',
                 'updated_at' => '2023-09-16 04:46:15',
             ),
-            244 => 
+            244 =>
             array (
                 'id' => 259,
                 'name' => 'Sut',
@@ -2469,7 +2470,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:39:22',
                 'updated_at' => '2023-09-18 18:39:22',
             ),
-            245 => 
+            245 =>
             array (
                 'id' => 196,
                 'name' => 'Basseyn',
@@ -2479,7 +2480,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:41:13',
                 'updated_at' => '2023-09-15 17:41:13',
             ),
-            246 => 
+            246 =>
             array (
                 'id' => 198,
                 'name' => 'Davleniya o\'lchagich',
@@ -2489,7 +2490,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:50:18',
                 'updated_at' => '2023-09-15 17:50:18',
             ),
-            247 => 
+            247 =>
             array (
                 'id' => 260,
                 'name' => 'Maloko',
@@ -2499,7 +2500,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:39:50',
                 'updated_at' => '2023-09-18 18:39:50',
             ),
-            248 => 
+            248 =>
             array (
                 'id' => 204,
                 'name' => 'Lak dilya ruka',
@@ -2509,7 +2510,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:01:06',
                 'updated_at' => '2023-09-15 18:01:06',
             ),
-            249 => 
+            249 =>
             array (
                 'id' => 210,
                 'name' => 'Detskiy moshina',
@@ -2519,7 +2520,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:14:27',
                 'updated_at' => '2023-09-15 18:14:27',
             ),
-            250 => 
+            250 =>
             array (
                 'id' => 219,
                 'name' => 'Eshik zamok',
@@ -2529,7 +2530,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:39:51',
                 'updated_at' => '2023-09-15 18:39:51',
             ),
-            251 => 
+            251 =>
             array (
                 'id' => 255,
                 'name' => 'Kosmetologiya aparat',
@@ -2539,7 +2540,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:42:37',
                 'updated_at' => '2023-09-16 04:42:37',
             ),
-            252 => 
+            252 =>
             array (
                 'id' => 200,
                 'name' => 'Zashita kaska',
@@ -2549,7 +2550,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 17:51:53',
                 'updated_at' => '2023-09-15 17:51:53',
             ),
-            253 => 
+            253 =>
             array (
                 'id' => 4,
                 'name' => 'Tufli mujskiy',
@@ -2559,7 +2560,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:47:21',
                 'updated_at' => '2023-09-14 18:47:21',
             ),
-            254 => 
+            254 =>
             array (
                 'id' => 254,
                 'name' => 'Rulon paket',
@@ -2569,7 +2570,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:39:05',
                 'updated_at' => '2023-09-16 04:39:05',
             ),
-            255 => 
+            255 =>
             array (
                 'id' => 248,
                 'name' => 'Pasuda',
@@ -2579,7 +2580,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:23:12',
                 'updated_at' => '2023-09-16 04:23:12',
             ),
-            256 => 
+            256 =>
             array (
                 'id' => 250,
                 'name' => 'Frukti suxoy',
@@ -2589,7 +2590,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:26:24',
                 'updated_at' => '2023-09-16 04:26:24',
             ),
-            257 => 
+            257 =>
             array (
                 'id' => 261,
                 'name' => 'Asal',
@@ -2599,7 +2600,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:40:09',
                 'updated_at' => '2023-09-18 18:40:09',
             ),
-            258 => 
+            258 =>
             array (
                 'id' => 262,
                 'name' => 'Мёд',
@@ -2609,7 +2610,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:40:30',
                 'updated_at' => '2023-09-18 18:40:30',
             ),
-            259 => 
+            259 =>
             array (
                 'id' => 263,
                 'name' => 'Garox',
@@ -2619,7 +2620,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:40:48',
                 'updated_at' => '2023-09-18 18:40:48',
             ),
-            260 => 
+            260 =>
             array (
                 'id' => 264,
                 'name' => 'Un',
@@ -2629,7 +2630,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:41:34',
                 'updated_at' => '2023-09-18 18:41:34',
             ),
-            261 => 
+            261 =>
             array (
                 'id' => 265,
                 'name' => 'Muja',
@@ -2639,7 +2640,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:41:47',
                 'updated_at' => '2023-09-18 18:41:47',
             ),
-            262 => 
+            262 =>
             array (
                 'id' => 266,
                 'name' => 'Semichka',
@@ -2649,7 +2650,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:42:10',
                 'updated_at' => '2023-09-18 18:42:10',
             ),
-            263 => 
+            263 =>
             array (
                 'id' => 267,
                 'name' => 'Yog\'',
@@ -2659,7 +2660,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:42:27',
                 'updated_at' => '2023-09-18 18:42:27',
             ),
-            264 => 
+            264 =>
             array (
                 'id' => 268,
                 'name' => 'Maslo',
@@ -2669,7 +2670,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:42:47',
                 'updated_at' => '2023-09-18 18:42:47',
             ),
-            265 => 
+            265 =>
             array (
                 'id' => 269,
                 'name' => 'Масло',
@@ -2679,7 +2680,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:43:37',
                 'updated_at' => '2023-09-18 18:43:37',
             ),
-            266 => 
+            266 =>
             array (
                 'id' => 270,
                 'name' => 'Shakar',
@@ -2689,7 +2690,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:43:55',
                 'updated_at' => '2023-09-18 18:43:55',
             ),
-            267 => 
+            267 =>
             array (
                 'id' => 271,
                 'name' => 'Сахар',
@@ -2699,7 +2700,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:44:15',
                 'updated_at' => '2023-09-18 18:44:15',
             ),
-            268 => 
+            268 =>
             array (
                 'id' => 272,
                 'name' => 'Kakao',
@@ -2709,7 +2710,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:44:33',
                 'updated_at' => '2023-09-18 18:44:33',
             ),
-            269 => 
+            269 =>
             array (
                 'id' => 273,
                 'name' => 'Shokolad',
@@ -2719,7 +2720,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:44:53',
                 'updated_at' => '2023-09-18 18:44:53',
             ),
-            270 => 
+            270 =>
             array (
                 'id' => 274,
                 'name' => 'Makaron',
@@ -2729,7 +2730,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:45:09',
                 'updated_at' => '2023-09-18 18:45:09',
             ),
-            271 => 
+            271 =>
             array (
                 'id' => 275,
                 'name' => 'Ketchup',
@@ -2739,7 +2740,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:45:41',
                 'updated_at' => '2023-09-18 18:45:41',
             ),
-            272 => 
+            272 =>
             array (
                 'id' => 276,
                 'name' => 'Mayonez',
@@ -2749,7 +2750,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:45:59',
                 'updated_at' => '2023-09-18 18:45:59',
             ),
-            273 => 
+            273 =>
             array (
                 'id' => 277,
                 'name' => 'Energetik',
@@ -2759,7 +2760,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:46:23',
                 'updated_at' => '2023-09-18 18:46:23',
             ),
-            274 => 
+            274 =>
             array (
                 'id' => 278,
                 'name' => 'Pivo',
@@ -2769,7 +2770,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:46:42',
                 'updated_at' => '2023-09-18 18:46:42',
             ),
-            275 => 
+            275 =>
             array (
                 'id' => 279,
                 'name' => 'Piva',
@@ -2779,7 +2780,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:46:54',
                 'updated_at' => '2023-09-18 18:46:54',
             ),
-            276 => 
+            276 =>
             array (
                 'id' => 280,
                 'name' => 'Shampaniskiy',
@@ -2789,7 +2790,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:47:11',
                 'updated_at' => '2023-09-18 18:47:11',
             ),
-            277 => 
+            277 =>
             array (
                 'id' => 281,
                 'name' => 'Matorni masla',
@@ -2799,7 +2800,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:48:44',
                 'updated_at' => '2023-09-18 18:48:44',
             ),
-            278 => 
+            278 =>
             array (
                 'id' => 282,
                 'name' => 'Bint',
@@ -2809,7 +2810,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:49:13',
                 'updated_at' => '2023-09-18 18:49:13',
             ),
-            279 => 
+            279 =>
             array (
                 'id' => 283,
                 'name' => 'Aptechka',
@@ -2819,7 +2820,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:49:30',
                 'updated_at' => '2023-09-18 18:49:30',
             ),
-            280 => 
+            280 =>
             array (
                 'id' => 284,
                 'name' => 'Pamada',
@@ -2829,7 +2830,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:49:57',
                 'updated_at' => '2023-09-18 18:49:57',
             ),
-            281 => 
+            281 =>
             array (
                 'id' => 285,
                 'name' => 'Kosmetika',
@@ -2839,7 +2840,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:50:37',
                 'updated_at' => '2023-09-18 18:50:37',
             ),
-            282 => 
+            282 =>
             array (
                 'id' => 286,
                 'name' => 'Duxi',
@@ -2849,7 +2850,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:51:07',
                 'updated_at' => '2023-09-18 18:51:07',
             ),
-            283 => 
+            283 =>
             array (
                 'id' => 287,
                 'name' => 'Atir',
@@ -2859,7 +2860,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:51:19',
                 'updated_at' => '2023-09-18 18:51:19',
             ),
-            284 => 
+            284 =>
             array (
                 'id' => 288,
                 'name' => 'Dezodorant',
@@ -2869,7 +2870,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:51:47',
                 'updated_at' => '2023-09-18 18:51:47',
             ),
-            285 => 
+            285 =>
             array (
                 'id' => 289,
                 'name' => 'Dezadarant',
@@ -2879,7 +2880,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:52:01',
                 'updated_at' => '2023-09-18 18:52:01',
             ),
-            286 => 
+            286 =>
             array (
                 'id' => 290,
                 'name' => 'Asvejetil',
@@ -2889,7 +2890,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:52:30',
                 'updated_at' => '2023-09-18 18:52:30',
             ),
-            287 => 
+            287 =>
             array (
                 'id' => 291,
                 'name' => 'Sredstva',
@@ -2899,7 +2900,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:53:11',
                 'updated_at' => '2023-09-18 18:53:11',
             ),
-            288 => 
+            288 =>
             array (
                 'id' => 292,
                 'name' => 'Garshok',
@@ -2909,7 +2910,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:54:26',
                 'updated_at' => '2023-09-18 18:54:26',
             ),
-            289 => 
+            289 =>
             array (
                 'id' => 293,
                 'name' => 'Detskiy gorshok',
@@ -2919,7 +2920,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:54:46',
                 'updated_at' => '2023-09-18 18:54:46',
             ),
-            290 => 
+            290 =>
             array (
                 'id' => 294,
                 'name' => 'Eshik',
@@ -2929,7 +2930,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:56:34',
                 'updated_at' => '2023-09-18 18:56:34',
             ),
-            291 => 
+            291 =>
             array (
                 'id' => 295,
                 'name' => 'Dver',
@@ -2939,7 +2940,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:56:48',
                 'updated_at' => '2023-09-18 18:56:48',
             ),
-            292 => 
+            292 =>
             array (
                 'id' => 296,
                 'name' => 'Deraza',
@@ -2949,7 +2950,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:57:02',
                 'updated_at' => '2023-09-18 18:57:02',
             ),
-            293 => 
+            293 =>
             array (
                 'id' => 297,
                 'name' => 'Okno',
@@ -2959,7 +2960,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:57:24',
                 'updated_at' => '2023-09-18 18:57:24',
             ),
-            294 => 
+            294 =>
             array (
                 'id' => 298,
                 'name' => 'Padakolnik',
@@ -2969,7 +2970,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:57:53',
                 'updated_at' => '2023-09-18 18:57:53',
             ),
-            295 => 
+            295 =>
             array (
                 'id' => 299,
                 'name' => 'Podokolnik',
@@ -2979,7 +2980,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:58:09',
                 'updated_at' => '2023-09-18 18:58:09',
             ),
-            296 => 
+            296 =>
             array (
                 'id' => 300,
                 'name' => 'Musor bak',
@@ -2989,7 +2990,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:58:48',
                 'updated_at' => '2023-09-18 18:58:48',
             ),
-            297 => 
+            297 =>
             array (
                 'id' => 301,
                 'name' => 'Chemodan',
@@ -2999,7 +3000,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 18:59:49',
                 'updated_at' => '2023-09-18 18:59:59',
             ),
-            298 => 
+            298 =>
             array (
                 'id' => 303,
                 'name' => 'Рюкзак',
@@ -3009,7 +3010,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 19:00:42',
                 'updated_at' => '2023-09-18 19:00:42',
             ),
-            299 => 
+            299 =>
             array (
                 'id' => 302,
                 'name' => 'Ruguzak',
@@ -3019,7 +3020,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 19:00:22',
                 'updated_at' => '2023-09-18 19:00:53',
             ),
-            300 => 
+            300 =>
             array (
                 'id' => 304,
                 'name' => 'Tualitni bumaga',
@@ -3029,7 +3030,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 19:01:58',
                 'updated_at' => '2023-09-18 19:01:58',
             ),
-            301 => 
+            301 =>
             array (
                 'id' => 305,
                 'name' => 'Salfetka',
@@ -3039,7 +3040,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 19:02:22',
                 'updated_at' => '2023-09-18 19:02:22',
             ),
-            302 => 
+            302 =>
             array (
                 'id' => 306,
                 'name' => 'Skuter',
@@ -3049,7 +3050,7 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2023-09-18 19:03:09',
                 'updated_at' => '2023-09-18 19:03:09',
             ),
-            303 => 
+            303 =>
             array (
                 'id' => 307,
                 'name' => 'Kolyaska invalidni',
@@ -3060,7 +3061,8 @@ class ProductsTableSeeder extends Seeder
                 'updated_at' => '2023-09-18 19:03:31',
             ),
         ));
-        
-        
+
+        $id = DB::table('products')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence products_id_seq restart with '.($id->id+1));
     }
 }

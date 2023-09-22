@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CountriesTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class CountriesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('countries')->delete();
-        
+
         \DB::table('countries')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 2,
                 'name' => 'РОССИЙСКИЙ ФЕДЕРАЦИЯ',
@@ -27,7 +28,7 @@ class CountriesTableSeeder extends Seeder
                 'created_at' => '2023-09-04 13:28:24',
                 'updated_at' => '2023-09-04 13:28:24',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 1,
                 'name' => 'УЗБЕКИСТАН РЕСПУБЛИКАСИ',
@@ -36,7 +37,9 @@ class CountriesTableSeeder extends Seeder
                 'updated_at' => '2023-09-04 13:28:45',
             ),
         ));
-        
-        
+
+        $id = DB::table('countries')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence countries_id_seq restart with '.($id->id+1));
+
     }
 }

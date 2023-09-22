@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProjectsTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('projects')->delete();
-        
+
         \DB::table('projects')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 4,
                 'code' => '2023-0001',
@@ -33,7 +34,9 @@ class ProjectsTableSeeder extends Seeder
                 'updated_at' => '2023-09-16 05:34:38',
             ),
         ));
-        
-        
+
+        $id = DB::table('projects')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence projects_id_seq restart with '.($id->id+1));
+
     }
 }

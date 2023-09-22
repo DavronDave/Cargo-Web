@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class InvoicesTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class InvoicesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('invoices')->delete();
-        
+
         \DB::table('invoices')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 75,
                 'number' => '0002',
@@ -35,7 +36,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 09:55:00',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 76,
                 'number' => '0003',
@@ -51,7 +52,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:00:48',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 77,
                 'number' => '0004',
@@ -67,7 +68,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:02:17',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 78,
                 'number' => '0005',
@@ -83,7 +84,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:02:41',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 79,
                 'number' => '0006',
@@ -99,7 +100,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:05:28',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 130,
                 'number' => '0057',
@@ -115,7 +116,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:15:48',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 74,
                 'number' => '0001',
@@ -131,7 +132,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 11:43:02',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 131,
                 'number' => '0058',
@@ -147,7 +148,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:16:07',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 108,
                 'number' => '0034',
@@ -163,7 +164,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:00:59',
                 'updated_at' => '2023-09-15 12:10:05',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 109,
                 'number' => '0036',
@@ -179,7 +180,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:00:59',
                 'updated_at' => '2023-09-15 12:16:03',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 129,
                 'number' => '0056',
@@ -195,7 +196,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:15:31',
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 132,
                 'number' => '0059',
@@ -211,7 +212,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:16:25',
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 133,
                 'number' => '0060',
@@ -227,7 +228,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:16:39',
             ),
-            13 => 
+            13 =>
             array (
                 'id' => 134,
                 'number' => '0061',
@@ -243,7 +244,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:16:54',
             ),
-            14 => 
+            14 =>
             array (
                 'id' => 135,
                 'number' => '0062',
@@ -259,7 +260,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:18:11',
             ),
-            15 => 
+            15 =>
             array (
                 'id' => 136,
                 'number' => '0063',
@@ -275,7 +276,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:19:34',
             ),
-            16 => 
+            16 =>
             array (
                 'id' => 137,
                 'number' => '0064',
@@ -291,7 +292,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:21:50',
             ),
-            17 => 
+            17 =>
             array (
                 'id' => 140,
                 'number' => '0067',
@@ -307,7 +308,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:30:02',
             ),
-            18 => 
+            18 =>
             array (
                 'id' => 138,
                 'number' => '0065',
@@ -323,7 +324,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:22:12',
             ),
-            19 => 
+            19 =>
             array (
                 'id' => 141,
                 'number' => '0068',
@@ -339,7 +340,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:31:05',
             ),
-            20 => 
+            20 =>
             array (
                 'id' => 142,
                 'number' => '0069',
@@ -355,7 +356,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:32:11',
             ),
-            21 => 
+            21 =>
             array (
                 'id' => 143,
                 'number' => '0070',
@@ -371,7 +372,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:33:48',
             ),
-            22 => 
+            22 =>
             array (
                 'id' => 144,
                 'number' => '0071',
@@ -387,7 +388,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 15:23:06',
             ),
-            23 => 
+            23 =>
             array (
                 'id' => 145,
                 'number' => '0072',
@@ -403,7 +404,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 15:25:55',
             ),
-            24 => 
+            24 =>
             array (
                 'id' => 146,
                 'number' => '0073',
@@ -419,7 +420,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 15:26:14',
             ),
-            25 => 
+            25 =>
             array (
                 'id' => 147,
                 'number' => '0074',
@@ -435,7 +436,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 15:26:38',
             ),
-            26 => 
+            26 =>
             array (
                 'id' => 149,
                 'number' => '0076',
@@ -451,7 +452,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 16:03:08',
             ),
-            27 => 
+            27 =>
             array (
                 'id' => 156,
                 'number' => '0083',
@@ -467,7 +468,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 15:28:07',
             ),
-            28 => 
+            28 =>
             array (
                 'id' => 157,
                 'number' => '0084',
@@ -483,7 +484,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:11:43',
                 'updated_at' => '2023-09-15 15:28:48',
             ),
-            29 => 
+            29 =>
             array (
                 'id' => 159,
                 'number' => '0086',
@@ -499,7 +500,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:35:14',
             ),
-            30 => 
+            30 =>
             array (
                 'id' => 160,
                 'number' => '0087',
@@ -515,7 +516,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:35:43',
             ),
-            31 => 
+            31 =>
             array (
                 'id' => 161,
                 'number' => '0088',
@@ -531,7 +532,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:36:09',
             ),
-            32 => 
+            32 =>
             array (
                 'id' => 139,
                 'number' => '0066',
@@ -547,7 +548,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:24:03',
             ),
-            33 => 
+            33 =>
             array (
                 'id' => 163,
                 'number' => '0090',
@@ -563,7 +564,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:39:29',
             ),
-            34 => 
+            34 =>
             array (
                 'id' => 164,
                 'number' => '0091',
@@ -579,7 +580,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:42:32',
             ),
-            35 => 
+            35 =>
             array (
                 'id' => 166,
                 'number' => '0093',
@@ -595,7 +596,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:45:36',
             ),
-            36 => 
+            36 =>
             array (
                 'id' => 167,
                 'number' => '0094',
@@ -611,7 +612,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:47:00',
             ),
-            37 => 
+            37 =>
             array (
                 'id' => 168,
                 'number' => '0095',
@@ -627,7 +628,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:49:36',
             ),
-            38 => 
+            38 =>
             array (
                 'id' => 169,
                 'number' => '0096',
@@ -643,7 +644,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:51:24',
             ),
-            39 => 
+            39 =>
             array (
                 'id' => 170,
                 'number' => '0097',
@@ -659,7 +660,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:51:46',
             ),
-            40 => 
+            40 =>
             array (
                 'id' => 171,
                 'number' => '0098',
@@ -675,7 +676,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:52:51',
             ),
-            41 => 
+            41 =>
             array (
                 'id' => 172,
                 'number' => '0099',
@@ -691,7 +692,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:58:26',
             ),
-            42 => 
+            42 =>
             array (
                 'id' => 148,
                 'number' => '0075',
@@ -707,7 +708,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 16:02:01',
             ),
-            43 => 
+            43 =>
             array (
                 'id' => 150,
                 'number' => '0077',
@@ -723,7 +724,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 16:07:24',
             ),
-            44 => 
+            44 =>
             array (
                 'id' => 151,
                 'number' => '0078',
@@ -739,7 +740,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 16:10:31',
             ),
-            45 => 
+            45 =>
             array (
                 'id' => 152,
                 'number' => '0079',
@@ -755,7 +756,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 16:11:08',
             ),
-            46 => 
+            46 =>
             array (
                 'id' => 153,
                 'number' => '0080',
@@ -771,7 +772,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 16:17:07',
             ),
-            47 => 
+            47 =>
             array (
                 'id' => 155,
                 'number' => '0082',
@@ -787,7 +788,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 16:19:06',
             ),
-            48 => 
+            48 =>
             array (
                 'id' => 80,
                 'number' => '0007',
@@ -803,7 +804,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:08:05',
             ),
-            49 => 
+            49 =>
             array (
                 'id' => 81,
                 'number' => '0008',
@@ -819,7 +820,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:09:26',
             ),
-            50 => 
+            50 =>
             array (
                 'id' => 82,
                 'number' => '0009',
@@ -835,7 +836,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:10:46',
             ),
-            51 => 
+            51 =>
             array (
                 'id' => 83,
                 'number' => '0010',
@@ -851,7 +852,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:11:21',
             ),
-            52 => 
+            52 =>
             array (
                 'id' => 84,
                 'number' => '0011',
@@ -867,7 +868,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:15:57',
             ),
-            53 => 
+            53 =>
             array (
                 'id' => 85,
                 'number' => '0012',
@@ -883,7 +884,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:21:40',
             ),
-            54 => 
+            54 =>
             array (
                 'id' => 86,
                 'number' => '0013',
@@ -899,7 +900,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:23:02',
             ),
-            55 => 
+            55 =>
             array (
                 'id' => 87,
                 'number' => '0014',
@@ -915,7 +916,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:24:50',
             ),
-            56 => 
+            56 =>
             array (
                 'id' => 88,
                 'number' => '0015',
@@ -931,7 +932,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:35:29',
             ),
-            57 => 
+            57 =>
             array (
                 'id' => 100,
                 'number' => '0027',
@@ -947,7 +948,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 11:06:03',
             ),
-            58 => 
+            58 =>
             array (
                 'id' => 90,
                 'number' => '0017',
@@ -963,7 +964,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:45:42',
             ),
-            59 => 
+            59 =>
             array (
                 'id' => 91,
                 'number' => '0018',
@@ -979,7 +980,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:46:38',
             ),
-            60 => 
+            60 =>
             array (
                 'id' => 92,
                 'number' => '0019',
@@ -995,7 +996,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:49:27',
             ),
-            61 => 
+            61 =>
             array (
                 'id' => 93,
                 'number' => '0020',
@@ -1011,7 +1012,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:51:23',
             ),
-            62 => 
+            62 =>
             array (
                 'id' => 94,
                 'number' => '0021',
@@ -1027,7 +1028,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:56:05',
             ),
-            63 => 
+            63 =>
             array (
                 'id' => 95,
                 'number' => '0022',
@@ -1043,7 +1044,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:57:10',
             ),
-            64 => 
+            64 =>
             array (
                 'id' => 96,
                 'number' => '0023',
@@ -1059,7 +1060,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:59:13',
             ),
-            65 => 
+            65 =>
             array (
                 'id' => 97,
                 'number' => '0024',
@@ -1075,7 +1076,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 11:02:14',
             ),
-            66 => 
+            66 =>
             array (
                 'id' => 98,
                 'number' => '0025',
@@ -1091,7 +1092,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 11:03:20',
             ),
-            67 => 
+            67 =>
             array (
                 'id' => 101,
                 'number' => '0028',
@@ -1107,7 +1108,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 11:30:19',
             ),
-            68 => 
+            68 =>
             array (
                 'id' => 99,
                 'number' => '0026',
@@ -1123,7 +1124,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 11:05:07',
             ),
-            69 => 
+            69 =>
             array (
                 'id' => 102,
                 'number' => '0029',
@@ -1139,7 +1140,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 11:30:55',
             ),
-            70 => 
+            70 =>
             array (
                 'id' => 103,
                 'number' => '0030',
@@ -1155,7 +1156,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 11:33:05',
             ),
-            71 => 
+            71 =>
             array (
                 'id' => 105,
                 'number' => '0032',
@@ -1171,7 +1172,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 11:38:25',
             ),
-            72 => 
+            72 =>
             array (
                 'id' => 110,
                 'number' => '0037',
@@ -1187,7 +1188,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:17:02',
             ),
-            73 => 
+            73 =>
             array (
                 'id' => 107,
                 'number' => '0033',
@@ -1203,7 +1204,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 12:10:50',
             ),
-            74 => 
+            74 =>
             array (
                 'id' => 111,
                 'number' => '0038',
@@ -1219,7 +1220,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:21:13',
             ),
-            75 => 
+            75 =>
             array (
                 'id' => 112,
                 'number' => '0039',
@@ -1235,7 +1236,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:23:14',
             ),
-            76 => 
+            76 =>
             array (
                 'id' => 113,
                 'number' => '0040',
@@ -1251,7 +1252,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:24:00',
             ),
-            77 => 
+            77 =>
             array (
                 'id' => 114,
                 'number' => '0041',
@@ -1267,7 +1268,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:24:27',
             ),
-            78 => 
+            78 =>
             array (
                 'id' => 115,
                 'number' => '0042',
@@ -1283,7 +1284,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:24:53',
             ),
-            79 => 
+            79 =>
             array (
                 'id' => 116,
                 'number' => '0043',
@@ -1299,7 +1300,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:26:11',
             ),
-            80 => 
+            80 =>
             array (
                 'id' => 117,
                 'number' => '0044',
@@ -1315,7 +1316,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:27:53',
             ),
-            81 => 
+            81 =>
             array (
                 'id' => 118,
                 'number' => '0045',
@@ -1331,7 +1332,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:30:54',
             ),
-            82 => 
+            82 =>
             array (
                 'id' => 119,
                 'number' => '0046',
@@ -1347,7 +1348,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:33:40',
             ),
-            83 => 
+            83 =>
             array (
                 'id' => 120,
                 'number' => '0047',
@@ -1363,7 +1364,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:34:15',
             ),
-            84 => 
+            84 =>
             array (
                 'id' => 121,
                 'number' => '0048',
@@ -1379,7 +1380,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:36:27',
             ),
-            85 => 
+            85 =>
             array (
                 'id' => 122,
                 'number' => '0049',
@@ -1395,7 +1396,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:37:53',
             ),
-            86 => 
+            86 =>
             array (
                 'id' => 123,
                 'number' => '0050',
@@ -1411,7 +1412,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:40:24',
             ),
-            87 => 
+            87 =>
             array (
                 'id' => 124,
                 'number' => '0051',
@@ -1427,7 +1428,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:42:03',
             ),
-            88 => 
+            88 =>
             array (
                 'id' => 125,
                 'number' => '0052',
@@ -1443,7 +1444,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:42:32',
             ),
-            89 => 
+            89 =>
             array (
                 'id' => 126,
                 'number' => '0053',
@@ -1459,7 +1460,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 12:45:06',
             ),
-            90 => 
+            90 =>
             array (
                 'id' => 127,
                 'number' => '0054',
@@ -1475,7 +1476,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:12:57',
             ),
-            91 => 
+            91 =>
             array (
                 'id' => 104,
                 'number' => '0031',
@@ -1491,7 +1492,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 16:27:39',
             ),
-            92 => 
+            92 =>
             array (
                 'id' => 89,
                 'number' => '0016',
@@ -1507,7 +1508,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:53:39',
                 'updated_at' => '2023-09-15 10:41:57',
             ),
-            93 => 
+            93 =>
             array (
                 'id' => 128,
                 'number' => '0055',
@@ -1523,7 +1524,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 13:13:29',
             ),
-            94 => 
+            94 =>
             array (
                 'id' => 158,
                 'number' => '0085',
@@ -1539,7 +1540,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:30:43',
             ),
-            95 => 
+            95 =>
             array (
                 'id' => 165,
                 'number' => '0092',
@@ -1555,7 +1556,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:44:58',
             ),
-            96 => 
+            96 =>
             array (
                 'id' => 173,
                 'number' => '0100',
@@ -1571,7 +1572,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:58:51',
             ),
-            97 => 
+            97 =>
             array (
                 'id' => 154,
                 'number' => '0081',
@@ -1587,7 +1588,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 12:01:15',
                 'updated_at' => '2023-09-15 16:17:59',
             ),
-            98 => 
+            98 =>
             array (
                 'id' => 174,
                 'number' => '0101',
@@ -1603,7 +1604,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 17:26:13',
             ),
-            99 => 
+            99 =>
             array (
                 'id' => 175,
                 'number' => '0102',
@@ -1619,7 +1620,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 17:26:35',
             ),
-            100 => 
+            100 =>
             array (
                 'id' => 187,
                 'number' => '0114',
@@ -1635,7 +1636,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:14:51',
             ),
-            101 => 
+            101 =>
             array (
                 'id' => 177,
                 'number' => '0104',
@@ -1651,7 +1652,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 17:27:20',
             ),
-            102 => 
+            102 =>
             array (
                 'id' => 178,
                 'number' => '0105',
@@ -1667,7 +1668,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 17:27:45',
             ),
-            103 => 
+            103 =>
             array (
                 'id' => 179,
                 'number' => '0106',
@@ -1683,7 +1684,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 17:32:16',
             ),
-            104 => 
+            104 =>
             array (
                 'id' => 180,
                 'number' => '0107',
@@ -1699,7 +1700,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 17:33:14',
             ),
-            105 => 
+            105 =>
             array (
                 'id' => 181,
                 'number' => '0108',
@@ -1715,7 +1716,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 17:33:42',
             ),
-            106 => 
+            106 =>
             array (
                 'id' => 182,
                 'number' => '0109',
@@ -1731,7 +1732,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 17:39:20',
             ),
-            107 => 
+            107 =>
             array (
                 'id' => 183,
                 'number' => '0110',
@@ -1747,7 +1748,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 17:53:29',
             ),
-            108 => 
+            108 =>
             array (
                 'id' => 184,
                 'number' => '0111',
@@ -1763,7 +1764,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:03:06',
             ),
-            109 => 
+            109 =>
             array (
                 'id' => 188,
                 'number' => '0115',
@@ -1779,7 +1780,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:15:45',
             ),
-            110 => 
+            110 =>
             array (
                 'id' => 186,
                 'number' => '0113',
@@ -1795,7 +1796,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:11:36',
             ),
-            111 => 
+            111 =>
             array (
                 'id' => 189,
                 'number' => '0116',
@@ -1811,7 +1812,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:20:06',
             ),
-            112 => 
+            112 =>
             array (
                 'id' => 190,
                 'number' => '0117',
@@ -1827,7 +1828,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:25:08',
             ),
-            113 => 
+            113 =>
             array (
                 'id' => 191,
                 'number' => '0118',
@@ -1843,7 +1844,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:25:45',
             ),
-            114 => 
+            114 =>
             array (
                 'id' => 192,
                 'number' => '0119',
@@ -1859,7 +1860,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:27:28',
             ),
-            115 => 
+            115 =>
             array (
                 'id' => 193,
                 'number' => '0120',
@@ -1875,7 +1876,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:29:04',
             ),
-            116 => 
+            116 =>
             array (
                 'id' => 194,
                 'number' => '0121',
@@ -1891,7 +1892,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:34:26',
             ),
-            117 => 
+            117 =>
             array (
                 'id' => 195,
                 'number' => '0122',
@@ -1907,7 +1908,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:35:46',
             ),
-            118 => 
+            118 =>
             array (
                 'id' => 196,
                 'number' => '0123',
@@ -1923,7 +1924,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:38:24',
             ),
-            119 => 
+            119 =>
             array (
                 'id' => 197,
                 'number' => '0124',
@@ -1939,7 +1940,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:38:59',
             ),
-            120 => 
+            120 =>
             array (
                 'id' => 198,
                 'number' => '0125',
@@ -1955,7 +1956,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:40:40',
             ),
-            121 => 
+            121 =>
             array (
                 'id' => 199,
                 'number' => '0126',
@@ -1971,7 +1972,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:41:59',
             ),
-            122 => 
+            122 =>
             array (
                 'id' => 200,
                 'number' => '0127',
@@ -1987,7 +1988,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:45:42',
             ),
-            123 => 
+            123 =>
             array (
                 'id' => 201,
                 'number' => '0128',
@@ -2003,7 +2004,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:47:17',
             ),
-            124 => 
+            124 =>
             array (
                 'id' => 202,
                 'number' => '0129',
@@ -2019,7 +2020,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:49:16',
             ),
-            125 => 
+            125 =>
             array (
                 'id' => 203,
                 'number' => '0130',
@@ -2035,7 +2036,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:51:25',
             ),
-            126 => 
+            126 =>
             array (
                 'id' => 204,
                 'number' => '0131',
@@ -2051,7 +2052,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-15 18:51:47',
             ),
-            127 => 
+            127 =>
             array (
                 'id' => 205,
                 'number' => '0132',
@@ -2067,7 +2068,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 18:56:38',
             ),
-            128 => 
+            128 =>
             array (
                 'id' => 206,
                 'number' => '0133',
@@ -2083,7 +2084,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 18:57:07',
             ),
-            129 => 
+            129 =>
             array (
                 'id' => 207,
                 'number' => '0134',
@@ -2099,7 +2100,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 18:57:28',
             ),
-            130 => 
+            130 =>
             array (
                 'id' => 208,
                 'number' => '0135',
@@ -2115,7 +2116,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 18:58:49',
             ),
-            131 => 
+            131 =>
             array (
                 'id' => 209,
                 'number' => '0136',
@@ -2131,7 +2132,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 18:59:24',
             ),
-            132 => 
+            132 =>
             array (
                 'id' => 210,
                 'number' => '0137',
@@ -2147,7 +2148,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 18:59:42',
             ),
-            133 => 
+            133 =>
             array (
                 'id' => 211,
                 'number' => '0138',
@@ -2163,7 +2164,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:02:22',
             ),
-            134 => 
+            134 =>
             array (
                 'id' => 212,
                 'number' => '0139',
@@ -2179,7 +2180,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:04:27',
             ),
-            135 => 
+            135 =>
             array (
                 'id' => 213,
                 'number' => '0140',
@@ -2195,7 +2196,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:06:40',
             ),
-            136 => 
+            136 =>
             array (
                 'id' => 214,
                 'number' => '0141',
@@ -2211,7 +2212,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:07:32',
             ),
-            137 => 
+            137 =>
             array (
                 'id' => 215,
                 'number' => '0142',
@@ -2227,7 +2228,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:07:55',
             ),
-            138 => 
+            138 =>
             array (
                 'id' => 216,
                 'number' => '0143',
@@ -2243,7 +2244,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:08:18',
             ),
-            139 => 
+            139 =>
             array (
                 'id' => 217,
                 'number' => '0144',
@@ -2259,7 +2260,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:10:18',
             ),
-            140 => 
+            140 =>
             array (
                 'id' => 185,
                 'number' => '0112',
@@ -2275,7 +2276,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:47',
                 'updated_at' => '2023-09-16 05:07:42',
             ),
-            141 => 
+            141 =>
             array (
                 'id' => 176,
                 'number' => '0103',
@@ -2291,7 +2292,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 17:27:00',
             ),
-            142 => 
+            142 =>
             array (
                 'id' => 232,
                 'number' => '0159',
@@ -2307,7 +2308,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:24:58',
             ),
-            143 => 
+            143 =>
             array (
                 'id' => 218,
                 'number' => '0145',
@@ -2323,7 +2324,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:10:59',
             ),
-            144 => 
+            144 =>
             array (
                 'id' => 219,
                 'number' => '0146',
@@ -2339,7 +2340,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:11:14',
             ),
-            145 => 
+            145 =>
             array (
                 'id' => 220,
                 'number' => '0147',
@@ -2355,7 +2356,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:11:34',
             ),
-            146 => 
+            146 =>
             array (
                 'id' => 221,
                 'number' => '0148',
@@ -2371,7 +2372,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:12:37',
             ),
-            147 => 
+            147 =>
             array (
                 'id' => 222,
                 'number' => '0149',
@@ -2387,7 +2388,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:12:59',
             ),
-            148 => 
+            148 =>
             array (
                 'id' => 234,
                 'number' => '0161',
@@ -2403,7 +2404,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-16 04:43:49',
             ),
-            149 => 
+            149 =>
             array (
                 'id' => 224,
                 'number' => '0151',
@@ -2419,7 +2420,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:16:39',
             ),
-            150 => 
+            150 =>
             array (
                 'id' => 225,
                 'number' => '0152',
@@ -2435,7 +2436,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:16:53',
             ),
-            151 => 
+            151 =>
             array (
                 'id' => 226,
                 'number' => '0153',
@@ -2451,7 +2452,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:17:10',
             ),
-            152 => 
+            152 =>
             array (
                 'id' => 227,
                 'number' => '0154',
@@ -2467,7 +2468,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:17:26',
             ),
-            153 => 
+            153 =>
             array (
                 'id' => 228,
                 'number' => '0155',
@@ -2483,7 +2484,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:19:18',
             ),
-            154 => 
+            154 =>
             array (
                 'id' => 229,
                 'number' => '0156',
@@ -2499,7 +2500,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:20:00',
             ),
-            155 => 
+            155 =>
             array (
                 'id' => 230,
                 'number' => '0157',
@@ -2515,7 +2516,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:22:27',
             ),
-            156 => 
+            156 =>
             array (
                 'id' => 231,
                 'number' => '0158',
@@ -2531,7 +2532,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:22:45',
             ),
-            157 => 
+            157 =>
             array (
                 'id' => 235,
                 'number' => '0162',
@@ -2547,7 +2548,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:28:06',
             ),
-            158 => 
+            158 =>
             array (
                 'id' => 236,
                 'number' => '0163',
@@ -2563,7 +2564,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:28:58',
             ),
-            159 => 
+            159 =>
             array (
                 'id' => 237,
                 'number' => '0164',
@@ -2579,7 +2580,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:29:59',
             ),
-            160 => 
+            160 =>
             array (
                 'id' => 238,
                 'number' => '0165',
@@ -2595,7 +2596,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:30:18',
             ),
-            161 => 
+            161 =>
             array (
                 'id' => 240,
                 'number' => '0167',
@@ -2611,7 +2612,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-16 04:33:08',
             ),
-            162 => 
+            162 =>
             array (
                 'id' => 242,
                 'number' => '0169',
@@ -2627,7 +2628,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-16 04:35:10',
             ),
-            163 => 
+            163 =>
             array (
                 'id' => 241,
                 'number' => '0168',
@@ -2643,7 +2644,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:32:35',
             ),
-            164 => 
+            164 =>
             array (
                 'id' => 245,
                 'number' => '0172',
@@ -2659,7 +2660,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:34:56',
             ),
-            165 => 
+            165 =>
             array (
                 'id' => 246,
                 'number' => '0173',
@@ -2675,7 +2676,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:35:19',
             ),
-            166 => 
+            166 =>
             array (
                 'id' => 247,
                 'number' => '0174',
@@ -2691,7 +2692,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:35:51',
             ),
-            167 => 
+            167 =>
             array (
                 'id' => 248,
                 'number' => '0175',
@@ -2707,7 +2708,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:36:33',
             ),
-            168 => 
+            168 =>
             array (
                 'id' => 249,
                 'number' => '0176',
@@ -2723,7 +2724,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:37:45',
             ),
-            169 => 
+            169 =>
             array (
                 'id' => 250,
                 'number' => '0177',
@@ -2739,7 +2740,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:38:41',
             ),
-            170 => 
+            170 =>
             array (
                 'id' => 251,
                 'number' => '0178',
@@ -2755,7 +2756,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:39:09',
             ),
-            171 => 
+            171 =>
             array (
                 'id' => 252,
                 'number' => '0179',
@@ -2771,7 +2772,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:40:30',
             ),
-            172 => 
+            172 =>
             array (
                 'id' => 253,
                 'number' => '0180',
@@ -2787,7 +2788,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:41:18',
             ),
-            173 => 
+            173 =>
             array (
                 'id' => 254,
                 'number' => '0181',
@@ -2803,7 +2804,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:44:58',
             ),
-            174 => 
+            174 =>
             array (
                 'id' => 255,
                 'number' => '0182',
@@ -2819,7 +2820,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:46:27',
             ),
-            175 => 
+            175 =>
             array (
                 'id' => 256,
                 'number' => '0183',
@@ -2835,7 +2836,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:46:45',
             ),
-            176 => 
+            176 =>
             array (
                 'id' => 257,
                 'number' => '0184',
@@ -2851,7 +2852,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:47:04',
             ),
-            177 => 
+            177 =>
             array (
                 'id' => 258,
                 'number' => '0185',
@@ -2867,7 +2868,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:47:48',
             ),
-            178 => 
+            178 =>
             array (
                 'id' => 259,
                 'number' => '0186',
@@ -2883,7 +2884,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:48:27',
             ),
-            179 => 
+            179 =>
             array (
                 'id' => 260,
                 'number' => '0187',
@@ -2899,7 +2900,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:48:49',
             ),
-            180 => 
+            180 =>
             array (
                 'id' => 261,
                 'number' => '0188',
@@ -2915,7 +2916,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:49:17',
             ),
-            181 => 
+            181 =>
             array (
                 'id' => 262,
                 'number' => '0189',
@@ -2931,7 +2932,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:51:03',
             ),
-            182 => 
+            182 =>
             array (
                 'id' => 263,
                 'number' => '0190',
@@ -2947,7 +2948,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:51:49',
             ),
-            183 => 
+            183 =>
             array (
                 'id' => 264,
                 'number' => '0191',
@@ -2963,7 +2964,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:58:04',
             ),
-            184 => 
+            184 =>
             array (
                 'id' => 265,
                 'number' => '0192',
@@ -2979,7 +2980,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:58:23',
             ),
-            185 => 
+            185 =>
             array (
                 'id' => 266,
                 'number' => '0193',
@@ -2995,7 +2996,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 19:59:08',
             ),
-            186 => 
+            186 =>
             array (
                 'id' => 267,
                 'number' => '0194',
@@ -3011,7 +3012,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 20:00:12',
             ),
-            187 => 
+            187 =>
             array (
                 'id' => 243,
                 'number' => '0170',
@@ -3027,7 +3028,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-16 04:36:13',
             ),
-            188 => 
+            188 =>
             array (
                 'id' => 244,
                 'number' => '0171',
@@ -3043,7 +3044,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-16 04:38:02',
             ),
-            189 => 
+            189 =>
             array (
                 'id' => 233,
                 'number' => '0160',
@@ -3059,7 +3060,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:25:50',
             ),
-            190 => 
+            190 =>
             array (
                 'id' => 223,
                 'number' => '0150',
@@ -3075,7 +3076,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-15 19:15:38',
             ),
-            191 => 
+            191 =>
             array (
                 'id' => 268,
                 'number' => '0195',
@@ -3091,7 +3092,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 20:00:39',
             ),
-            192 => 
+            192 =>
             array (
                 'id' => 269,
                 'number' => '0196',
@@ -3107,7 +3108,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 20:01:21',
             ),
-            193 => 
+            193 =>
             array (
                 'id' => 271,
                 'number' => '0198',
@@ -3123,7 +3124,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 20:04:23',
             ),
-            194 => 
+            194 =>
             array (
                 'id' => 272,
                 'number' => '0199',
@@ -3139,7 +3140,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 20:05:09',
             ),
-            195 => 
+            195 =>
             array (
                 'id' => 273,
                 'number' => '0200',
@@ -3155,7 +3156,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 20:06:26',
             ),
-            196 => 
+            196 =>
             array (
                 'id' => 274,
                 'number' => '0201',
@@ -3171,7 +3172,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-16 04:05:34',
             ),
-            197 => 
+            197 =>
             array (
                 'id' => 275,
                 'number' => '0202',
@@ -3187,7 +3188,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-16 04:06:28',
             ),
-            198 => 
+            198 =>
             array (
                 'id' => 277,
                 'number' => '0204',
@@ -3203,7 +3204,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-16 04:12:55',
             ),
-            199 => 
+            199 =>
             array (
                 'id' => 278,
                 'number' => '0205',
@@ -3219,7 +3220,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-16 04:15:08',
             ),
-            200 => 
+            200 =>
             array (
                 'id' => 279,
                 'number' => '0206',
@@ -3235,7 +3236,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-16 04:15:29',
             ),
-            201 => 
+            201 =>
             array (
                 'id' => 283,
                 'number' => '0210',
@@ -3251,7 +3252,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-16 04:18:02',
             ),
-            202 => 
+            202 =>
             array (
                 'id' => 284,
                 'number' => '0211',
@@ -3267,7 +3268,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:18:10',
                 'updated_at' => '2023-09-16 04:18:51',
             ),
-            203 => 
+            203 =>
             array (
                 'id' => 285,
                 'number' => '0212',
@@ -3283,7 +3284,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:18:10',
                 'updated_at' => '2023-09-16 04:23:50',
             ),
-            204 => 
+            204 =>
             array (
                 'id' => 286,
                 'number' => '0213',
@@ -3299,7 +3300,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:18:10',
                 'updated_at' => '2023-09-16 04:24:09',
             ),
-            205 => 
+            205 =>
             array (
                 'id' => 287,
                 'number' => '0214',
@@ -3315,7 +3316,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:18:10',
                 'updated_at' => '2023-09-16 04:28:38',
             ),
-            206 => 
+            206 =>
             array (
                 'id' => 162,
                 'number' => '0089',
@@ -3331,7 +3332,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 15:29:46',
                 'updated_at' => '2023-09-15 15:37:40',
             ),
-            207 => 
+            207 =>
             array (
                 'id' => 289,
                 'number' => '0216',
@@ -3347,7 +3348,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:29:22',
                 'updated_at' => '2023-09-16 04:30:19',
             ),
-            208 => 
+            208 =>
             array (
                 'id' => 239,
                 'number' => '0166',
@@ -3363,7 +3364,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 18:55:53',
                 'updated_at' => '2023-09-16 04:32:13',
             ),
-            209 => 
+            209 =>
             array (
                 'id' => 276,
                 'number' => '0203',
@@ -3379,7 +3380,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-16 04:39:29',
             ),
-            210 => 
+            210 =>
             array (
                 'id' => 290,
                 'number' => '0035',
@@ -3395,7 +3396,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:46:40',
                 'updated_at' => '2023-09-16 04:46:40',
             ),
-            211 => 
+            211 =>
             array (
                 'id' => 288,
                 'number' => '0215',
@@ -3411,7 +3412,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-16 04:18:10',
                 'updated_at' => '2023-09-16 04:29:11',
             ),
-            212 => 
+            212 =>
             array (
                 'id' => 270,
                 'number' => '0197',
@@ -3427,7 +3428,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-15 20:02:23',
             ),
-            213 => 
+            213 =>
             array (
                 'id' => 281,
                 'number' => '0208',
@@ -3443,7 +3444,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-16 04:17:02',
             ),
-            214 => 
+            214 =>
             array (
                 'id' => 280,
                 'number' => '0207',
@@ -3459,7 +3460,7 @@ class InvoicesTableSeeder extends Seeder
                 'created_at' => '2023-09-15 19:39:27',
                 'updated_at' => '2023-09-16 04:15:52',
             ),
-            215 => 
+            215 =>
             array (
                 'id' => 282,
                 'number' => '0209',
@@ -3476,7 +3477,8 @@ class InvoicesTableSeeder extends Seeder
                 'updated_at' => '2023-09-16 04:17:32',
             ),
         ));
-        
-        
+
+        $id = DB::table('invoices')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence invoices_id_seq restart with '.($id->id+1));
     }
 }

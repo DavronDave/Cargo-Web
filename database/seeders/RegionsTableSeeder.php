@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RegionsTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class RegionsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('regions')->delete();
-        
+
         \DB::table('regions')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'name' => 'Samarqand',
@@ -27,7 +28,7 @@ class RegionsTableSeeder extends Seeder
                 'created_at' => '2023-09-02 12:19:08',
                 'updated_at' => '2023-09-02 12:19:08',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'name' => 'Toshkent',
@@ -35,7 +36,7 @@ class RegionsTableSeeder extends Seeder
                 'created_at' => '2023-09-04 13:30:07',
                 'updated_at' => '2023-09-04 13:30:07',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 4,
                 'name' => 'Navoiy',
@@ -43,7 +44,7 @@ class RegionsTableSeeder extends Seeder
                 'created_at' => '2023-09-04 13:37:27',
                 'updated_at' => '2023-09-15 05:49:22',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 3,
                 'name' => 'Buxoro',
@@ -51,7 +52,7 @@ class RegionsTableSeeder extends Seeder
                 'created_at' => '2023-09-04 13:31:50',
                 'updated_at' => '2023-09-15 05:50:35',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'name' => 'Andijon',
@@ -59,7 +60,7 @@ class RegionsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:50:48',
                 'updated_at' => '2023-09-15 05:50:48',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'name' => 'Namangan',
@@ -67,7 +68,7 @@ class RegionsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:50:58',
                 'updated_at' => '2023-09-15 05:50:58',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'name' => 'Farg\'ona',
@@ -75,7 +76,7 @@ class RegionsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:51:06',
                 'updated_at' => '2023-09-15 05:51:06',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'name' => 'Qashqadaryo',
@@ -83,7 +84,7 @@ class RegionsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:51:39',
                 'updated_at' => '2023-09-15 05:51:39',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'name' => 'Surxandaryo',
@@ -91,7 +92,7 @@ class RegionsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:51:55',
                 'updated_at' => '2023-09-15 05:51:55',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 10,
                 'name' => 'Xorazm',
@@ -99,7 +100,7 @@ class RegionsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:52:05',
                 'updated_at' => '2023-09-15 05:52:05',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 11,
                 'name' => 'Jizzax',
@@ -107,7 +108,7 @@ class RegionsTableSeeder extends Seeder
                 'created_at' => '2023-09-15 05:52:19',
                 'updated_at' => '2023-09-15 05:52:19',
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 12,
                 'name' => 'Sirdaryo',
@@ -116,7 +117,8 @@ class RegionsTableSeeder extends Seeder
                 'updated_at' => '2023-09-15 05:52:29',
             ),
         ));
-        
-        
+
+        $id = DB::table('regions')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence regions_id_seq restart with '.($id->id+1));
     }
 }

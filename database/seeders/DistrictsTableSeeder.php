@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DistrictsTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class DistrictsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('districts')->delete();
-        
+
         \DB::table('districts')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'name' => 'Kattaqo\'rg\'on',
@@ -27,7 +28,7 @@ class DistrictsTableSeeder extends Seeder
                 'created_at' => '2023-09-02 12:19:44',
                 'updated_at' => '2023-09-02 12:19:44',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'name' => 'Yunusobod',
@@ -35,7 +36,7 @@ class DistrictsTableSeeder extends Seeder
                 'created_at' => '2023-09-04 13:30:23',
                 'updated_at' => '2023-09-04 13:30:23',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'name' => 'Санкт-Петербургом',
@@ -44,7 +45,8 @@ class DistrictsTableSeeder extends Seeder
                 'updated_at' => '2023-09-04 13:34:16',
             ),
         ));
-        
-        
+
+        $id = DB::table('districts')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence districts_id_seq restart with '.($id->id+1));
     }
 }

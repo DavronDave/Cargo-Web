@@ -25,5 +25,8 @@ class AboutTableSeeder extends Seeder
                     'updated_at' => '01.07.2023',
                 ),
         ));
+
+        $id = DB::table('about')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence about_id_seq restart with '.($id->id+1));
     }
 }

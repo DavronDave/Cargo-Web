@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProductCategoriesTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class ProductCategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('product_categories')->delete();
-        
+
         \DB::table('product_categories')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'name' => 'Одежда разные',
@@ -27,7 +28,7 @@ class ProductCategoriesTableSeeder extends Seeder
                 'created_at' => '2023-09-04 13:39:39',
                 'updated_at' => '2023-09-04 13:39:39',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'name' => 'Бытовые техники',
@@ -35,7 +36,7 @@ class ProductCategoriesTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:38:05',
                 'updated_at' => '2023-09-14 18:38:05',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'name' => 'Обувь разные',
@@ -43,7 +44,7 @@ class ProductCategoriesTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:38:30',
                 'updated_at' => '2023-09-14 18:38:30',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'name' => 'инструменты разные',
@@ -51,7 +52,7 @@ class ProductCategoriesTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:38:53',
                 'updated_at' => '2023-09-14 18:38:53',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'name' => 'продукты питания, сладости разные',
@@ -59,7 +60,7 @@ class ProductCategoriesTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:39:28',
                 'updated_at' => '2023-09-14 18:39:28',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'name' => 'Запасные части',
@@ -67,7 +68,7 @@ class ProductCategoriesTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:39:48',
                 'updated_at' => '2023-09-14 18:39:48',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'name' => 'велосипеды, самокаты',
@@ -75,7 +76,7 @@ class ProductCategoriesTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:40:03',
                 'updated_at' => '2023-09-14 18:40:03',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'name' => 'канцтовары',
@@ -83,7 +84,7 @@ class ProductCategoriesTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:40:17',
                 'updated_at' => '2023-09-14 18:40:17',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'name' => 'кухонные наборы',
@@ -91,7 +92,7 @@ class ProductCategoriesTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:40:30',
                 'updated_at' => '2023-09-14 18:40:30',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 10,
                 'name' => 'гигиенические средства, Парфюмерия',
@@ -99,7 +100,7 @@ class ProductCategoriesTableSeeder extends Seeder
                 'created_at' => '2023-09-14 18:41:25',
                 'updated_at' => '2023-09-14 18:41:25',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 11,
                 'name' => 'игрушки для детей',
@@ -108,7 +109,8 @@ class ProductCategoriesTableSeeder extends Seeder
                 'updated_at' => '2023-09-14 18:41:41',
             ),
         ));
-        
-        
+
+        $id = DB::table('product_categories')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence product_categories_id_seq restart with '.($id->id+1));
     }
 }

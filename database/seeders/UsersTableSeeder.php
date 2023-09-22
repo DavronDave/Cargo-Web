@@ -43,6 +43,7 @@ class UsersTableSeeder extends Seeder
             ),
         ));
 
-
+        $id = DB::table('users')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence users_id_seq restart with '.($id->id+1));
     }
 }

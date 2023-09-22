@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class IncotermsTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class IncotermsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('incoterms')->delete();
-        
+
         \DB::table('incoterms')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'name' => 'CIP TASHKENT',
@@ -27,7 +28,8 @@ class IncotermsTableSeeder extends Seeder
                 'updated_at' => '2023-09-02 12:22:31',
             ),
         ));
-        
-        
+
+        $id = DB::table('incoterms')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence incoterms_id_seq restart with '.($id->id+1));
     }
 }

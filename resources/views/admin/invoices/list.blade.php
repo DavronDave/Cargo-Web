@@ -56,7 +56,7 @@
                                             <th>@sortablelink('name', 'Получатель')</th>
                                             <th>@sortablelink('name', 'Паспорт пол')</th>
                                             <th>@sortablelink('key', 'День.рож пол')</th>
-                                            <th style="width: 130px">@sortablelink('name', 'Общая цена ?')</th>
+                                            <th style="width: 130px;">@sortablelink('name', 'Общая цена ?')</th>
                                             <th style="width: 120px">@sortablelink('name', 'Выполнен ?')</th>
                                             <th style="width: 100px">@sortablelink('name', 'Инвойс')</th>
                                             <th style="width: 100px; text-align: center"><b>Действия</b></th>
@@ -132,7 +132,7 @@
                                                     @if(($totalPrice = $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? null) >= 1000) red
                                                     @else
                                                     @endif;
-                                                    color: @if(($totalPrice ?? 0) >= 1000) white @else black @endif;">
+                                                    color: @if(($totalPrice ?? 0) >= 1000) white @else black @endif; text-align: center">
                                                     {{ $totalPrice ?? 0 }}
                                                 </td>
 {{--                                                <td>{{$invoice->ready_date}}</td>--}}

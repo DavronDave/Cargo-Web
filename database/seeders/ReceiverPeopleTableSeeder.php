@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ReceiverPeopleTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class ReceiverPeopleTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('receiver_people')->delete();
-        
+
         \DB::table('receiver_people')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 51,
                 'full_name' => 'Saparova Shohista',
@@ -31,7 +32,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:53:28',
                 'updated_at' => '2023-09-15 11:53:28',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 52,
                 'full_name' => 'Xudjayarova Xafiza',
@@ -43,7 +44,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:54:13',
                 'updated_at' => '2023-09-15 11:54:13',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 53,
                 'full_name' => 'Xudoyberdiyeva Fotima',
@@ -55,7 +56,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:55:07',
                 'updated_at' => '2023-09-15 11:55:07',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 7,
                 'full_name' => 'Xujayarova Sabina',
@@ -67,7 +68,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:45:20',
                 'updated_at' => '2023-09-15 06:45:44',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 8,
                 'full_name' => 'Kattaeva Gulnoza',
@@ -79,7 +80,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:46:42',
                 'updated_at' => '2023-09-15 06:46:42',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 9,
                 'full_name' => 'Kattayeva Fatima',
@@ -91,7 +92,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:47:47',
                 'updated_at' => '2023-09-15 06:47:47',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 11,
                 'full_name' => 'Usmonov Xurshid',
@@ -103,7 +104,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:55:24',
                 'updated_at' => '2023-09-15 06:55:24',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 12,
                 'full_name' => 'Avlonova Rukiya',
@@ -115,7 +116,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:59:09',
                 'updated_at' => '2023-09-15 07:00:36',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 13,
                 'full_name' => 'Sobirova Muhayyo',
@@ -127,7 +128,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 07:01:28',
                 'updated_at' => '2023-09-15 07:01:28',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 14,
                 'full_name' => 'Sabirov Azamat',
@@ -139,7 +140,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 07:02:29',
                 'updated_at' => '2023-09-15 07:02:29',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 10,
                 'full_name' => 'Xakimova Muhabbat',
@@ -151,7 +152,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 06:48:35',
                 'updated_at' => '2023-09-15 07:31:37',
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 15,
                 'full_name' => 'Jalilov Beknazar',
@@ -163,7 +164,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 07:33:57',
                 'updated_at' => '2023-09-15 07:33:57',
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 16,
                 'full_name' => 'Xoliqulov Dostonjon',
@@ -175,7 +176,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 07:34:45',
                 'updated_at' => '2023-09-15 07:34:45',
             ),
-            13 => 
+            13 =>
             array (
                 'id' => 17,
                 'full_name' => 'Rustamob Shohzod',
@@ -187,7 +188,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 07:35:28',
                 'updated_at' => '2023-09-15 07:35:28',
             ),
-            14 => 
+            14 =>
             array (
                 'id' => 18,
                 'full_name' => 'Xushmamatov Bunyod',
@@ -199,7 +200,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 07:36:37',
                 'updated_at' => '2023-09-15 07:36:37',
             ),
-            15 => 
+            15 =>
             array (
                 'id' => 19,
                 'full_name' => 'Bobamuradova Manzura',
@@ -211,7 +212,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 07:37:23',
                 'updated_at' => '2023-09-15 07:37:31',
             ),
-            16 => 
+            16 =>
             array (
                 'id' => 20,
                 'full_name' => 'Movlonov Abdumalik',
@@ -223,7 +224,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:31:58',
                 'updated_at' => '2023-09-15 09:31:58',
             ),
-            17 => 
+            17 =>
             array (
                 'id' => 21,
                 'full_name' => 'Ergashova Gulandon',
@@ -235,7 +236,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:33:09',
                 'updated_at' => '2023-09-15 09:33:09',
             ),
-            18 => 
+            18 =>
             array (
                 'id' => 22,
                 'full_name' => 'Raxmatova Shalola',
@@ -247,7 +248,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:34:17',
                 'updated_at' => '2023-09-15 09:34:17',
             ),
-            19 => 
+            19 =>
             array (
                 'id' => 23,
                 'full_name' => 'Botirova Dilnavoz',
@@ -259,7 +260,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:35:49',
                 'updated_at' => '2023-09-15 09:35:49',
             ),
-            20 => 
+            20 =>
             array (
                 'id' => 24,
                 'full_name' => 'Yuldasheva Dinora',
@@ -271,7 +272,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:36:34',
                 'updated_at' => '2023-09-15 09:36:34',
             ),
-            21 => 
+            21 =>
             array (
                 'id' => 25,
                 'full_name' => 'Teshaeva Buvitosh',
@@ -283,7 +284,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:37:18',
                 'updated_at' => '2023-09-15 09:37:18',
             ),
-            22 => 
+            22 =>
             array (
                 'id' => 26,
                 'full_name' => 'Kurbanov Hasan',
@@ -295,7 +296,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:38:14',
                 'updated_at' => '2023-09-15 09:38:14',
             ),
-            23 => 
+            23 =>
             array (
                 'id' => 27,
                 'full_name' => 'Kurbanova Sohiba',
@@ -307,7 +308,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:38:57',
                 'updated_at' => '2023-09-15 09:38:57',
             ),
-            24 => 
+            24 =>
             array (
                 'id' => 28,
                 'full_name' => 'Xasanova Shaxribonu',
@@ -319,7 +320,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:39:40',
                 'updated_at' => '2023-09-15 09:39:40',
             ),
-            25 => 
+            25 =>
             array (
                 'id' => 29,
                 'full_name' => 'Kurbanova Dilafruz',
@@ -331,7 +332,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:40:39',
                 'updated_at' => '2023-09-15 09:40:39',
             ),
-            26 => 
+            26 =>
             array (
                 'id' => 30,
                 'full_name' => 'Abjalilov Zafar',
@@ -343,7 +344,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:41:34',
                 'updated_at' => '2023-09-15 09:41:34',
             ),
-            27 => 
+            27 =>
             array (
                 'id' => 31,
                 'full_name' => 'Xasanova Odinabonu',
@@ -355,7 +356,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:42:24',
                 'updated_at' => '2023-09-15 09:42:24',
             ),
-            28 => 
+            28 =>
             array (
                 'id' => 32,
                 'full_name' => 'Raimqulova Farangiz',
@@ -367,7 +368,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:43:08',
                 'updated_at' => '2023-09-15 09:43:08',
             ),
-            29 => 
+            29 =>
             array (
                 'id' => 33,
                 'full_name' => 'Amankulov Ulugbek',
@@ -379,7 +380,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:43:51',
                 'updated_at' => '2023-09-15 09:43:51',
             ),
-            30 => 
+            30 =>
             array (
                 'id' => 34,
                 'full_name' => 'Odilov Adxam',
@@ -391,7 +392,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:44:50',
                 'updated_at' => '2023-09-15 09:44:50',
             ),
-            31 => 
+            31 =>
             array (
                 'id' => 35,
                 'full_name' => 'Kurbanova Dilsuz',
@@ -403,7 +404,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:45:49',
                 'updated_at' => '2023-09-15 09:45:49',
             ),
-            32 => 
+            32 =>
             array (
                 'id' => 36,
                 'full_name' => 'Shomurodov Xusniddin',
@@ -415,7 +416,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:46:31',
                 'updated_at' => '2023-09-15 09:46:31',
             ),
-            33 => 
+            33 =>
             array (
                 'id' => 37,
                 'full_name' => 'Kurbonov Muxiddin',
@@ -427,7 +428,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:47:20',
                 'updated_at' => '2023-09-15 09:47:20',
             ),
-            34 => 
+            34 =>
             array (
                 'id' => 38,
                 'full_name' => 'Axmedova Shaxzoda',
@@ -439,7 +440,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:48:14',
                 'updated_at' => '2023-09-15 09:48:14',
             ),
-            35 => 
+            35 =>
             array (
                 'id' => 39,
                 'full_name' => 'Yarmamtov Nuriddin',
@@ -451,7 +452,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:49:07',
                 'updated_at' => '2023-09-15 09:49:07',
             ),
-            36 => 
+            36 =>
             array (
                 'id' => 40,
                 'full_name' => 'Adizova Sevara',
@@ -463,7 +464,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 09:49:52',
                 'updated_at' => '2023-09-15 09:49:52',
             ),
-            37 => 
+            37 =>
             array (
                 'id' => 41,
                 'full_name' => 'Suyunov Olimjon',
@@ -475,7 +476,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:45:40',
                 'updated_at' => '2023-09-15 11:45:40',
             ),
-            38 => 
+            38 =>
             array (
                 'id' => 42,
                 'full_name' => 'Shodmonova Feruza',
@@ -487,7 +488,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:46:31',
                 'updated_at' => '2023-09-15 11:46:31',
             ),
-            39 => 
+            39 =>
             array (
                 'id' => 43,
                 'full_name' => 'Shodmonov Iftixor',
@@ -499,7 +500,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:47:16',
                 'updated_at' => '2023-09-15 11:47:16',
             ),
-            40 => 
+            40 =>
             array (
                 'id' => 44,
                 'full_name' => 'Mamatov Valisher',
@@ -511,7 +512,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:48:16',
                 'updated_at' => '2023-09-15 11:48:16',
             ),
-            41 => 
+            41 =>
             array (
                 'id' => 45,
                 'full_name' => 'Rasulov Fazlitdin',
@@ -523,7 +524,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:48:58',
                 'updated_at' => '2023-09-15 11:48:58',
             ),
-            42 => 
+            42 =>
             array (
                 'id' => 46,
                 'full_name' => 'Rajabov Oxunjon',
@@ -535,7 +536,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:49:38',
                 'updated_at' => '2023-09-15 11:49:38',
             ),
-            43 => 
+            43 =>
             array (
                 'id' => 47,
                 'full_name' => 'Ikromova Zebo',
@@ -547,7 +548,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:50:20',
                 'updated_at' => '2023-09-15 11:50:20',
             ),
-            44 => 
+            44 =>
             array (
                 'id' => 48,
                 'full_name' => 'Ikromov Bahodir',
@@ -559,7 +560,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:51:15',
                 'updated_at' => '2023-09-15 11:51:15',
             ),
-            45 => 
+            45 =>
             array (
                 'id' => 49,
                 'full_name' => 'Boboyeva Shaxnoza',
@@ -571,7 +572,7 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'created_at' => '2023-09-15 11:51:59',
                 'updated_at' => '2023-09-15 11:51:59',
             ),
-            46 => 
+            46 =>
             array (
                 'id' => 50,
                 'full_name' => 'Amonov Umarjon',
@@ -584,7 +585,8 @@ class ReceiverPeopleTableSeeder extends Seeder
                 'updated_at' => '2023-09-15 11:52:38',
             ),
         ));
-        
-        
+
+        $id = DB::table('receiver_people')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence receiver_people_id_seq restart with '.($id->id+1));
     }
 }

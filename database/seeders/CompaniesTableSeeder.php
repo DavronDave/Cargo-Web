@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CompaniesTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class CompaniesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('companies')->delete();
-        
+
         \DB::table('companies')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 11,
                 'name' => 'ИП Ахматов Баходир Нормуродович',
@@ -31,7 +32,7 @@ class CompaniesTableSeeder extends Seeder
                 'created_at' => '2023-09-04 13:34:56',
                 'updated_at' => '2023-09-04 13:34:56',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 1,
                 'name' => 'MCHJ "MALVIKA-CARGO "',
@@ -44,7 +45,8 @@ class CompaniesTableSeeder extends Seeder
                 'updated_at' => '2023-09-04 13:37:40',
             ),
         ));
-        
-        
+        $id = DB::table('companies')->orderBy('id', 'DESC')->first();
+        DB::statement('alter sequence companies_id_seq restart with '.($id->id+1));
+
     }
 }

@@ -141,13 +141,14 @@
                                     <tbody>
                                     <tr>
                                         <td scope="row">1</td>
-                                        <td><select name="product_id[]" id="create_incoterm_id" class="form-control" style="width: 220px">
+                                        <td>
+                                            <select name="product_id[]" id="create_incoterm_id" class="form-control" style="width: 220px">
                                                 <option value="">Выбрать...</option>
                                                 @foreach ($products as $key => $product)
                                                     <option value="{{$product->id}}">{{$product->name}}</option>
                                                 @endforeach
                                             </select>
-                                           </td>
+                                        </td>
                                         <td><input type="number" name="quantity[]" class="form-control">
                                             @error('quantity[]')
                                             <span class="text-danger">{{$message}}</span>
