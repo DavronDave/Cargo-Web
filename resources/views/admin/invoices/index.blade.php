@@ -118,7 +118,7 @@
                                 <div class="col-md-3 ui-sortable">
                                     <div class="form-group" >
                                         <label for="weight">Вес нетто (кг)</label><br>
-                                        <input type="number" step="0.1"  name="weight" id="weight" placeholder="Введите Телефон" class="form-control">
+                                        <input type="number" step="0.1"  name="weight" id="weight" placeholder="Введите Вес нетто" class="form-control">
                                         <br>
                                         @error('weight')
                                         <span class="text-danger">{{$message}}</span>

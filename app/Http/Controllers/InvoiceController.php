@@ -75,10 +75,11 @@ class InvoiceController extends Controller
 
 
 //        dd($totalPrice);
+        $projects = Project::all();
         $drivers = Driver::all();
         $invoices = Invoice::where('project_id', '=', $project->id)->orderBy('isCompleted')->orderBy('number', 'asc')->paginate(400);
 
-        return view('admin.invoices.list', compact('project', 'invoices', 'drivers', 'receiverPeopleWithTotalPrice'));
+        return view('admin.invoices.list', compact('project', 'projects', 'invoices', 'drivers', 'receiverPeopleWithTotalPrice'));
     }
 
     /**
@@ -302,6 +303,29 @@ class InvoiceController extends Controller
             }
         }
         return redirect()->route('admin.invoice.index', ['project' => $project->id]);
+    }
+
+
+    public function moveInvoices(Request $request)
+    {
+//        dd($request->all());
+
+        // Validate the form data
+        $request->validate([
+            'project_id' => 'required|exists:projects,id',
+            'selected_ids' => 'required|array',
+        ]);
+
+//        dd($request->all());
+        // Get the selected project ID and invoice IDs from the form
+        $projectID = $request->input('project_id');
+        $selectedInvoiceIDs = $request->input('selected_ids');
+
+        // Update the invoices with the new project ID
+        Invoice::whereIn('id', $selectedInvoiceIDs)->update(['project_id' => $projectID]);
+
+        // Redirect back with a success message or handle the response as needed
+        return redirect()->back()->with('success', 'Invoislar utkazildi.');
     }
 
 }

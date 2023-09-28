@@ -91,6 +91,8 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.', ],
 
     Route::post('/invoices/{project}', [InvoiceController::class, 'importPassports'])->name('invoice.import');
 
+    Route::post('/move-invoices', [InvoiceController::class, 'moveInvoices'])->name('move-invoices');
+
 
     //Route::post('/invoice/invoice={invoice}', [InvoiceController::class, 'destroy'])->name('invoice.destroy');
         // Route::delete('/invoices{invoice}', [InvoiceController::class, 'destroy'])->name('invoice.destroy');

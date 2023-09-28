@@ -20,11 +20,11 @@
                     <form action="{{route('admin.invoice.import', ['project' => $project->id])}}" enctype="multipart/form-data" method="post">
                         @csrf
                         <button type="submit" class="btn btn-success pull-right"
-                           style="margin: 7px !important; height: 36px;">Импортировать <i class="fa fa-plus"></i>
+                           style="margin: 7px !important; height: 36px;">Импорть <i class="fa fa-plus"></i>
                         </button>
-                        <input type="number" name="passport_number" style="margin: 8px !important; height: 35px; font-size: 15px;" class="pull-right" placeholder="Кол. паспортов" required>
+                        <input type="number" name="passport_number" style="margin: 8px !important; height: 35px; width: 100px; font-size: 15px;" class="pull-right" placeholder="Кол. паспортов" required>
 
-                        <select name="driver_id" id="create_incoterm_id" class="pull-right form-control" style="width: 220px; margin: 8px !important" required>
+                        <select name="driver_id" id="create_incoterm_id" class="pull-right form-control" style="width: 165px; margin: 8px !important" required>
                             <option value="">Выбрать водителя ...</option>
                             @foreach ($drivers as $key => $driver)
                                 <option value="{{$driver->id}}">{{$driver->name}}</option>
@@ -39,8 +39,21 @@
                         <input type="number" name="last" style="margin: 8px !important; height: 35px; width: 100px; font-size: 15px;" class="pull-right" placeholder="Конец" required>
                         <input type="number" name="first" style="margin: 8px !important; height: 35px; width: 100px; font-size: 15px;" class="pull-right" placeholder="Начало" required>
                     </form>
-                    <div class="panel-heading" style="height: 50px">
-                        <h4 class="panel-title">Список</h4>
+
+                    <form action="{{ route('admin.move-invoices') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-success pull-right"
+                                style="margin: 7px !important; height: 36px;">Переместить <i class="fa fa-upload"></i>
+                        </button>
+                        <select name="project_id" id="create_project_id" class="pull-right form-control" style="width: 145px; margin: 8px !important" required>
+                            <option value="">Выбрать проект ...</option>
+                            @foreach ($projects as $key => $project)
+                                <option value="{{$project->id}}">{{$project->code}}</option>
+                            @endforeach
+                        </select>
+
+                    <div class="panel-heading" style="height: 50px; background-color: #242A30">
+                        <h4 class="panel-title" style="color: white">Список</h4>
                     </div>
                     <div class="panel-body">
                         <div id="data-table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
@@ -49,13 +62,16 @@
                                     <table id="data-table" class="table table-striped table-bordered ">
                                         <thead>
                                         <tr client="row">
+                                            <th style="width: 20px; padding: 30px 0; text-align: center" rowspan="2">
+                                                <input type="checkbox" name="select-all" />&nbsp;
+                                            </th>
                                             <th style="width: 20px; padding: 30px 0; text-align: center" rowspan="2">№
                                             </th>
                                             <th style="width: 100px">@sortablelink('name', 'Инвойс')</th>
                                             <th>@sortablelink('name', 'Отправитель')</th>
                                             <th>@sortablelink('name', 'Получатель')</th>
                                             <th>@sortablelink('name', 'Паспорт пол')</th>
-                                            <th>@sortablelink('key', 'День.рож пол')</th>
+{{--                                            <th>@sortablelink('key', 'День.рож пол')</th>--}}
                                             <th style="width: 130px;">@sortablelink('name', 'Общая цена ?')</th>
                                             <th style="width: 120px">@sortablelink('name', 'Выполнен ?')</th>
                                             <th style="width: 100px">@sortablelink('name', 'Инвойс')</th>
@@ -63,6 +79,7 @@
                                         </tr>
                                         <tr>
                                             <form class="form-inline" method="GET">
+
                                                 <td>
                                                     <input style="width: 100%;" type="text" class="form-control"
                                                            id="filter"
@@ -87,12 +104,12 @@
                                                            name="name" placeholder="Паспорт..."
                                                            value="{{request('name')}}">
                                                 </td>
-                                                <td>
-                                                    <input style="width: 100%;" type="text" class="form-control"
-                                                           id="filter"
-                                                           name="name" placeholder="День рож..."
-                                                           value="{{request('name')}}">
-                                                </td>
+{{--                                                <td>--}}
+{{--                                                    <input style="width: 100%;" type="text" class="form-control"--}}
+{{--                                                           id="filter"--}}
+{{--                                                           name="name" placeholder="День рож..."--}}
+{{--                                                           value="{{request('name')}}">--}}
+{{--                                                </td>--}}
                                                 <td>
                                                     <input style="width: 100%;" type="text" class="form-control"
                                                            id="filter"
@@ -122,12 +139,13 @@
                                         <tbody>
                                         @foreach($invoices as $invoice)
                                             <tr>
+                                                <td><input type="checkbox" name="selected_ids[]" value="{{ $invoice->id }}" />&nbsp;</td>
                                                 <td>{{($invoices->currentpage()-1)*$invoices->perpage() +($loop->index+1)}}</td>
                                                 <td>{{$invoice->number}}</td>
                                                 <td>{{$invoice->sender_fullname}}</td>
                                                 <td>{{$invoice->receiver_fullname}}</td>
                                                 <td>{{$invoice->receiver_passport}}</td>
-                                                <td>{{$invoice->receiver_date}}</td>
+{{--                                                <td>{{$invoice->receiver_date}}</td>--}}
                                                 <td style="background-color:
                                                     @if(($totalPrice = $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? null) >= 1000) red
                                                     @else
@@ -180,11 +198,17 @@
 {{--                            </div>--}}
                         </div>
                     </div>
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
-
+    @if (session('success'))
+        <script>
+            alert("{{ session('success') }}");
+        </script>
+    @endif
 @endsection
 
 
