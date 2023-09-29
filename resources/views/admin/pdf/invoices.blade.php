@@ -7,7 +7,7 @@
     <title>Invoice #0187</title>
     <style>
         body {
-            margin-top: 1px;
+            margin-top: 55px;
             margin-left: 30px;
             margin-right: -15px;
             font-family: DejaVu Sans
