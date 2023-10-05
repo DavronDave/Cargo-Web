@@ -177,14 +177,14 @@
         </tr>
         {{$number++}}
     @endforeach
-    <tr>
-        <td></td>
-        <td>Overall</td>
-        <td>{{ $overallQuantities }}</td>
-        <td></td>
-        <td>{{ $overallWeights }}</td>
-        <td>{{ $overallPrices }}</td>
-    </tr>
+{{--    <tr>--}}
+{{--        <td></td>--}}
+{{--        <td>Overall</td>--}}
+{{--        <td>{{ $overallQuantities }}</td>--}}
+{{--        <td></td>--}}
+{{--        <td>{{ $overallWeights }}</td>--}}
+{{--        <td>{{ $overallPrices }}</td>--}}
+{{--    </tr>--}}
     </tbody>
 </table>
 <div class="additional-info">

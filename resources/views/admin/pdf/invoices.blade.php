@@ -84,6 +84,7 @@
             text-align: left;
         }
         .details td{
+            padding-left: 10px !important;
             border: 1px solid #ccc;
             height: 17px;
             text-align: center;
