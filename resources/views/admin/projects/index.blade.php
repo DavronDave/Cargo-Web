@@ -28,30 +28,30 @@
                                         <tr client="row">
                                             <th style="width: 20px; padding: 30px 0; text-align: center" rowspan="2">№
                                             </th>
-                                            <th>@sortablelink('name', 'Отправитель')</th>
-                                            <th>@sortablelink('key', 'Получатель')</th>
+                                            <th style="width: 160px; text-align: center">@sortablelink('name', 'Отп-Пол')</th>
+                                            <th style="width: 135px; text-align: center">@sortablelink('key', 'Название')</th>
                                             {{--                                            <th>@sortablelink('key', 'Договор')</th>--}}
 {{--                                            <th>@sortablelink('key', 'Инкотермс')</th>--}}
-                                            <th style="width: 110px; text-align: center">@sortablelink('key', 'номер
-                                                CMR')
-                                            </th>
-                                            <th>@sortablelink('key', 'Дата')</th>
-                                            <th>@sortablelink('key', 'Статус')</th>
-                                            <th style="width: 150px; text-align: center"><b>Действия</b></th>
-                                            <th style="width: 320px; text-align: center"><b>Скачать</b></th>
+                                            <th style="width: 90px; text-align: center">@sortablelink('key', 'CMR')</th>
+                                            <th style="width: 100px; text-align: center">@sortablelink('key', 'Дата')</th>
+                                            <th style="width: 40px; text-align: center">@sortablelink('key', 'Статус')</th>
+                                            <th style="width: 75px; text-align: center">@sortablelink('key', 'EPI')</th>
+                                            <th style="width: 83px; text-align: center">@sortablelink('key', 'MNF')</th>
+                                            <th style="width: 145px; text-align: center"><b>Действия</b></th>
+                                            <th style="width: 310px; text-align: center"><b>Скачать</b></th>
                                         </tr>
                                         <tr>
                                             <form class="form-inline" method="GET">
                                                 <td>
                                                     <input style="width: 100%;" type="text" class="form-control"
                                                            id="filter"
-                                                           name="name" placeholder="Отправитель..."
+                                                           name="name" placeholder="Отп-Пол..."
                                                            value="{{request('name')}}">
                                                 </td>
                                                 <td>
                                                     <input style="width: 100%;" type="text" class="form-control"
                                                            id="filter"
-                                                           name="name" placeholder="Получатель..."
+                                                           name="name" placeholder="Название..."
                                                            value="{{request('name')}}">
                                                 </td>
                                                 {{--                                                <td>--}}
@@ -85,6 +85,19 @@
                                                            value="{{request('name')}}">
                                                 </td>
                                                 <td>
+                                                    <input style="width: 100%;" type="text" class="form-control"
+                                                           id="filter"
+                                                           name="name" placeholder="EPI..."
+                                                           value="{{request('name')}}">
+                                                </td>
+                                                <td>
+                                                    <input style="width: 100%;" type="text" class="form-control"
+                                                           id="filter"
+                                                           name="name" placeholder="MNF..."
+                                                           value="{{request('name')}}">
+                                                </td>
+
+                                                <td>
                                                     <button type="submit" class="btn btn-warning">
                                                         <i class="fa  fa-filter"></i> Фильтр
                                                     </button>
@@ -100,8 +113,8 @@
                                             {{--                                            @dd($project->sender->name)--}}
                                             <tr>
                                                 <td>{{($projects->currentpage()-1)*$projects->perpage() +($loop->index+1)}}</td>
-                                                <td>{{$project->sender->name}}</td>
-                                                <td>{{$project->receiver->name}}</td>
+                                                <td> {{substr($project->sender->name, 0,20)}}- {{substr($project->receiver->name, 0,20)}}</td>
+                                                <td>{{$project->name}}</td>
 {{--                                                <td>{{$project->incoterm->name}}</td>--}}
                                                 <td>{{$project->code}}</td>
                                                 <td>{{$project->ready_date}}</td>
@@ -122,7 +135,8 @@
                                                         Xato
                                                     @endif
                                                 </td>
-
+                                                <td style="text-align: center">@if($project->epi_code==1) <i style="color: green; font-size: 16px" class=" fa fa-check"></i>@elseif($project->epi_code==0) <i style="color: red; font-size: 16px" class=" fa fa-close"></i> @endif</td>
+                                                <td style="text-align: center">@if($project->manifest_code==1) <i style="color: green; font-size: 16px" class=" fa fa-check"></i>@elseif($project->manifest_code==0) <i style="color: red; font-size: 16px" class=" fa fa-close"></i> @endif</td>
                                                 <td>
                                                     <a href="#modal-dialog-edit" class=" btn btn-xs btn-info"
                                                        title="Изменить">
@@ -130,7 +144,7 @@
                                                            onclick="getProjectData({{$project->id}})"></i>
                                                     </a>
                                                     <a href="#modal-dialog-delete{{$project->id}}"
-                                                       class="btn btn-xs btn-danger"
+                                                       class="btn btn-xs btn-danger "
                                                        data-toggle="modal" title="Удалить">
                                                         <i class="fa  fa-trash-o"></i>
                                                     </a>
@@ -154,12 +168,12 @@
                                                             <i class="fa fa-download"></i>
                                                         </a>
                                                         <a href="{{route('admin.pdf.manifest', ['project' => $project->id])}}"
-                                                           class="btn btn-xs btn-success"
+                                                           class="btn btn-xs btn-success m-t-3"
                                                            title="Download proforma"> Manifest
                                                             <i class="fa fa-download"></i>
                                                         </a>
                                                         <a href="{{route('admin.excel.invoices', ['project' => $project->id])}}"
-                                                           class="btn btn-xs btn-success"
+                                                           class="btn btn-xs btn-success m-t-3"
                                                            title="Download excel"> Excel
                                                             <i class="fa fa-download"></i>
                                                         </a>

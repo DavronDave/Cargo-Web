@@ -57,6 +57,14 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-12 ui-sortable">
+                            <div class="form-group" >
+                                <label for="create_name">Название проекта</label>
+                                <input type="text" name="name" id="create_name" class="form-control" placeholder="Введите название проекта">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-4 ui-sortable">
                             <div class="form-group" >
                                 <label for="create_phone">Код</label>

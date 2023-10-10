@@ -37,11 +37,17 @@ class ProjectController extends Controller
     {
         $request->validate([
             'code' => 'required|unique:projects,code',
+            'name' => 'required',
+            'sender_id' => 'required',
+            'receiver_id' => 'required',
+            'incoterm_id' => 'required',
+
         ]);
 
         //dd($request);
         $project = new Project();
         $project->code = $request->code;
+        $project->name= $request->name;
         $project->ready_date = $request->ready_date;
         $project->sender_id = $request->sender_id;
         $project->receiver_id=$request->receiver_id;
@@ -81,16 +87,22 @@ class ProjectController extends Controller
     {
         $request->validate([
             'code' => 'required',
+            'name' => 'required',
+            'sender_id' => 'required',
+            'receiver_id' => 'required',
+            'incoterm_id' => 'required',
         ]);
 
         $project->code = $request->code;
+        $project->name=$request->name;
         $project->ready_date = $request->ready_date;
         $project->sender_id = $request->sender_id;
         $project->receiver_id=$request->receiver_id;
         $project->company_contract_id = $request->company_contract_id;
         $project->incoterm_id = $request->incoterm_id;
         $project->status = $request->status;
-
+        $project->epi_code=$request->epi_code;
+        $project->manifest_code=$request->manifest_code;
         $project->update();
 
         return response()->json([

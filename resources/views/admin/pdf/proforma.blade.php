@@ -182,14 +182,14 @@
             <td >Курьерские отправленные / Сourier sent</td>
             <td>PCs / шт</td>
             <td>{{$overallInvoices}}</td>
-            <td>{{$overallPrices/$overallInvoices}}</td>
+            <td>{{ number_format($overallPrices / $overallInvoices, 2) }}</td>
             <td>{{number_format($overallPrices,2)}}</td>
         </tr>
         <tr>
             <td>Total / ИТОГО</td>
             <td></td>
             <td></td>
-            <td>{{$overallPrices/$overallInvoices}}</td>
+            <td>{{ number_format($overallPrices / $overallInvoices, 2) }}</td>
             <td>{{number_format($overallPrices,2)}}</td>
         </tr>
         </tbody>

@@ -29,6 +29,7 @@
                         $('#add_project').find('.parsley-errors-list').remove();
                         $.each(errors, function (key, err_values) {
                                 $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_code');
+                                $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_name');
                                 $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_company_id');
                                 $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_company_contract_id');
                                 $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_incoterm_id');
@@ -58,9 +59,15 @@
                     $('#edit_company_contract_id').val(response.project.company_contract_id);
                     $('#edit_incoterm_id').val(response.project.incoterm_id);
                     $('#edit_code').val(response.project.code);
+                    $('#edit_name').val(response.project.name);
                     $('#edit_ready_date').val(response.project.ready_date);
                     $('#edit_status').val(response.project.status);
+                    // $('#edit_epi').val(response.project.epi_code);
+                    // $('#edit_mnf').val(response.project.manifest_code);
+                    $('#edit_epi').prop('checked', response.project.epi_code === true);
+                    $('#edit_mnf').prop('checked', response.project.manifest_code === true);
 
+                    console.log(response.project.epi_code);
                      $('#edit_id').val(response.project.id);
 
                     $('#modal-dialog-show').modal('hide');
