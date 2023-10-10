@@ -214,7 +214,7 @@ class InvoiceController extends Controller
             $invoice->invoiceProducts()->save($invoiceProduct);
         }
 
-        return redirect()->route('admin.invoice.index', ['project' => $project]);
+        return redirect()->route('admin.invoice.index', ['project' => $project->id]);
     }
 
     /**
