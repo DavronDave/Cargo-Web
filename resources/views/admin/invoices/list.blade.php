@@ -162,7 +162,8 @@
 
 
                                                 <td>
-                                                    <a href="{{route('admin.invoice.edit', ['invoice' => $invoice->id, 'project' => $project->id])}}" class=" btn btn-xs btn-info"
+
+                                                    <a href="{{route('admin.invoice.edit', ['invoice' => $invoice->id, 'project' => $project_id])}}" class=" btn btn-xs btn-info"
                                                        title="Изменить">
                                                         <i class="fa fa-pencil-square-o"></i>
                                                     </a>

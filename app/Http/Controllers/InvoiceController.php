@@ -22,7 +22,7 @@ class InvoiceController extends Controller
      */
     public function index(Project $project)
     {
-//        dd($project->id);
+    $project_id = $project->id;
         $passport = 'FA1391255';
 
 //        $receiverPeopleWithTotalPrice = ReceiverPerson::with('invoices.invoiceProducts')
@@ -79,7 +79,7 @@ class InvoiceController extends Controller
         $drivers = Driver::all();
         $invoices = Invoice::where('project_id', '=', $project->id)->orderBy('isCompleted')->orderBy('number', 'asc')->paginate(400);
 
-        return view('admin.invoices.list', compact('project', 'projects', 'invoices', 'drivers', 'receiverPeopleWithTotalPrice'));
+        return view('admin.invoices.list', compact('project', 'project_id', 'projects', 'invoices', 'drivers', 'receiverPeopleWithTotalPrice'));
     }
 
     /**
