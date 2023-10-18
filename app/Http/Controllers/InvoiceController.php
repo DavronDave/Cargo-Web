@@ -77,7 +77,7 @@ class InvoiceController extends Controller
 //        dd($totalPrice);
         $projects = Project::all();
         $drivers = Driver::all();
-        $invoices = Invoice::where('project_id', '=', $project->id)->orderBy('isCompleted')->orderBy('number', 'asc')->paginate(400);
+        $invoices = Invoice::where('project_id', '=', $project->id)->orderBy('isCompleted')->orderBy('number', 'asc')->paginate(1000);
 
         return view('admin.invoices.list', compact('project', 'project_id', 'projects', 'invoices', 'drivers', 'receiverPeopleWithTotalPrice'));
     }

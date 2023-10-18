@@ -48,7 +48,7 @@
                         <select name="project_id" id="create_project_id" class="pull-right form-control" style="width: 145px; margin: 8px !important" required>
                             <option value="">Выбрать проект ...</option>
                             @foreach ($projects as $key => $project)
-                                <option value="{{$project->id}}">{{$project->code}}</option>
+                                <option value="{{$project->id}}">{{$project->code}} - {{$project->name}}</option>
                             @endforeach
                         </select>
 
@@ -71,7 +71,7 @@
                                             <th>@sortablelink('name', 'Отправитель')</th>
                                             <th>@sortablelink('name', 'Получатель')</th>
                                             <th>@sortablelink('name', 'Паспорт пол')</th>
-{{--                                            <th>@sortablelink('key', 'День.рож пол')</th>--}}
+                                            <th>@sortablelink('key', 'Весь')</th>
                                             <th style="width: 130px;">@sortablelink('name', 'Общая цена ?')</th>
                                             <th style="width: 120px">@sortablelink('name', 'Выполнен ?')</th>
                                             <th style="width: 100px">@sortablelink('name', 'Инвойс')</th>
@@ -104,12 +104,12 @@
                                                            name="name" placeholder="Паспорт..."
                                                            value="{{request('name')}}">
                                                 </td>
-{{--                                                <td>--}}
-{{--                                                    <input style="width: 100%;" type="text" class="form-control"--}}
-{{--                                                           id="filter"--}}
-{{--                                                           name="name" placeholder="День рож..."--}}
-{{--                                                           value="{{request('name')}}">--}}
-{{--                                                </td>--}}
+                                                <td>
+                                                    <input style="width: 100%;" type="text" class="form-control"
+                                                           id="filter"
+                                                           name="name" placeholder="Весь..."
+                                                           value="{{request('name')}}">
+                                                </td>
                                                 <td>
                                                     <input style="width: 100%;" type="text" class="form-control"
                                                            id="filter"
@@ -145,7 +145,13 @@
                                                 <td>{{$invoice->sender_fullname}}</td>
                                                 <td>{{$invoice->receiver_fullname}}</td>
                                                 <td>{{$invoice->receiver_passport}}</td>
-{{--                                                <td>{{$invoice->receiver_date}}</td>--}}
+                                                <td style="background-color:
+                                                    @if($invoice->weight > 30) red
+                                                    @else
+                                                    @endif;
+                                                    color: @if($invoice->weight > 30) white @else black @endif; text-align: center">
+                                                    {{ $invoice->weight ?? 0 }}
+                                                </td>
                                                 <td style="background-color:
                                                     @if(($totalPrice = $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? null) >= 1000) red
                                                     @else

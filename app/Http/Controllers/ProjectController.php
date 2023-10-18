@@ -15,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::sortable()->orderBy('created_at', 'DESC')->paginate(10);
+        $projects = Project::sortable()->orderBy('created_at', 'DESC')->paginate(2);
         $companies = Company::all();
         $company_contracts = CompanyContract::all();
         $incoterms = Incoterm::all();
