@@ -62,8 +62,7 @@
                     $('#edit_name').val(response.project.name);
                     $('#edit_ready_date').val(response.project.ready_date);
                     $('#edit_status').val(response.project.status);
-                    // $('#edit_epi').val(response.project.epi_code);
-                    // $('#edit_mnf').val(response.project.manifest_code);
+
                     $('#edit_epi').prop('checked', response.project.epi_code === true);
                     $('#edit_mnf').prop('checked', response.project.manifest_code === true);
 
