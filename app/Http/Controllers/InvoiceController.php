@@ -110,6 +110,12 @@ class InvoiceController extends Controller
             'address_id' => 'required|numeric',
 //            'ready_date' => 'required|date',
             'weight' => 'required',
+            'product_id' => 'required|array',
+            'product_id.*' => 'required|numeric',
+            'quantity' => 'required|array',
+            'quantity.*' => 'required|numeric',
+            'price' => 'required|array',
+            'price.*' => 'required|numeric',
 //            'quantity' => 'required',
 //            'quantity.*' => 'required|array'
         ]);

@@ -6,6 +6,8 @@ use App\Models\Driver;
 use App\Models\ReceiverPerson;
 use App\Models\Region;
 use Illuminate\Http\Request;
+//use Psy\Util\Str;
+use Illuminate\Support\Str;
 
 class ReceiverPersonController extends Controller
 {
@@ -27,7 +29,7 @@ class ReceiverPersonController extends Controller
     public function create(Driver $driver)
     {
         $regions = Region::all();
-        dd($regions);
+//        dd($regions);
         return view('admin.receiver-people.index', compact('regions', 'driver'));
     }
 
@@ -47,7 +49,7 @@ class ReceiverPersonController extends Controller
 
         $cleanedPhoneNumber = preg_replace('/[^0-9]/', '', $request->phone);
         $receiverPerson = new ReceiverPerson();
-        $receiverPerson->full_name = $request->full_name;
+        $receiverPerson->full_name =Str::title(Str::words($request->full_name, 2, ''));
         $receiverPerson->passport = strtoupper($request->passport);
         $receiverPerson->birthdate = $request->birthdate;
         $receiverPerson->phone =$cleanedPhoneNumber ;

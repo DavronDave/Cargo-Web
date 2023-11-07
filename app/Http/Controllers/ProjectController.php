@@ -13,9 +13,18 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
+//    public function index()
+//    {
+//        $projects = Project::sortable()->orderBy('created_at', 'DESC')->paginate(10);
+//        $companies = Company::all();
+//        $company_contracts = CompanyContract::all();
+//        $incoterms = Incoterm::all();
+//        return view('admin.projects.index', compact('projects', 'companies', 'company_contracts', 'incoterms'));
+//    }
+
     public function index()
     {
-        $projects = Project::sortable()->orderBy('created_at', 'DESC')->paginate(10);
+        $projects = Project::with(['sender', 'receiver'])->sortable()->orderBy('created_at', 'DESC')->paginate(10);
         $companies = Company::all();
         $company_contracts = CompanyContract::all();
         $incoterms = Incoterm::all();

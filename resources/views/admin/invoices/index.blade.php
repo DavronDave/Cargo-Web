@@ -150,11 +150,14 @@
                                                 @endforeach
                                             </select>
                                         </td>
-                                        <td><input type="number" name="quantity[]" class="form-control">
+                                        <td>
+                                            <input type="number" name="quantity[]" class="form-control" required>
                                             @error('quantity[]')
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror</td>
-                                        <td><input type="number" name="price[]" class="form-control"></td>
+                                        <td>
+                                            <input type="number" name="price[]" class="form-control" required>
+                                        </td>
                                         <td><button type="button" class="btn btn-primary" id="add_btn"><i class="glyphicon glyphicon-plus"></i></button></td>
                                     </tr>
                                     </tbody>

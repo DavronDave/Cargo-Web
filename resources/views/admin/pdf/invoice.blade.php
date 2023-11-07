@@ -167,7 +167,7 @@
                     @foreach($invoice_products as $invoice_product)
                         <tr>
                             <td>{{ $counter }}</td>
-                            <td class="product-name-value">{{$invoice_product->product->name}}</td>
+                            <td class="product-name-value p-l-4">{{$invoice_product->product->name}}</td>
                             <td>{{$invoice_product->quantity}}</td>
                             <td></td>
                             <td></td>
@@ -193,7 +193,7 @@
                         <td></td>
                         <td>Итого:</td>
                         <td>{{$totalQuantity}}</td>
-                        <td>{{$invoice->weight}}</td>
+                        <td>{{$invoice->weight}} кг</td>
                         <td></td>
                         <td>{{$totalPrice}} $</td>
                     </tr>
