@@ -11,12 +11,20 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
+//    public function index()
+//    {
+//        $products = Product::sortable()->orderBy('id', 'DESC')->get();
+//        $product_categories = ProductCategory::all();
+//        return view('admin.products.index', compact('products', 'product_categories'));
+//    }
+
     public function index()
     {
-        $products = Product::sortable()->orderBy('id', 'DESC')->get();
+        $products = Product::with('category')->sortable()->orderBy('id', 'DESC')->get();
         $product_categories = ProductCategory::all();
         return view('admin.products.index', compact('products', 'product_categories'));
     }
+
 
     /**
      * Show the form for creating a new resource.

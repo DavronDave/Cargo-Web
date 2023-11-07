@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
-class Product extends Model
+class   Product extends Model
 {
     use HasFactory, Sortable;
 
@@ -14,7 +14,8 @@ class Product extends Model
 
     public function category()
     {
-        return $this->belongsTo(ProductCategory::class);
+//        return $this->belongsTo(ProductCategory::class);
+        return $this->belongsTo(ProductCategory::class, 'category_id');
     }
 
     public function invoiceProducts()

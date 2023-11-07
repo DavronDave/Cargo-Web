@@ -76,7 +76,7 @@
             font-size: 10px;
             border: 1px solid #ccc;
             padding: 5px;
-            text-align: left;
+            text-align: center;
         }
 
         .invoice-table th {
@@ -169,10 +169,10 @@
     @foreach($categoriesData as $index => $categoryData)
         <tr>
             <td>{{ $number}}</td>
-            <td>{{ $categoryData['name'] }}</td>
+            <td style="text-align: left;">{{ $categoryData['name'] }}</td>
             <td>{{ $categoryData['quantity'] }}</td>
             <td>{{ $categoryData['code'] }}</td>
-            <td>{{ $categoryData['weight'] }}</td>
+            <td>{{ $categoryData['normalized_ratio'] }}</td>
             <td>{{ $categoryData['price'] }}</td>
         </tr>
         {{$number++}}

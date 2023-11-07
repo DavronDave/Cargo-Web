@@ -112,6 +112,69 @@ class PDFController extends Controller
         $pdf->setPaper('A4');
         $pdf->set_option('isPhpEnabled', true);
 
+        $categoryRatios = [
+            '8418215900' => 5,
+            '8205598099' => 4,
+            '8421230000' => 3,
+            '9503001009' => 2.5,
+            '6309000000' => 1,
+            '6405909000' => 1.2,
+            '3306900000' => 0.4,
+            '3924100000' => 3.4,
+            '1901100000' => 0.7,
+            '4820900000' => 0.5,
+            '9503007000' => 0.8,
+        ];
+
+        // Iterate through the product categories and set the ratios
+        foreach ($categoriesData as $key => $category) {
+            $code = $category['code'];
+            if (array_key_exists($code, $categoryRatios)) {
+                $categoriesData[$key]['ratio'] = $categoryRatios[$code];
+            } else {
+                // Set a default ratio if the code is not found in the categoryRatios array
+                $categoriesData[$key]['ratio'] = 1; // You can adjust the default ratio as needed
+            }
+        }
+
+        // Calculate the total ratio sum
+        $totalRatioSum = array_sum(array_column($categoriesData, 'ratio'));
+
+//        // Normalize the ratios to add up to the overall weight
+//        foreach ($categoriesData as $key => $category) {
+//            $categoriesData[$key]['normalized_ratio'] = ($category['ratio'] / $totalRatioSum) * $overallWeights;
+//        }
+
+        // Normalize the ratios to add up to the overall weight and round to the nearest integer
+        foreach ($categoriesData as $key => $category) {
+            $normalizedRatio = round(($category['ratio'] / $totalRatioSum) * $overallWeights);
+            $categoriesData[$key]['normalized_ratio'] = $normalizedRatio;
+        }
+
+        // Calculate the total sum of normalized ratios
+        $totalNormalizedSum = array_sum(array_column($categoriesData, 'normalized_ratio'));
+
+        // Adjust if the total sum exceeds the overall weight
+        if ($totalNormalizedSum > $overallWeights) {
+            $diff = $totalNormalizedSum - $overallWeights;
+            // Sort the categories by their ratio in descending order
+            usort($categoriesData, function($a, $b) {
+                return $b['ratio'] - $a['ratio'];
+            });
+            // Reduce the normalized ratios for categories starting from the highest ratio
+            foreach ($categoriesData as $key => $category) {
+                if ($diff <= 0) {
+                    break;
+                }
+                if ($categoriesData[$key]['normalized_ratio'] > 0) {
+                    $categoriesData[$key]['normalized_ratio'] -= 1;
+                    $diff -= 1;
+                }
+            }
+        }
+
+//        dd($categoriesData);
+
 //        $view = view('admin.pdf.invoice')->with('invoice', $invoice)->with('invoice_products', $invoice_products);
         $view = view('admin.pdf.tnved',
             compact('project', 'categoriesData',
@@ -123,6 +186,7 @@ class PDFController extends Controller
 
         return $pdf->stream('Tnved.pdf');
     }
+
 
     public function PDFProforma(Project $project)
     {
