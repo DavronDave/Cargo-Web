@@ -62,23 +62,23 @@ class DriverController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Driver $driver_invoice)
+    public function edit(Driver $driver)
     {
         return response()->json([
             'status' => 200,
-            'driver_invoice' => $driver_invoice,
+            'driver' => $driver,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Driver $driver_invoice)
+    public function update(Request $request, Driver $driver)
     {
-        $driver_invoice->name = $request->name;
-        $driver_invoice->company_id = $request->company_id;
+        $driver->name = $request->name;
+        $driver->company_id = $request->company_id;
 
-        $driver_invoice->update();
+        $driver->update();
         return response()->json([
             'status' => 200
         ]);
@@ -87,9 +87,10 @@ class DriverController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Driver $driver_invoice)
+    public function destroy(Driver $driver)
     {
-        $driver_invoice->delete();
+//        dd($driver);
+        $driver->delete();
         return redirect()->route('admin.drivers.index');
     }
 }

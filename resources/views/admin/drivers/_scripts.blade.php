@@ -49,11 +49,11 @@
                     $('#success_message').addClass('alert alert-danger');
                     $('#success_message').text(response.message);
                 } else {
-                    $('#edit_name').val(response.driver_invoice.name);
+                    $('#edit_name').val(response.driver.name);
 
-                    $('#edit_company_id').val(response.driver_invoice.company_id);
+                    $('#edit_company_id').val(response.driver.company_id);
 
-                    $('#edit_id').val(response.driver_invoice.id);
+                    $('#edit_id').val(response.driver.id);
 
                     $('#modal-dialog-show').modal('hide');
 

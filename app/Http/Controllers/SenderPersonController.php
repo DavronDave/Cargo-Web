@@ -78,6 +78,7 @@ class SenderPersonController extends Controller
      */
     public function destroy(SenderPerson $sender_person)
     {
+//        dd($sender_person);
         $sender_person->delete();
         return redirect()->route('admin.sender-people.index');
     }
