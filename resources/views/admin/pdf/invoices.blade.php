@@ -203,7 +203,7 @@
                             <td></td>
                             <td>Итого:</td>
                             <td>{{$invoice_products->sum('quantity')}}</td>
-                            <td>{{$invoice->weight}}</td>
+                            <td>{{$invoice->weight}} кг</td>
                             <td></td>
                             <td>{{$invoice_products->sum('price')}} $</td>
                         </tr>

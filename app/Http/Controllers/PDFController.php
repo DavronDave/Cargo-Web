@@ -39,6 +39,7 @@ class PDFController extends Controller
         $pdf->setPaper('A4');
         $pdf->set_option('isPhpEnabled', true);
 
+        $formattedInvoiceNumber = sprintf("Invoice %04d", $invoice->number);
 //        $view = view('admin.pdf.invoice')->with('invoice', $invoice)->with('invoice_products', $invoice_products);
         $view = view('admin.pdf.invoice',
             compact('invoice_products', 'invoice', 'loopLimit','totalQuantity', 'totalPrice'));
@@ -46,7 +47,8 @@ class PDFController extends Controller
 
         $pdf->render();
 
-        return $pdf->stream('Invoice.pdf');
+//        return $pdf->stream('Invoice.pdf');
+        return $pdf->stream($formattedInvoiceNumber . '.pdf');
     }
 
     public function tnved()
@@ -313,6 +315,8 @@ class PDFController extends Controller
 
     public function PDFInvoices(Project $project, Request $request)
     {
+        $firstInvoiceNumber = str_pad($request->first, 4, '0', STR_PAD_LEFT); // Ensure 4 digits with leading zeros
+        $lastInvoiceNumber = str_pad($request->last, 4, '0', STR_PAD_LEFT); // Ensure 4 digits with leading zeros
 
         $invoices = Invoice::with('invoiceProducts', 'address', 'project')
             ->where('project_id', '=', $project->id)
@@ -348,6 +352,9 @@ class PDFController extends Controller
 //            $pdf->loadHtml($view);
 ////            $pdf->render();
 //        }
+
+        $pdfName = "Invoice {$firstInvoiceNumber}-{$lastInvoiceNumber}.pdf";
+
         $view = View::make('admin.pdf.invoices')
             ->with(compact('invoices'))
             ->render();
@@ -355,7 +362,7 @@ class PDFController extends Controller
         $pdf->render();
 
 
-        return $pdf->stream('Invoices.pdf');
+        return $pdf->stream($pdfName);
     }
 
 }
