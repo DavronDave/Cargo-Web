@@ -98,7 +98,7 @@ class InvoiceController extends Controller
      */
     public function store(Request $request, Project $project)
     {
-//        dd($project->id);
+//        dd($request);
         // Validate the incoming request data
         $validatedData = $request->validate([
             'number' => 'required|numeric',
@@ -118,6 +118,9 @@ class InvoiceController extends Controller
             'price.*' => 'required|numeric',
 //            'quantity' => 'required',
 //            'quantity.*' => 'required|array'
+//            'product_id' => 'required',
+//            'quantity' => 'required',
+//            'price' => 'required',
         ]);
         $cleanedPhoneNumber = preg_replace('/[^0-9]/', '', $request->receiver_phone);
 
@@ -181,7 +184,7 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, Invoice $invoice , Project $project)
     {
-        // Validate the incoming request data
+//        dd($request);
         $validatedData = $request->validate([
             'number' => 'required',
             'sender_fullname' => 'required|string',
@@ -191,7 +194,13 @@ class InvoiceController extends Controller
             'receiver_phone' => 'required|string',
             'address_id' => 'required|numeric',
 //            'ready_date' => 'required|date',
-            'weight' => 'required'
+            'weight' => 'required',
+//            'product_id' => 'required|array',
+//            'product_id.*' => 'required|numeric',
+//            'quantity' => 'required|array',
+//            'quantity.*' => 'required|numeric',
+//            'price' => 'required|array',
+//            'price.*' => 'required|numeric',
         ]);
 
         // Update the existing Invoice instance with the validated data

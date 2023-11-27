@@ -81,6 +81,8 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.', ],
         Route::get('/driver-receivers/{driver}/{receiver}/edit', [ReceiverPersonController::class, 'edit'])->name('driver-receiver.edit');
         Route::put('/driver-receivers/{driver}/{receiver}', [ReceiverPersonController::class, 'update'])->name('driver-receiver.update');
         Route::delete('/driver-receivers/{driver}/receiver/{receiver}', [ReceiverPersonController::class, 'destroy'])->name('driver-receiver.destroy');
+        Route::post('/move-driver-receivers', [ReceiverPersonController::class, 'moveDriverReceivers'])->name('driver-receiver.move-driver-receivers');
+
 
 
         Route::get('/invoices{project}', [InvoiceController::class, 'index'])->name('invoice.index');

@@ -17,10 +17,11 @@ class ReceiverPersonController extends Controller
     public function index(Driver $driver)
     {
         $regions = Region::all();
+        $drivers = Driver::all();
         $receiverPeople = ReceiverPerson::sortable()
             ->where('driver_id', '=', $driver->id)
             ->orderBy('id', 'DESC')->paginate(100);
-       return view('admin.receiver-people.index', compact('driver', 'receiverPeople','regions'));
+       return view('admin.receiver-people.index', compact('driver', 'receiverPeople','regions', 'drivers'));
     }
 
     /**
@@ -119,6 +120,29 @@ class ReceiverPersonController extends Controller
         // Your delete logic here
         $receiver->delete();
         return redirect()->route('admin.driver-receiver.index', ['driver' => $driverId]);
+    }
+
+    public function moveDriverReceivers(Request $request)
+    {
+//        dd($request->all());
+
+        $request->validate([
+            'driver_id' => 'required|exists:drivers,id',
+            'selected_ids' => 'required|array',
+        ]);
+
+//        dd($request->all());
+        // Get the selected project ID and invoice IDs from the form
+        $driverID = $request->input('driver_id');
+        $selectedReceiverIDs = $request->input('selected_ids');
+
+//        dd($driverID);
+        // Update the invoices with the new project ID
+        ReceiverPerson::whereIn('id', $selectedReceiverIDs)->update(['driver_id' => $driverID]);
+
+//        dd('ad');
+        // Redirect back with a success message or handle the response as needed
+        return redirect()->back()->with('success', 'Invoislar utkazildi.');
     }
 
 }

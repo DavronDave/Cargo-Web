@@ -13,13 +13,28 @@
         <div class="row">
             <div class="col-md-12 ui-sortable">
                 <div class="panel panel-inverse">
-                    <a href="#modal-dialog-create" class="btn btn-success pull-right btn-xs"
-                       style="margin: 8px !important"
+                    <a href="#modal-dialog-create" class="btn btn-success pull-right"
+                       style="margin: 7px !important; height: 36px;"
                        data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
                     </a>
-                    <div class="panel-heading">
-                        <h4 class="panel-title">Список</h4>
-                    </div>
+                    <form action="{{ route('admin.driver-receiver.move-driver-receivers') }}" method="POST">
+                        @csrf
+                        <div class="panel-heading" style="height: 50px; background-color: #242A30">
+
+                            <button type="submit" class="btn btn-success"
+                                    style="margin-left: 7px;  !important; height: 36px;">Переместить <i class="fa fa-upload"></i>
+                            </button>
+
+                            <select name="driver_id" id="create_driver_id" class="pull-left form-control" style="width: 170px; margin-left: 70px !important" required>
+                                <option value="">Выбрать водителя  ...</option>
+                                                            @foreach ($drivers as $key => $project)
+                                                                <option value="{{$project->id}}">{{$project->name}}</option>
+                                                            @endforeach
+                            </select>
+{{--                            <h4 class="" style="color: white; display: inline-flex">Список</h4>--}}
+                        </div>
+
+
                     <div class="panel-body">
                         <div id="data-table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                             <div class="row">
@@ -27,8 +42,10 @@
                                     <table id="data-table" class="table table-striped table-bordered ">
                                         <thead>
                                         <tr client="row">
-                                            <th style="width: 20px; padding: 30px 0; text-align: center" rowspan="2">№
+                                            <th style="width: 20px; padding: 30px 0; text-align: center" rowspan="2">
+                                                <input type="checkbox" name="select-all" />&nbsp;
                                             </th>
+                                            <th style="width: 20px; padding: 30px 0; text-align: center" rowspan="2">№
                                             <th>@sortablelink('name', 'Фамилия Имя ')</th>
                                             <th>@sortablelink('key', 'Пасспорт')</th>
                                             <th>@sortablelink('key', 'Дата рождения')</th>
@@ -39,6 +56,7 @@
                                         </tr>
                                         <tr>
                                             <form class="form-inline" method="GET">
+
                                                 <td>
                                                     <input style="width: 100%;" type="text" class="form-control"
                                                            id="filter"
@@ -86,6 +104,7 @@
                                         <tbody>
                                         @foreach($receiverPeople as $receiverPerson)
                                             <tr>
+                                                <td><input type="checkbox" name="selected_ids[]" value="{{ $receiverPerson->id }}" />&nbsp;</td>
                                                 <td>{{($receiverPeople->currentpage()-1)*$receiverPeople->perpage() +($loop->index+1)}}</td>
                                                 <td>{{$receiverPerson->full_name}}</td>
                                                 <td>{{$receiverPerson->passport}}</td>
