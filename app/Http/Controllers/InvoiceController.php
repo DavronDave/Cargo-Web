@@ -6,6 +6,7 @@ use App\Models\Driver;
 use App\Models\Invoice;
 use App\Models\InvoiceProduct;
 use App\Models\Product;
+use App\Models\ProductList;
 use App\Models\Project;
 use App\Models\ReceiverPerson;
 use App\Models\Region;
@@ -158,6 +159,15 @@ class InvoiceController extends Controller
          return redirect()->route('admin.invoice.index', ['project' => $project->id]);
     }
 
+    public function copyListProductsToInvoice(Request $request)
+    {
+//        dd($request);
+        // Fetch data from list-products table (adjust the model and column names accordingly)
+        $listProductsData = ProductList::all();
+
+        // You can process the data as needed before returning it to the frontend
+        return response()->json($listProductsData);
+    }
     /**
      * Display the specified resource.
      */

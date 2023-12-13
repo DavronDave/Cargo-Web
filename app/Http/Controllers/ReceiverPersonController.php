@@ -20,7 +20,7 @@ class ReceiverPersonController extends Controller
         $drivers = Driver::all();
         $receiverPeople = ReceiverPerson::sortable()
             ->where('driver_id', '=', $driver->id)
-            ->orderBy('id', 'DESC')->paginate(100);
+            ->orderBy('id', 'DESC')->paginate(250);
        return view('admin.receiver-people.index', compact('driver', 'receiverPeople','regions', 'drivers'));
     }
 

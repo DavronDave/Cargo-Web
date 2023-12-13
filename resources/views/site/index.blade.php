@@ -130,7 +130,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Dave - Cargo</title>
     <style>
         @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
         /* Base */
@@ -206,7 +206,8 @@
 </head>
 <body>
 <div class="container" style="text-align: center; align-content: center; width: 100%; background-color: white">
-    <h1 id="dynamicH1" style="margin-left: 6%">Мы доставляем почтовые услуги из России в Узбекистан....</h1>
+    <h1 id="dynamicH1" style="margin-left: 6%">Мы доставляем почтовые услуги из <strong>России</strong> в <strong>Узбекистан</strong>....
+    </h1>
     <img style="max-width: 80%; height: auto;" src="{{asset('site/assets/images/delivery1.jpg')}}">
     <h2 style="color: #233863; ">+998(94)-476-52-41</h2>
 </div>

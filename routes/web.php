@@ -24,6 +24,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProductCategoriesController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ReceiverPersonController;
 use App\Http\Controllers\RegionController;
@@ -71,6 +72,8 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.', ],
         Route::resource('invoices', InvoiceController::class);
         Route::resource('drivers', DriverController::class);
         Route::resource('sender-people', SenderPersonController::class);
+        Route::resource('product-list', ProductListController::class);
+
 //        Route::resource('receiver-people', ReceiverPersonController::class);
 
 //        Route::get('/driver/invoices/{driver}', [DriverInvoiceController::class, 'invoices'])->name('driver.invoices');
@@ -91,9 +94,11 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.', ],
         Route::get('/invoice/invoice={invoice}/project={project}', [InvoiceController::class, 'edit'])->name('invoice.edit');
         Route::put('/invoice/invoice={invoice}/project={project}', [InvoiceController::class, 'update'])->name('invoice.update');
 
-    Route::post('/invoices/{project}', [InvoiceController::class, 'importPassports'])->name('invoice.import');
+        Route::post('/invoices/{project}', [InvoiceController::class, 'importPassports'])->name('invoice.import');
 
-    Route::post('/move-invoices', [InvoiceController::class, 'moveInvoices'])->name('move-invoices');
+        Route::post('/move-invoices', [InvoiceController::class, 'moveInvoices'])->name('move-invoices');
+
+        Route::post('/copy-list-products-to-invoice', [InvoiceController::class, 'copyListProductsToInvoice'])->name('copy-invoices');
 
 
     //Route::post('/invoice/invoice={invoice}', [InvoiceController::class, 'destroy'])->name('invoice.destroy');
@@ -110,6 +115,8 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.', ],
         Route::get('/generate-manifest/{project}', [PDFController::class, 'PDFManifest'])->name('pdf.manifest');
 
         Route::get('/proforma', [PDFController::class, 'tnved']);
+
+
 
         //Excel
         Route::get('/export-invoices/{project}', [ExportController::class, 'InvoiceProductExport'])->name('excel.invoices');

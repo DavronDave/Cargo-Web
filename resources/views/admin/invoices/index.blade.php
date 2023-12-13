@@ -19,7 +19,7 @@
 {{--                       style="margin: 8px !important"--}}
 {{--                       >Save <i class="fa fa-save"></i>--}}
 {{--                    </a>--}}
-                    <button class="btn btn-success pull-right btn-xs  m-5" style="width: 70px; height: 30px" type="submit">Save</button>
+                    <button class="btn btn-success pull-right btn-xs  m-5" style="width: 70px; height: 30px" type="submit">Сохранять</button>
                     <div class="panel-heading">
                         <h4 class="panel-title">Список</h4>
                     </div>

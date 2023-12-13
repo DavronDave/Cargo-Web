@@ -3,7 +3,7 @@
 	<div class="container-fluid" style="background-color: #091f1d;">
 		<!-- begin mobile sidebar expand / collapse button -->
 		<div class="navbar-header">
-			<p style="font-size: 40px; align-content: center; padding: 3px; color: white">Cargo</p>
+			<p style="font-size: 40px; align-content: center; padding: 3px; color: white">Dave-cargo</p>
 			<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>

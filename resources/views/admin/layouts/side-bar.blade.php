@@ -35,12 +35,12 @@
             </li>
 
             <li class="@yield('products')">
-                @can('view', \App\Models\Product::class)
+{{--                @can('view', \App\Models\Product::class)--}}
                 <a href="{{route('admin.products.index')}}">
                     <i class="fa fa-product-hunt"></i>
                     <span>Продукты</span>
                 </a>
-                @endcan
+{{--                @endcan--}}
             </li>
 
             <li class="@yield('projects')">
@@ -53,7 +53,7 @@
             <li class="@yield('drivers')">
                 <a href="{{route('admin.drivers.index')}}">
                     <i class="fa fa-drivers-license"></i>
-                    <span>Водитель инвойс</span>
+                    <span>Водитель паспорта</span>
                 </a>
             </li>
 
@@ -63,6 +63,14 @@
                     <span>Отправители</span>
                 </a>
             </li>
+
+            <li class="@yield('products-list')">
+                <a href="{{route('admin.product-list.index')}}">
+                    <i class="fa fa-list"></i>
+                    <span>Инвойс продуктов</span>
+                </a>
+            </li>
+
             <li class="@yield('incoterms')">
                 @can('view', \App\Models\Product::class)
                 <a href="{{route('admin.incoterms.index')}}">

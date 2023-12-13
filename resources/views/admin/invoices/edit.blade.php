@@ -16,13 +16,13 @@
                     @csrf
                     @method('PUT')
                 <div class="panel panel-inverse">
-{{--                    <a href="" class="btn btn-success pull-right btn-xs"--}}
-{{--                       style="margin: 8px !important"--}}
-{{--                       >Save <i class="fa fa-save"></i>--}}
+                    <button class="btn btn-warning pull-right btn-xs  m-5" style="width: 100px; height: 30px" type="submit">Сохранять <i class="fa fa-save"></i></button>
+{{--                    <a href="" class="btn btn-success pull-left m-5" style="width: 160px; height: 30px; margin-left: 200px" onclick="importProducts()">Импорт продукти <i class="fa fa-plus"></i>--}}
 {{--                    </a>--}}
-                    <button class="btn btn-success pull-right btn-xs  m-5" style="width: 70px; height: 30px" type="submit">Save</button>
-                    <div class="panel-heading">
-                        <h4 class="panel-title">Список</h4>
+                    <a href="#" id="importButton" class="btn btn-success pull-left m-5" style="width: 160px; height: 30px; margin-left: 200px">Импорт продукти <i class="fa fa-plus"></i></a>
+
+                    <div class="panel-heading" style="height: 40px">
+{{--                        <h4 class="panel-title"></h4>--}}
                     </div>
                     <div class="panel-body m-20" style="min-height: 510px">
                         <div id="data-table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
@@ -232,6 +232,93 @@
         $(document).on('click', '#remove', function () {
             $(this).closest('tr').remove();
         });
+
+        {{--function importProducts() {--}}
+        {{--    // Make an AJAX request to fetch data from the backend--}}
+        {{--    $.ajax({--}}
+        {{--        url: '/admin/copy-list-products-to-invoice', // Adjust the URL to your Laravel route--}}
+        {{--        method: 'POST',--}}
+        {{--        data: {--}}
+        {{--            invoice_id: '{{ $invoice->id }}', // Pass the invoice ID or any other necessary data--}}
+        {{--            _token: '{{ csrf_token() }}'--}}
+        {{--        },--}}
+        {{--        success: function (data) {--}}
+        {{--            // Process the fetched data and update the view dynamically--}}
+        {{--            processImportedData(data);--}}
+        {{--        },--}}
+        {{--        error: function (xhr, status, error) {--}}
+        {{--            console.error('Error fetching data:', error);--}}
+        {{--        }--}}
+        {{--    });--}}
+        {{--}--}}
+
+        function importProducts(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Make an AJAX request to fetch data from the backend
+            $.ajax({
+                url: '/admin/copy-list-products-to-invoice', // Adjust the URL to your Laravel route
+                method: 'POST',
+                data: {
+                    invoice_id: '{{ $invoice->id }}', // Pass the invoice ID or any other necessary data
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function (data) {
+                    // Process the fetched data and update the view dynamically
+                    processImportedData(data);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        }
+
+        // Attach the importProducts() function to the click event of the import button
+        $(document).ready(function () {
+            $('#importButton').on('click', importProducts);
+        });
+
+
+        function processImportedData(data) {
+            // Clear existing rows in the table
+            // $('tbody').empty();
+
+            // Loop through the fetched data and add rows to the table
+            data.forEach(function (item) {
+                addImportedRow(item);
+            });
+        }
+
+        function addImportedRow(importedData) {
+            var rowCount = $('tbody tr').length + 1;
+            var html = '<tr>';
+            html += '<th scope="row">' + rowCount + '</th>';
+
+            // Create a dynamic unique ID for the select element
+            var selectId = 'product_id_' + rowCount;
+
+            html += '<td><select name="product_id[]" id="' + selectId + '" class="form-control selectize-select" style="width: 220px"><option value="">Выбрать...</option>';
+
+            // Loop through products and add options
+            @foreach ($products as $key => $product)
+                html += '<option value="{{ $product->id }}" ' + (importedData.product_id == {{ $product->id }} ? 'selected' : '') + '>{{ $product->name }}</option>';
+            @endforeach
+
+                html += '</select></td>';
+            html += '<td><input type="number" name="quantity[]" class="form-control" value="' + importedData.quantity + '"></td>';
+            html += '<td><input type="number" name="price[]" class="form-control" value="' + importedData.price + '"></td>';
+            html += '<td><button type="button" class="btn btn-danger" id="remove"><i class="glyphicon glyphicon-remove"></i></button></td>';
+            html += '</tr>';
+            $('tbody').append(html);
+
+            // Initialize selectize on the newly added select element
+            $('#' + selectId).selectize({
+                sortField: 'text'
+            });
+        }
+
+
 
     </script>
 @endsection
