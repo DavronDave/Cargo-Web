@@ -3,7 +3,9 @@
 	<div class="container-fluid" style="background-color: #091f1d;">
 		<!-- begin mobile sidebar expand / collapse button -->
 		<div class="navbar-header">
-			<p style="font-size: 40px; align-content: center; padding: 3px; color: white">Dave-cargo</p>
+			<div>
+                <p class="dave-cargo" style="font-size: 40px; align-content: center; padding: 3px; color: white" >Dave cargo</p>
+            </div>
 			<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -93,3 +95,20 @@
 	</div>
 	<!-- end container-fluid -->
 </div>
+<style>
+    .dave-cargo {
+        font-family: 'Arial', sans-serif;
+        color: #007BFF;
+        text-shadow: 2px 2px #000;
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px #00E, 0 0 20px #00E, 0 0 30px #00E, 0 0 40px #00E, 0 0 50px #00E, 0 0 60px #00E, 0 0 70px #00E;
+        }
+
+        to {
+            text-shadow: 0 0 20px #00E, 0 0 30px #FF8, 0 0 40px #FF8, 0 0 50px #FF8, 0 0 60px #FF8, 0 0 70px #FF8, 0 0 80px #FF8;
+        }
+    }
+</style>

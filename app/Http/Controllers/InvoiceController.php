@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\DataLog;
 use App\Models\Driver;
 use App\Models\Invoice;
 use App\Models\InvoiceProduct;
@@ -14,6 +15,7 @@ use App\Models\SenderPerson;
 use Carbon\Carbon;
 use Carbon\Traits\Date;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
@@ -23,7 +25,7 @@ class InvoiceController extends Controller
      */
     public function index(Project $project)
     {
-    $project_id = $project->id;
+        $project_id = $project->id;
         $passport = 'FA1391255';
 
 //        $receiverPeopleWithTotalPrice = ReceiverPerson::with('invoices.invoiceProducts')
@@ -88,10 +90,11 @@ class InvoiceController extends Controller
      */
     public function create(Project $project)
     {
+        $last_invoice = Invoice::latest()->first();
         $regions = Region::all();
 //        dd($regions);
         $products = Product::all();
-        return view('admin.invoices.index', compact('regions', 'products', 'project'));
+        return view('admin.invoices.index', compact('regions', 'products', 'project', 'last_invoice'));
     }
 
     /**
@@ -126,12 +129,26 @@ class InvoiceController extends Controller
         $cleanedPhoneNumber = preg_replace('/[^0-9]/', '', $request->receiver_phone);
 
         // Create a new Invoice instance and fill it with the validated data
-        $invoice = new Invoice($validatedData);
+        $invoice = new Invoice();
 
+        $invoice->number = $validatedData['number'];
+        $invoice->sender_fullname = $validatedData['sender_fullname'];
+        $invoice->receiver_fullname = $validatedData['receiver_fullname'];
+        $invoice->address_id = $validatedData['address_id'];
+        $invoice->weight = $validatedData['weight'];
         $invoice->project_id = $project->id;
         $invoice->ready_date = Carbon::now();
         $invoice->receiver_phone = $cleanedPhoneNumber;
         $invoice->receiver_passport=strtoupper($request->receiver_passport);
+
+        if ($invoice->isCompleted==1 and $request->weight!=null)
+        {
+            DataLog::create([
+                'user_id' => Auth::id(),
+                'action_type' => 'update', // or 'update'
+                'data_type' => 'invoices',
+            ]);
+        }
         if ($request->weight!=null)
         {
             $invoice->isCompleted = 1;
@@ -156,7 +173,12 @@ class InvoiceController extends Controller
             $invoice->invoiceProducts()->save($invoiceProduct);
         }
 
-         return redirect()->route('admin.invoice.index', ['project' => $project->id]);
+        DataLog::create([
+            'user_id' => Auth::id(),
+            'action_type' => 'save', // or 'update'
+            'data_type' => 'invoices',
+        ]);
+        return redirect()->route('admin.invoice.index', ['project' => $project->id]);
     }
 
     public function copyListProductsToInvoice(Request $request)
@@ -212,7 +234,14 @@ class InvoiceController extends Controller
 //            'price' => 'required|array',
 //            'price.*' => 'required|numeric',
         ]);
-
+        if ($invoice->isCompleted==0 and $request->weight!=null)
+        {
+            DataLog::create([
+                'user_id' => Auth::id(),
+                'action_type' => 'update', // or 'update'
+                'data_type' => 'invoices',
+            ]);
+        }
         // Update the existing Invoice instance with the validated data
         if ($request->weight!=null)
         {
@@ -302,7 +331,7 @@ class InvoiceController extends Controller
             // agar invoice bolsa
 //            $number = $invoice->number;
 //        dd($number);
-        $number = 1;
+            $number = 1;
 //        dd($number);
             // Create invoices based on the retrieved receiver_people data
             foreach ($receiverPeople as $key => $receiverPerson)
@@ -324,7 +353,7 @@ class InvoiceController extends Controller
                 ];
                 // Create a new invoice record
                 Invoice::create($invoiceData);
-            $number++;
+                $number++;
             }
         }
         return redirect()->route('admin.invoice.index', ['project' => $project->id]);

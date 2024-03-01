@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\DataLog;
 use App\Models\Driver;
 use App\Models\ReceiverPerson;
 use App\Models\Region;
 use Illuminate\Http\Request;
 //use Psy\Util\Str;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class ReceiverPersonController extends Controller
@@ -57,6 +59,12 @@ class ReceiverPersonController extends Controller
         $receiverPerson->address_id = $request->address_id;
         $receiverPerson->driver_id = $id;
         $receiverPerson->save();
+
+        DataLog::create([
+            'user_id' => Auth::id(),
+            'action_type' => 'save', // or 'update'
+            'data_type' => 'passport',
+        ]);
 
         return response()->json([
             'status' => 200

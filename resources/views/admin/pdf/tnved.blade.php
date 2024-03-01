@@ -28,7 +28,7 @@
             vertical-align: top; /* Align the companies at the top of the container */
         }
         .company p {
-           margin-bottom: -17px;
+            margin-bottom: -17px;
             font-size: 10px;
         }
 
@@ -164,7 +164,7 @@
     </thead>
     <tbody>
     @php
-    $number = 1;
+        $number = 1;
     @endphp
     @foreach($categoriesData as $index => $categoryData)
         <tr>
@@ -173,40 +173,66 @@
             <td>{{ $categoryData['quantity'] }}</td>
             <td>{{ $categoryData['code'] }}</td>
             <td>{{ $categoryData['normalized_ratio'] }}</td>
+            {{--            <td>--}}
+            {{--                @if($categoryData['code']=='9503001009')--}}
+            {{--                    {{$categoryData['quantity'] * 12 }}--}}
+            {{--                @elseif($categoryData['code']=='4820900000')--}}
+            {{--                    {{ (int) ($categoryData['quantity'] / 4) }}--}}
+            {{--                @elseif($categoryData['code']=='6309000000')--}}
+            {{--                    {{(int) ($categoryData['quantity'] / 1.9 )}}--}}
+            {{--                @elseif($categoryData['code']=='6405909000')--}}
+            {{--                    {{(int) ($categoryData['quantity'] / 1.1) }}--}}
+            {{--                @elseif($categoryData['code']=='3306900000')--}}
+            {{--                    {{(int) ($categoryData['quantity'] / 1.8) }}--}}
+            {{--                @elseif($categoryData['code']=='1901100000')--}}
+            {{--                    {{(int) ($categoryData['quantity'] / 1.2) }}--}}
+            {{--                @elseif($categoryData['code']=='9503007000')--}}
+            {{--                    {{(int) ($categoryData['quantity'] / 1.1) }}--}}
+            {{--                @elseif($categoryData['code']=='8205598099')--}}
+            {{--                    {{(int) ($categoryData['quantity'] * 2.1) }}--}}
+            {{--                @elseif($categoryData['code']=='8418215900')--}}
+            {{--                    {{(int) ($categoryData['quantity'] * 19) }}--}}
+            {{--                @elseif($categoryData['code']=='3924100000')--}}
+            {{--                    {{(int) ($categoryData['quantity'] * 7.5) }}--}}
+            {{--                @elseif($categoryData['code']=='8421230000')--}}
+            {{--                    {{(int) ($categoryData['quantity'] * 1.5) }}--}}
+            {{--                @endif--}}
+            {{--                {{$categoryData['normalized_ratio']}}--}}
+            {{--            </td>--}}
             <td>{{ $categoryData['price'] }}</td>
         </tr>
         {{$number++}}
     @endforeach
-{{--    <tr>--}}
-{{--        <td></td>--}}
-{{--        <td>Overall</td>--}}
-{{--        <td>{{ $overallQuantities }}</td>--}}
-{{--        <td></td>--}}
-{{--        <td>{{ $overallWeights }}</td>--}}
-{{--        <td>{{ $overallPrices }}</td>--}}
-{{--    </tr>--}}
+    {{--    <tr>--}}
+    {{--        <td></td>--}}
+    {{--        <td>Overall</td>--}}
+    {{--        <td>{{ $overallQuantities }}</td>--}}
+    {{--        <td></td>--}}
+    {{--        <td>{{ $overallWeights }}</td>--}}
+    {{--        <td>{{ $overallPrices }}</td>--}}
+    {{--    </tr>--}}
     </tbody>
 </table>
 <div class="additional-info">
-<div class="info-pair">
-    <div class="info-label">Количество мест посылок:</div>
-    <div class="info-value">{{$overallInvoices}} шт</div>
-</div>
+    <div class="info-pair">
+        <div class="info-label">Количество мест посылок:</div>
+        <div class="info-value">{{$overallInvoices}} шт</div>
+    </div>
 
-<div class="info-pair">
-    <div class="info-label">Количество товара:</div>
-    <div class="info-value">{{ $overallQuantities }} шт</div>
-</div>
+    <div class="info-pair">
+        <div class="info-label">Количество товара:</div>
+        <div class="info-value">{{ $overallQuantities }} шт</div>
+    </div>
 
-<div class="info-pair">
-    <div class="info-label">Общий вес:</div>
-    <div class="info-value">{{ $overallWeights }} KG</div>
-</div>
+    <div class="info-pair">
+        <div class="info-label">Общий вес:</div>
+        <div class="info-value">{{ $overallWeights }} КГ</div>
+    </div>
 
-<div class="info-pair">
-    <div class="info-label">Общий стоимость:</div>
-    <div class="info-value">${{ $overallPrices }} USD</div>
-</div>
+    <div class="info-pair">
+        <div class="info-label">Общий стоимость:</div>
+        <div class="info-value">${{ $overallPrices }} USD</div>
+    </div>
 </div>
 
 <p style="font-size: 8px">Declaration Statement: I hereby certify that the information on this invoice is true and correct and the contents and value of this shipment is as stated above</p>
