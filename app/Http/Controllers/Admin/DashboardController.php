@@ -13,48 +13,87 @@ class DashboardController extends Controller
     public function index()
     {
 //        $admin = DataLog::join('users', 'data_logs.user_id', '=', 'users.id')
-//            ->where('users.id', '=', '1')
-//            ->where('data_type','invoices')
-//            ->select('users.full_name as full_name',
+////            ->where('users.id', '=', '1')
+//            ->where('data_logs.created_at', '>=', now()->startOfMonth()) // Filter for the current month
+//            ->select(
+//                'users.full_name as full_name',
 //                DB::raw('TO_CHAR(data_logs.created_at, \'Month\') as month_name'),
-//                DB::raw('count(*) as total'))
+//                DB::raw('SUM(CASE WHEN data_type = \'invoices\' THEN 1 ELSE 0 END) as total_invoices'),
+//                DB::raw('SUM(CASE WHEN data_type = \'passport\' THEN 1 ELSE 0 END) as total_passports')
+//            )
 //            ->groupBy('users.full_name', 'month_name')
 //            ->get();
+//        dd($admin);
 
 //        $moderator = DataLog::join('users', 'data_logs.user_id', '=', 'users.id')
 //            ->where('users.id', '=', '3')
-//            ->where('data_type','invoices')
-//            ->select('users.full_name as full_name',
+//            ->where('data_logs.created_at', '>=', now()->startOfMonth()) // Filter for the current month
+//            ->select(
+//                'users.full_name as full_name',
 //                DB::raw('TO_CHAR(data_logs.created_at, \'Month\') as month_name'),
-//                DB::raw('count(*) as total'))
+//                DB::raw('SUM(CASE WHEN data_type = \'invoices\' THEN 1 ELSE 0 END) as total_invoices'),
+//                DB::raw('SUM(CASE WHEN data_type = \'passport\' THEN 1 ELSE 0 END) as total_passports')
+//            )
 //            ->groupBy('users.full_name', 'month_name')
 //            ->get();
-        $admin = DataLog::join('users', 'data_logs.user_id', '=', 'users.id')
-            ->where('users.id', '=', '1')
-            ->where('data_logs.created_at', '>=', now()->startOfMonth()) // Filter for the current month
+
+        $thisMonth = DataLog::join('users', 'data_logs.user_id', '=', 'users.id')
+//            ->where('users.id', '=', '3')
+            ->whereMonth('data_logs.created_at', '=', now()->month) // Exclude the current month
             ->select(
                 'users.full_name as full_name',
                 DB::raw('TO_CHAR(data_logs.created_at, \'Month\') as month_name'),
                 DB::raw('SUM(CASE WHEN data_type = \'invoices\' THEN 1 ELSE 0 END) as total_invoices'),
-                DB::raw('SUM(CASE WHEN data_type = \'passport\' THEN 1 ELSE 0 END) as total_passports')
+                DB::raw('SUM(CASE WHEN data_type = \'passports\' THEN 1 ELSE 0 END) as total_passports')
             )
             ->groupBy('users.full_name', 'month_name')
             ->get();
-//        dd($admin);
 
-        $moderator = DataLog::join('users', 'data_logs.user_id', '=', 'users.id')
-            ->where('users.id', '=', '3')
-            ->where('data_logs.created_at', '>=', now()->startOfMonth()) // Filter for the current month
+//        $exceptMonth = DataLog::join('users', 'data_logs.user_id', '=', 'users.id')
+////            ->where('users.id', '=', '3')
+//            ->whereMonth('data_logs.created_at', '!=', now()->month) // Exclude the current month
+//            ->select(
+//                'users.full_name as full_name',
+//                DB::raw('TO_CHAR(data_logs.created_at, \'Month\') as month_name'),
+//                DB::raw('SUM(CASE WHEN data_type = \'invoices\' THEN 1 ELSE 0 END) as total_invoices'),
+//                DB::raw('SUM(CASE WHEN data_type = \'passports\' THEN 1 ELSE 0 END) as total_passports')
+//            )
+//            ->groupBy('users.full_name', 'month_name')
+//            ->orderBy('month_name')
+//            ->get();
+
+        $exceptMonth = DataLog::join('users', 'data_logs.user_id', '=', 'users.id')
+            //->where('users.id', '=', '3')
+            ->whereMonth('data_logs.created_at', '!=', now()->month) // Exclude the current month
             ->select(
                 'users.full_name as full_name',
                 DB::raw('TO_CHAR(data_logs.created_at, \'Month\') as month_name'),
+                DB::raw('EXTRACT(YEAR FROM data_logs.created_at) as year'), // Extract year
                 DB::raw('SUM(CASE WHEN data_type = \'invoices\' THEN 1 ELSE 0 END) as total_invoices'),
-                DB::raw('SUM(CASE WHEN data_type = \'passport\' THEN 1 ELSE 0 END) as total_passports')
+                DB::raw('SUM(CASE WHEN data_type = \'passports\' THEN 1 ELSE 0 END) as total_passports')
             )
-            ->groupBy('users.full_name', 'month_name')
+            ->groupBy('users.full_name', 'month_name', 'year')
+            ->orderBy('year', 'desc')
+            ->orderBy('month_name')
             ->get();
 
-        return view('admin.dashboard.index', compact(
-            'moderator', 'admin', 'moderator'));
+        $monthIndices = [
+            'January' => 0,
+            'February' => 1,
+            'March' => 2,
+            'April' => 3,
+            'May' => 4,
+            'June' => 5,
+            'July' => 6,
+            'August' => 7,
+            'September' => 8,
+            'October' => 9,
+            'November' => 10,
+            'December' => 11,
+        ];
+
+
+//        dd($moderatorExcept);
+        return view('admin.dashboard.index', compact('thisMonth', 'exceptMonth', 'monthIndices'));
     }
 }

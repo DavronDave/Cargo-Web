@@ -4,7 +4,7 @@
 		<!-- begin mobile sidebar expand / collapse button -->
 		<div class="navbar-header">
 			<div>
-                <p class="dave-cargo" style="font-size: 40px; align-content: center; padding: 3px; color: white" >Dave cargo</p>
+                <p  style="font-size: 40px; align-content: center; padding: 3px; color: white" >Dave Cargo</p>
             </div>
 			<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 				<span class="icon-bar"></span>

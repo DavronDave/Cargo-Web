@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>ALLTEN</title>
+	<title>Dave - Cargo login page</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -25,7 +25,7 @@
             <!-- begin brand -->
             <div class="login-header">
                 <div class="brand" style="text-align: center; font-size: 40px;  font-family: Apple">
-                    Cargo
+                    Dave - Cargo
                 </div>
             </div>
             <!-- end brand -->

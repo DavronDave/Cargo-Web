@@ -15,7 +15,7 @@
                 <form method="post" action="{{ route('admin.invoice.update', ['invoice' => $invoice->id,'project' => $project->id]) }}" >
                     @csrf
                     @method('PUT')
-                <div class="panel panel-inverse">
+                <div class="panel panel-inverse" >
                     <button class="btn btn-warning pull-right btn-xs  m-5" style="width: 100px; height: 30px" type="submit">Сохранять <i class="fa fa-save"></i></button>
 {{--                    <a href="" class="btn btn-success pull-left m-5" style="width: 160px; height: 30px; margin-left: 200px" onclick="importProducts()">Импорт продукти <i class="fa fa-plus"></i>--}}
 {{--                    </a>--}}
@@ -24,7 +24,7 @@
                     <div class="panel-heading" style="height: 40px">
 {{--                        <h4 class="panel-title"></h4>--}}
                     </div>
-                    <div class="panel-body m-20" style="min-height: 510px">
+                    <div class="panel-body m-20" style="min-height: 400px; ">
                         <div id="data-table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                             <div class="row">
                                 <div class="col-md-3">
