@@ -7,6 +7,7 @@ use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\Admin\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -22,12 +23,21 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::sortable()
-            ->orderBy('created_at', 'DESC')
-            ->paginate(5);
-        $roles = Role::get();
+        $user = Auth::user();
 
-        return view('admin.users.index', compact('users', 'roles'));
+        if ($user && $user->hasRole('admin'))
+        {
+            $users = User::sortable()
+                ->orderBy('created_at', 'DESC')
+                ->paginate(5);
+            $roles = Role::get();
+
+            return view('admin.users.index', compact('users', 'roles'));
+        }
+        else
+        {
+            return view('welcome');
+        }
     }
 
     /**
@@ -48,13 +58,23 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-        $user = User::create($request->except('image'));
-        if($request->has('image')){
-            $user->image = $user->uploadImage($request, 'image', 'users');
+        $user = Auth::user();
+
+        if ($user && $user->hasRole('admin'))
+        {
+            $user = User::create($request->except('image'));
+            if($request->has('image')){
+                $user->image = $user->uploadImage($request, 'image', 'users');
+            }
+            return response()->json([
+                'status' => 200
+            ]);
         }
-        return response()->json([
-            'status' => 200
-        ]);
+        else
+        {
+            return view('welcome');
+        }
+
     }
 
     /**
@@ -65,7 +85,17 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('admin.users.show', compact('user'));
+        $user = Auth::user();
+
+        if ($user && $user->hasRole('admin'))
+        {
+            return view('admin.users.show', compact('user'));
+        }
+        else
+        {
+            return view('welcome');
+        }
+
     }
 
     /**
@@ -76,13 +106,23 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $image = asset($user->image);
+        $user = Auth::user();
 
-        return response()->json([
-            'status' => 200,
-            'user' => $user,
-            'image' => $image
-        ]);
+        if ($user && $user->hasRole('admin'))
+        {
+            $image = asset($user->image);
+
+            return response()->json([
+                'status' => 200,
+                'user' => $user,
+                'image' => $image
+            ]);
+        }
+        else
+        {
+            return view('welcome');
+        }
+
     }
 
     /**
@@ -94,16 +134,26 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {
-        if($request->has('image')){
-            $user->image = $user->uploadImage($request->image, 'image', 'users', $user->image);
+        $user = Auth::user();
+
+        if ($user && $user->hasRole('admin'))
+        {
+            if($request->has('image')){
+                $user->image = $user->uploadImage($request->image, 'image', 'users', $user->image);
+            }
+            if($request->password && $request->password == $request->password_confirm){
+                $user->password = Hash::make($request->password);
+            }
+            $user->update($request->except(['image', 'password', 'password_confirm', 'user_id']));
+            return response()->json([
+                'status' => 200
+            ]);
         }
-        if($request->password && $request->password == $request->password_confirm){
-            $user->password = Hash::make($request->password);
+        else
+        {
+            return view('welcome');
         }
-        $user->update($request->except(['image', 'password', 'password_confirm', 'user_id']));
-        return response()->json([
-            'status' => 200
-        ]);
+
     }
 
     /**
@@ -114,10 +164,20 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        if(file_exists($user->image)){
-            unlink($user->image);
+        $user = Auth::user();
+
+        if ($user && $user->hasRole('admin'))
+        {
+            if(file_exists($user->image)){
+                unlink($user->image);
+            }
+            $user->delete();
+            return redirect()->route('admin.users.index');
         }
-        $user->delete();
-        return redirect()->route('admin.users.index');
+        else
+        {
+            return view('welcome');
+        }
+
     }
 }

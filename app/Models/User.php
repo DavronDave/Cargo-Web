@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Http\Traits\FileUpload;
 use App\Models\Admin\Role;
+use App\Models\Admin\RolePermission;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -41,6 +42,32 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public static function getCurrentPermissions()
+    {
+        $objects = [];
+        $user = self::getCurrentUser();
+
+        if ($user != null) {
+            return RolePermission::leftJoin('permission', 'role_permission.permission_id', '=', 'permission.id')
+                ->where('role_id', $user->role_id)
+                ->select(['permission.key as key', 'role_permission.value as value'])
+                ->pluck('value', 'key')->all();
+        } else {
+            // Handle the case where the user is null (e.g., not logged in)
+            return [];
+        }
+    }
+
+    public static function getCurrentUser()
+    {
+        return auth()->user();
+    }
+    public function hasRole($role)
+    {
+        return $this->role()->where('key', $role)->exists();
+    }
+
 
     public function role()
     {

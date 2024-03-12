@@ -11,10 +11,12 @@
         <div class="row">
             <div class="col-md-12 ui-sortable">
                 <div class="panel panel-inverse">
+                    @if($userPermission['Add invoice product']==1)
                     <a href="#modal-dialog-create" class="btn btn-success pull-right btn-xs"
                        style="margin: 8px !important"
                        data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
                     </a>
+                    @endif
                     <div class="panel-heading">
                         <h4 class="panel-title">Список</h4>
                     </div>
@@ -71,10 +73,12 @@
 {{--                                                    <a href="#modal-dialog-edit" class=" btn btn-xs btn-info" title="Изменить">--}}
 {{--                                                        <i class="fa fa-pencil-square-o" onclick="getProductData({{$product->id}})"></i>--}}
 {{--                                                    </a>--}}
+                                                    @if($userPermission['Delete invoice product']==1)
                                                     <a href="#modal-dialog-delete{{$product->id}}" class="btn btn-xs btn-danger"
                                                        data-toggle="modal" title="Удалить">
                                                         <i class="fa fa-trash-o"></i>
                                                     </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             @include('admin.product-list.delete')

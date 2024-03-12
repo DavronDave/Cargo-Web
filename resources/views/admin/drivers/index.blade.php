@@ -12,10 +12,12 @@
         <div class="row">
             <div class="col-md-12 ui-sortable">
                 <div class="panel panel-inverse">
-                    <a href="#modal-dialog-create" class="btn btn-success pull-right btn-xs"
-                       style="margin: 8px !important"
-                       data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
-                    </a>
+                    @if($userPermission['Add driver']==1)
+                        <a href="#modal-dialog-create" class="btn btn-success pull-right btn-xs"
+                           style="margin: 8px !important"
+                           data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
+                        </a>
+                    @endif
                     <div class="panel-heading">
                         <h4 class="panel-title">Список</h4>
                     </div>
@@ -69,21 +71,27 @@
                                                 <td>{{$driver->company->name}}</td>
                                                 <td>{{ $driver->receiverPeople->count() }}</td>
                                                 <td>
-                                                    <a href="#modal-dialog-edit" class=" btn btn-xs btn-info"
-                                                       title="Изменить">
-                                                        <i class="fa fa-pencil-square-o"
-                                                           onclick="getDriverInvoiceData({{$driver->id}})"></i>
-                                                    </a>
-                                                    <a href="#modal-dialog-delete{{$driver->id}}"
-                                                       class="btn btn-xs btn-danger"
-                                                       data-toggle="modal" title="Удалить">
-                                                        <i class="fa  fa-trash-o"></i>
-                                                    </a>
-                                                    <a href="{{route('admin.driver-receiver.index', ['driver'=> $driver->id])}}"
-                                                       class="btn btn-xs btn-primary"
-                                                       title="Invoices"> Паспорта
-                                                        <i class="fa"></i>
-                                                    </a>
+                                                    @if($userPermission['Edit driver']==1)
+                                                        <a href="#modal-dialog-edit" class=" btn btn-xs btn-info"
+                                                           title="Изменить">
+                                                            <i class="fa fa-pencil-square-o"
+                                                               onclick="getDriverInvoiceData({{$driver->id}})"></i>
+                                                        </a>
+                                                    @endif
+                                                    @if($userPermission['Delete driver']==1)
+                                                        <a href="#modal-dialog-delete{{$driver->id}}"
+                                                           class="btn btn-xs btn-danger"
+                                                           data-toggle="modal" title="Удалить">
+                                                            <i class="fa  fa-trash-o"></i>
+                                                        </a>
+                                                    @endif
+                                                    @if($userPermission['Passports']==1)
+                                                        <a href="{{route('admin.driver-receiver.index', ['driver'=> $driver->id])}}"
+                                                           class="btn btn-xs btn-primary"
+                                                           title="Invoices"> Паспорта
+                                                            <i class="fa"></i>
+                                                        </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             @include('admin.drivers.delete')

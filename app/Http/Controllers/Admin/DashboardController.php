@@ -39,7 +39,7 @@ class DashboardController extends Controller
 
         $thisMonth = DataLog::join('users', 'data_logs.user_id', '=', 'users.id')
 //            ->where('users.id', '=', '3')
-            ->whereMonth('data_logs.created_at', '=', now()->month) // Exclude the current month
+            ->whereMonth('data_logs.created_at', '=', now()->month)
             ->select(
                 'users.full_name as full_name',
                 DB::raw('TO_CHAR(data_logs.created_at, \'Month\') as month_name'),

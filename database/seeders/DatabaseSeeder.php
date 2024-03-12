@@ -33,5 +33,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ReceiverPeopleTableSeeder::class);
 
 
+        $this->call(ModuleTableSeeder::class);
+        $this->call(PermissionTableSeeder::class);
+        $this->call(RolePermissionTableSeeder::class);
     }
 }

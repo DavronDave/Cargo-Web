@@ -30,6 +30,7 @@ use App\Http\Controllers\ReceiverPersonController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\SenderPersonController;
 use App\Http\Controllers\SiteController;
+use App\Models\Admin\Role;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,6 +54,9 @@ Route::post('/admin/authenticate', [AuthController::class, 'authenticate'])->nam
 Route::get('admin/languages/active/{id}', [LanguageController::class, 'active'])->name('admin.languages.active');
 
 
+
+
+//Route::group(['middleware' => ['auth', 'checkRole:' . Role::ADMIN], 'prefix' => '/admin', 'as' => 'admin.'], function (){
 Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.', ], function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
@@ -73,6 +77,13 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.', ],
         Route::resource('drivers', DriverController::class);
         Route::resource('sender-people', SenderPersonController::class);
         Route::resource('product-list', ProductListController::class);
+
+
+        // Role permissions
+        Route::get('role-actions', [RoleController::class, 'actions'])->name('role.actions');
+        Route::post('role-actions', [RoleController::class, 'change'])->name('role.change');
+
+
 
 //        Route::resource('receiver-people', ReceiverPersonController::class);
 

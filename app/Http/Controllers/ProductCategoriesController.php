@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductCategoriesController extends Controller
 {
@@ -12,8 +13,17 @@ class ProductCategoriesController extends Controller
      */
     public function index()
     {
-        $productCategories = ProductCategory::sortable()->orderBy('id', 'DESC')->paginate(15);
-        return view('admin.product-categories.index', compact('productCategories'));
+        $user = Auth::user();
+        if ($user && $user->hasRole('admin'))
+        {
+            $productCategories = ProductCategory::sortable()->orderBy('id', 'DESC')->paginate(15);
+            return view('admin.product-categories.index', compact('productCategories'));
+        }
+        else
+        {
+            return view('welcome');
+        }
+
     }
 
     /**
@@ -81,7 +91,14 @@ class ProductCategoriesController extends Controller
      */
     public function destroy(ProductCategory $product_category)
     {
-        $product_category->delete();
-        return redirect()->route('admin.product-categories.index');
+        $user = Auth::user();
+
+        if ($user && $user->hasRole('admin')) {
+            $product_category->delete();
+            return redirect()->route('admin.product-categories.index');
+        } else {
+            return view('welcome');
+        }
+
     }
 }

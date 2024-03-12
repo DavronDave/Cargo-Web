@@ -12,10 +12,12 @@
         <div class="row">
             <div class="col-md-12 ui-sortable">
                 <div class="panel panel-inverse">
-                    <a href="#modal-dialog-create" class="btn btn-success pull-right btn-xs"
-                       style="margin: 8px !important"
-                       data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
-                    </a>
+                    @if($userPermission['Add incoterm']==1)
+                        <a href="#modal-dialog-create" class="btn btn-success pull-right btn-xs"
+                           style="margin: 8px !important"
+                           data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
+                        </a>
+                    @endif
                     <div class="panel-heading">
                         <h4 class="panel-title">Список</h4>
                     </div>
@@ -53,16 +55,20 @@
                                                 <td>{{($incoterms->currentpage()-1)*$incoterms->perpage() +($loop->index+1)}}</td>
                                                 <td>{{$incoterm->name}}</td>
                                                 <td>
-                                                    <a href="#modal-dialog-edit" class=" btn btn-xs btn-info"
-                                                       title="Изменить">
-                                                        <i class="fa fa-pencil-square-o"
-                                                           onclick="getProductCategoryData({{$incoterm->id}})"></i>
-                                                    </a>
-                                                    <a href="#modal-dialog-delete{{$incoterm->id}}"
-                                                       class="btn btn-xs btn-danger"
-                                                       data-toggle="modal" title="Удалить">
-                                                        <i class="fa  fa-trash-o"></i>
-                                                    </a>
+                                                    @if($userPermission['Edit incoterm']==1)
+                                                        <a href="#modal-dialog-edit" class=" btn btn-xs btn-info"
+                                                           title="Изменить">
+                                                            <i class="fa fa-pencil-square-o"
+                                                               onclick="getProductCategoryData({{$incoterm->id}})"></i>
+                                                        </a>
+                                                    @endif
+                                                    @if($userPermission['Delete incoterm']==1)
+                                                        <a href="#modal-dialog-delete{{$incoterm->id}}"
+                                                           class="btn btn-xs btn-danger"
+                                                           data-toggle="modal" title="Удалить">
+                                                            <i class="fa  fa-trash-o"></i>
+                                                        </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             @include('admin.incoterms.delete')
@@ -71,17 +77,17 @@
                                     </table>
                                 </div>
                             </div>
-{{--                            <div class="row">--}}
-{{--                                <div class="col-sm-12">--}}
-{{--                                    <div class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">--}}
-{{--                                        <ul class="pagination pull-right">--}}
-{{--                                            <li>--}}
-{{--                                                {{$countries->links()}}--}}
-{{--                                            </li>--}}
-{{--                                        </ul>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            {{--                            <div class="row">--}}
+                            {{--                                <div class="col-sm-12">--}}
+                            {{--                                    <div class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">--}}
+                            {{--                                        <ul class="pagination pull-right">--}}
+                            {{--                                            <li>--}}
+                            {{--                                                {{$countries->links()}}--}}
+                            {{--                                            </li>--}}
+                            {{--                                        </ul>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
                         </div>
                     </div>
                 </div>

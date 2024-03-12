@@ -28,7 +28,7 @@
                                         <th style="width: 20px; padding: 30px 0; text-align: center" rowspan="2">№</th>
                                         <th>@sortablelink('name', 'Значение')</th>
                                         <th>@sortablelink('key', 'Ключ')</th>
-                                        <th style="width: 70px; text-align: center"><b>Действия</b></th>
+                                        <th style="width: 150px; text-align: center"><b>Действия</b></th>
                                     </tr>
                                     <tr>
                                         <form class="form-inline" method="GET">
@@ -55,6 +55,10 @@
                                             <td>{{$role->getTranslation('name', $lang)}}</td>
                                             <td>{{$role->key}}</td>
                                             <td>
+                                                <a href="{{route('admin.role.actions', ['role_id'=>$role->id])}}" title="{{__('action.change')}}"
+                                                   class="btn btn-xs btn-warning mr-1 edit">
+                                                    <i class="fa fa-users"></i>
+                                                </a>
                                                 <a href="#modal-dialog-show" class="btn btn-xs btn-success" onclick="showRole({{$role->id}})" title="Показать">
                                                     <i class="fa  fa-eye"></i>
                                                 </a>

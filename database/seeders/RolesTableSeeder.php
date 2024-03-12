@@ -34,6 +34,13 @@ class RolesTableSeeder extends Seeder
                     'created_at' => NULL,
                     'updated_at' => NULL,
                 ),
+            2 =>
+                array (
+                    'id' => 3,
+                    'key' => 'user',
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
+                ),
         ));
 
 //        $id = DB::table('roles')->orderBy('id', 'DESC')->first();

@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\RoleSaveRequest;
 use App\Models\Admin\Role;
+use App\Models\Admin\RolePermission;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class RoleController extends Controller
 {
@@ -99,5 +102,50 @@ class RoleController extends Controller
         $role->translates()->delete();
         $role->delete();
         return redirect()->route('admin.roles.index');
+    }
+
+    public function actions(Request $request)
+    {
+        if (is_numeric($request['role_id'])) {
+            $role_id = (int)$request['role_id'];
+
+//            $modules = Module::with(['permissions' => function ($query) {
+//                $query->with(['role_permissions']);
+//            }])->where('id', '<>', 1)->get();
+
+            $modules = Module::with('permissions')->orderBy('id')->get();
+
+//            dd($modules);
+            return view('admin.roles.actions', [
+                'modules' => $modules,
+                'role' => Role::find($role_id)]);
+        } else {
+            abort(404);
+        }
+    }
+
+    public function change(Request $request)
+    {
+        $this->validatorRole($request->all())->validate();
+
+        RolePermission::updateOrCreate([
+            'permission_id' => $request['action_id'],
+            'role_id' => $request['role_id'],
+        ], [
+            'value' => $request['value']
+        ]);
+        return __('Разрешение изменено');
+    }
+
+    protected function validatorRole(array $data)
+    {
+        $validate = [
+            'action_id' => 'required|exists:permission,id',
+            'role_id' => 'required||exists:roles,id',
+            '_token' => 'required',
+            'value' => 'required',
+        ];
+        $validator = Validator::make($data, $validate);
+        return $validator;
     }
 }

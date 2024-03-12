@@ -12,10 +12,12 @@
         <div class="row">
             <div class="col-md-12 ui-sortable">
                 <div class="panel panel-inverse">
-                    <a href="#modal-dialog-create" class="btn btn-success pull-right btn-xs"
-                       style="margin: 8px !important"
-                       data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
-                    </a>
+                    @if($userPermission['Add']==1)
+                        <a href="#modal-dialog-create" class="btn btn-success pull-right btn-xs"
+                           style="margin: 8px !important"
+                           data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
+                        </a>
+                    @endif
                     <div class="panel-heading">
                         <h4 class="panel-title">Список</h4>
                     </div>
@@ -76,21 +78,26 @@
                                                 <td>{{$product->code}}</td>
                                                 <td>{{$product->position}}</td>
                                                 <td>{{$product->category->name}}</td>
-                                                <td>
+                                                <td style="text-align: center">
 {{--                                                    <a href="#modal-dialog-show" class="btn btn-xs btn-success"--}}
 {{--                                                       onclick="showclient({{$product->id}})" title="Показать">--}}
 {{--                                                        <i class="fa  fa-eye"></i>--}}
 {{--                                                    </a>--}}
+                                                    @if($userPermission['Edit']==1)
                                                     <a href="#modal-dialog-edit" class=" btn btn-xs btn-info"
                                                        title="Изменить">
                                                         <i class="fa fa-pencil-square-o"
                                                            onclick="getProductData({{$product->id}})"></i>
                                                     </a>
+                                                    @endif
+{{--                                                    @dd($userPermission['Delete'])--}}
+                                                    @if($userPermission['Delete']==1)
                                                     <a href="#modal-dialog-delete{{$product->id}}"
                                                        class="btn btn-xs btn-danger"
                                                        data-toggle="modal" title="Удалить">
                                                         <i class="fa  fa-trash-o"></i>
                                                     </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             @include('admin.products.delete')

@@ -17,17 +17,37 @@ class ProfileController extends Controller
 
     public function index()
     {
-        $user = auth()->user();
+        $user = Auth::user();
 
-        return view('admin.profile.index',[
-            'user' => $user
-        ]);
+        if ($user && $user->hasRole('admin'))
+        {
+            $user = auth()->user();
+
+            return view('admin.profile.index',[
+                'user' => $user
+            ]);
+        }
+        else
+        {
+            return view('welcome');
+        }
+
     }
     public function edit(Request $request)
     {
-        return view('admin.profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $user = Auth::user();
+
+        if ($user && $user->hasRole('admin'))
+        {
+            return view('admin.profile.edit', [
+                'user' => $request->user(),
+            ]);
+        }
+        else
+        {
+            return view('welcome');
+        }
+
     }
 
 
@@ -39,19 +59,29 @@ class ProfileController extends Controller
      */
     public function destroy(Request $request)
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current-password'],
-        ]);
+        $user = Auth::user();
 
-        $user = $request->user();
+        if ($user && $user->hasRole('admin'))
+        {
+            $request->validateWithBag('userDeletion', [
+                'password' => ['required', 'current-password'],
+            ]);
 
-        Auth::logout();
+            $user = $request->user();
 
-        $user->delete();
+            Auth::logout();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+            $user->delete();
 
-        return Redirect::to('/');
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            return Redirect::to('/');
+        }
+        else
+        {
+            return view('welcome');
+        }
+
     }
 }

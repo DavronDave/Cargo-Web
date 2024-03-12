@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\UserProviderService;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -172,6 +173,7 @@ return [
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        UserProviderService::class,
     ])->toArray(),
 
     /*

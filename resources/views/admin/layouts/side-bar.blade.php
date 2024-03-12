@@ -1,5 +1,8 @@
 @php
     use App\Models\Admin\Role;
+    use Illuminate\Support\Facades\Auth;
+
+    $userRoles = optional(Auth::user())->roles;
 @endphp
 <div id="sidebar" class="sidebar" style="background-color:#091f1d">
 	<!-- begin sidebar scrollbar -->
@@ -25,14 +28,15 @@
 				</a>
 			</li>
 
-            <li class="@yield('product_categories')">
-                @can('view', \App\Models\Product::class)
-                <a href="{{route('admin.product-categories.index')}}">
-                    <i class="fa fa-product-hunt"></i>
-                    <span>Категории продукта</span>
-                </a>
-                @endcan
-            </li>
+
+            @if(Auth::check() && Auth::user()->role_id  == 1)
+                <li class="@yield('product_categories')">
+                    <a href="{{route('admin.product-categories.index')}}">
+                        <i class="fa fa-product-hunt"></i>
+                        <span>Категории продукта</span>
+                    </a>
+                </li>
+            @endif
 
             <li class="@yield('products')">
 {{--                @can('view', \App\Models\Product::class)--}}
@@ -80,7 +84,9 @@
                 @endcan
             </li>
 
-            <li class="has-sub {{ Request::is(['admin/company-contracts*','admin/companies*','admin/countries*','admin/regions*', 'admin/districts*']) ? 'active' : '' }}">
+            @if(Auth::check() && Auth::user()->role_id  == "1")
+{{--            @if($userRoles && in_array("admin", $userRoles->toArray()))--}}
+                <li class="has-sub {{ Request::is(['admin/company-contracts*','admin/companies*','admin/countries*','admin/regions*', 'admin/districts*']) ? 'active' : '' }}">
                 <a href="#">
                     <b class="caret pull-right"></b>
                     <i class="fa fa-reorder (alias)"></i>
@@ -125,27 +131,14 @@
                     </li>
                 </ul>
             </li>
-
-
-			<li class="has-sub {{ Request::is(['admin/languages*','admin/roles*', 'admin/blog_types*', 'admin/users*']) ? 'active' : '' }}">
+{{--            @if($userRoles && in_array("admin", $userRoles->toArray()))--}}
+			    <li class="has-sub {{ Request::is(['admin/languages*','admin/roles*', 'admin/blog_types*', 'admin/users*']) ? 'active' : '' }}">
 				<a href="#">
 					<b class="caret pull-right"></b>
 					<i class="fa fa-reorder (alias)"></i>
 					<span>Справочник</span>
 				</a>
 				<ul class="sub-menu">
-{{--					<li class="@yield('blog_types')">--}}
-{{--						<a href="{{route('admin.blog_types.index')}}">--}}
-{{--							<i class="fa fa-cog on fa-circle-o"></i>--}}
-{{--							<span>Типы блогов</span>--}}
-{{--						</a>--}}
-{{--					</li>--}}
-{{--					<li class="@yield('languages')">--}}
-{{--						<a href="{{route('admin.languages.index')}}">--}}
-{{--							<i class="fa fa-language"></i>--}}
-{{--							<span>Языки</span>--}}
-{{--						</a>--}}
-{{--					</li>--}}
                     <li class="@yield('users')">
                         @can('view', \App\Models\Product::class)
                         <a href="{{route('admin.users.index')}}">
@@ -164,6 +157,7 @@
 					</li>
 				</ul>
 			</li>
+            @endif
 {{--            <li class="@yield('contact')">--}}
 {{--                <a href="{{route('admin.contact.index')}}">--}}
 {{--                    <i class="fa fa-file-text"></i>--}}

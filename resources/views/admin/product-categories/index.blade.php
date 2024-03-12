@@ -12,10 +12,12 @@
         <div class="row">
             <div class="col-md-12 ui-sortable">
                 <div class="panel panel-inverse">
-                    <a href="#modal-dialog-create" class="btn btn-success pull-right btn-xs"
-                       style="margin: 8px !important"
-                       data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
-                    </a>
+                    @if($userPermission['Add']==1)
+                        <a href="#modal-dialog-create" class="btn btn-success pull-right btn-xs"
+                           style="margin: 8px !important"
+                           data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
+                        </a>
+                    @endif
                     <div class="panel-heading">
                         <h4 class="panel-title">Список</h4>
                     </div>
@@ -61,16 +63,20 @@
                                                 <td>{{$productCategory->name}}</td>
                                                 <td>{{$productCategory->code}}</td>
                                                 <td>
-                                                    <a href="#modal-dialog-edit" class=" btn btn-xs btn-info"
-                                                       title="Изменить">
-                                                        <i class="fa fa-pencil-square-o"
-                                                           onclick="getProductCategoryData({{$productCategory->id}})"></i>
-                                                    </a>
-                                                    <a href="#modal-dialog-delete{{$productCategory->id}}"
-                                                       class="btn btn-xs btn-danger"
-                                                       data-toggle="modal" title="Удалить">
-                                                        <i class="fa  fa-trash-o"></i>
-                                                    </a>
+                                                    @if($userPermission['Edit']==1)
+                                                        <a href="#modal-dialog-edit" class=" btn btn-xs btn-info"
+                                                           title="Изменить">
+                                                            <i class="fa fa-pencil-square-o"
+                                                               onclick="getProductCategoryData({{$productCategory->id}})"></i>
+                                                        </a>
+                                                    @endif
+                                                    @if($userPermission['Delete']==1)
+                                                        <a href="#modal-dialog-delete{{$productCategory->id}}"
+                                                           class="btn btn-xs btn-danger"
+                                                           data-toggle="modal" title="Удалить">
+                                                            <i class="fa  fa-trash-o"></i>
+                                                        </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             @include('admin.product-categories.delete')
