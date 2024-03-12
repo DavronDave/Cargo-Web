@@ -132,7 +132,7 @@ class RoleController extends Controller
             'permission_id' => $request['action_id'],
             'role_id' => $request['role_id'],
         ], [
-            'value' => $request['value']
+            'value' => (int)$request['value'],
         ]);
         return __('Разрешение изменено');
     }
