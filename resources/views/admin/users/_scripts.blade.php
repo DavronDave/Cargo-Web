@@ -66,6 +66,7 @@
     });
 
     function getUserData(id){
+        console.log(id)
         $.ajax({
             type: "GET",
             async: false,

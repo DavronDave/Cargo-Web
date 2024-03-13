@@ -58,10 +58,10 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-        $user = Auth::user();
-
-        if ($user && $user->hasRole('admin'))
-        {
+//        $user = Auth::user();
+//
+//        if ($user && $user->hasRole('admin'))
+//        {
             $user = User::create($request->except('image'));
             if($request->has('image')){
                 $user->image = $user->uploadImage($request, 'image', 'users');
@@ -69,11 +69,11 @@ class UserController extends Controller
             return response()->json([
                 'status' => 200
             ]);
-        }
-        else
-        {
-            return view('welcome');
-        }
+//        }
+//        else
+//        {
+//            return view('welcome');
+//        }
 
     }
 
@@ -85,16 +85,16 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $user = Auth::user();
-
-        if ($user && $user->hasRole('admin'))
-        {
+//        $user = Auth::user();
+//
+//        if ($user && $user->hasRole('admin'))
+//        {
             return view('admin.users.show', compact('user'));
-        }
-        else
-        {
-            return view('welcome');
-        }
+//        }
+//        else
+//        {
+//            return view('welcome');
+//        }
 
     }
 
@@ -106,10 +106,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $user = Auth::user();
+//        dd($user);
+//        $user = Auth::user();
 
-        if ($user && $user->hasRole('admin'))
-        {
+//        if ($user && $user->hasRole('admin'))
+//        {
             $image = asset($user->image);
 
             return response()->json([
@@ -117,11 +118,11 @@ class UserController extends Controller
                 'user' => $user,
                 'image' => $image
             ]);
-        }
-        else
-        {
-            return view('welcome');
-        }
+//        }
+//        else
+//        {
+//            return view('welcome');
+//        }
 
     }
 
@@ -134,9 +135,9 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {
-        $user = Auth::user();
+        $userAuth = Auth::user();
 
-        if ($user && $user->hasRole('admin'))
+        if ($userAuth && $userAuth->hasRole('admin'))
         {
             if($request->has('image')){
                 $user->image = $user->uploadImage($request->image, 'image', 'users', $user->image);
@@ -164,9 +165,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user = Auth::user();
+        $userAuth = Auth::user();
 
-        if ($user && $user->hasRole('admin'))
+        if ($userAuth && $userAuth->hasRole('admin'))
         {
             if(file_exists($user->image)){
                 unlink($user->image);
