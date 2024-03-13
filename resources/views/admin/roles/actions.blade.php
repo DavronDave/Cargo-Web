@@ -88,6 +88,7 @@
                 let url = "{{ route('admin.role.change') }}";
                 $.post(url, data,
                     function (returnedData) {
+                        // console.log("value is " + data.value)
                         $.gritter.add({
                             title: 'Info',
                             text: returnedData

@@ -68,7 +68,6 @@
                                     <option value="{{$project->id}}">{{$project->code}} - {{$project->name}}</option>
                                 @endforeach
                             </select>
-                        </form>
                     @endif
 
                     <div class="panel-heading" style="height: 50px; background-color: #242A30">

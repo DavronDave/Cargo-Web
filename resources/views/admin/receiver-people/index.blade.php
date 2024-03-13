@@ -34,7 +34,6 @@
                                 @endforeach
                             </select>
                             {{--                            <h4 class="" style="color: white; display: inline-flex">Список</h4>--}}
-                        </form>
                     @endif
                         <div class="panel-heading" style="height: 50px; background-color: #242A30">
                             <h4 class="panel-title" style="color: white">Список</h4>
