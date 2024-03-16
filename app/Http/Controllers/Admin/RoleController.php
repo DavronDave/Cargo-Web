@@ -133,8 +133,7 @@ class RoleController extends Controller
             'permission_id' => $request['action_id'],
             'role_id' => $request['role_id'],
         ], [
-//            'value' => boolval($request['value']),
-            'value' => DB::raw('CAST(' . $request['value'] . ' AS BOOLEAN)'),
+            'value' => $request['value'],
         ]);
         return __('Разрешение изменено');
     }
@@ -145,7 +144,7 @@ class RoleController extends Controller
             'action_id' => 'required|exists:permission,id',
             'role_id' => 'required||exists:roles,id',
             '_token' => 'required',
-            'value' => 'required',
+//            'value' => 'required',
         ];
         $validator = Validator::make($data, $validate);
         return $validator;

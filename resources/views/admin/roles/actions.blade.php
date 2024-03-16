@@ -85,6 +85,7 @@
                     value: checkbox.checked,
                     _token: "{{csrf_token()}}"
                 }
+                // console.log(data.value)
                 let url = "{{ route('admin.role.change') }}";
                 $.post(url, data,
                     function (returnedData) {
