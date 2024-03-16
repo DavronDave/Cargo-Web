@@ -7,6 +7,7 @@ use App\Models\Admin\Role;
 use App\Models\Admin\RolePermission;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class RoleController extends Controller
@@ -132,7 +133,8 @@ class RoleController extends Controller
             'permission_id' => $request['action_id'],
             'role_id' => $request['role_id'],
         ], [
-            'value' => boolval($request['value']),
+//            'value' => boolval($request['value']),
+            'value' => DB::raw('CAST(' . $request['value'] . ' AS BOOLEAN)'),
         ]);
         return __('Разрешение изменено');
     }

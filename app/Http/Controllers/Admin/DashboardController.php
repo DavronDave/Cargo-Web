@@ -42,7 +42,8 @@ class DashboardController extends Controller
             ->whereMonth('data_logs.created_at', '=', now()->month)
             ->select(
                 'users.full_name as full_name',
-                DB::raw('DATE_FORMAT(data_logs.created_at, \'Month\') as month_name'),
+//                DB::raw('TO_CHAR(data_logs.created_at, \'Month\') as month_name'),
+                DB::raw('DATE_FORMAT(data_logs.created_at, \'%M\') as month_name'),
                 DB::raw('SUM(CASE WHEN data_type = \'invoices\' THEN 1 ELSE 0 END) as total_invoices'),
                 DB::raw('SUM(CASE WHEN data_type = \'passports\' THEN 1 ELSE 0 END) as total_passports')
             )
