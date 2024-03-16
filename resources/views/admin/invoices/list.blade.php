@@ -178,7 +178,7 @@
                                                         <i style="color: red; font-size: 16px" class=" fa fa-close"></i>
                                                     @endif</td>
                                                 <td style="vertical-align: middle; text-align: center">{{$invoice->number}}</td>
-                                                {{--                                                <td>{{ $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? 0 }}</td>--}}
+                                                                                                <td>{{ $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? 0 }}</td>
 
 
                                                 <td style="vertical-align: middle; text-align: center">
