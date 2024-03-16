@@ -129,8 +129,8 @@ class RoleController extends Controller
     {
         $this->validatorRole($request->all())->validate();
 
-//        $value = $request['value'] ? 1 : 0;
-        $value = $request->has('value') ? ($request->input('value') ? 1 : 0) : 0;
+        $value = $request['value'] ? 1 : null;
+
         RolePermission::updateOrCreate([
             'permission_id' => $request['action_id'],
             'role_id' => $request['role_id'],
