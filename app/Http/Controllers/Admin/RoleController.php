@@ -127,17 +127,38 @@ class RoleController extends Controller
 
     public function change(Request $request)
     {
-        $this->validatorRole($request->all())->validate();
+//        $this->validatorRole($request->all())->validate();
+//
+//        $value = $request['value'] ? 1 : 0;
+//
+//        RolePermission::updateOrCreate([
+//            'permission_id' => $request['action_id'],
+//            'role_id' => $request['role_id'],
+//        ], [
+//            'value' => $value,
+//        ]);
+//        return __('Разрешение изменено');
+        try {
+            $this->validatorRole($request->all())->validate();
 
-        $value = $request['value'] ? 1 : 0;
+            $value = $request['value'] ? 1 : 0;
 
-        RolePermission::updateOrCreate([
-            'permission_id' => $request['action_id'],
-            'role_id' => $request['role_id'],
-        ], [
-            'value' => $value,
-        ]);
-        return __('Разрешение изменено');
+            $rolePermission = RolePermission::updateOrCreate([
+                'permission_id' => $request['action_id'],
+                'role_id' => $request['role_id'],
+            ], [
+                'value' => $value,
+            ]);
+
+            if ($rolePermission->wasRecentlyCreated) {
+                return __('Разрешение создано');
+            } else {
+                return __('Разрешение изменено');
+            }
+        } catch (\Exception $e) {
+            // Log or handle the error appropriately
+            return __('Ошибка при изменении разрешения');
+        }
     }
 
     protected function validatorRole(array $data)
