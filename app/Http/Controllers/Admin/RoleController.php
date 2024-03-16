@@ -129,11 +129,13 @@ class RoleController extends Controller
     {
         $this->validatorRole($request->all())->validate();
 
+        $value = $request['value'] ? 1 : 0;
+
         RolePermission::updateOrCreate([
             'permission_id' => $request['action_id'],
             'role_id' => $request['role_id'],
         ], [
-            'value' => $request['value'],
+            'value' => $value,
         ]);
         return __('Разрешение изменено');
     }
