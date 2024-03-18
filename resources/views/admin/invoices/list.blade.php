@@ -163,7 +163,11 @@
                                                 <td style="vertical-align: middle; text-align: center">{{$invoice->sender_fullname}}</td>
                                                 <td style="vertical-align: middle; text-align: center">{{$invoice->receiver_fullname}}</td>
                                                 <td style="vertical-align: middle; text-align: center">{{$invoice->receiver_passport}}</td>
-                                                <td style="vertical-align: middle; text-align: center">
+                                                <td style="background-color:
+                                                    @if($invoice->weight > 30) red
+                                                    @else
+                                                    @endif;
+                                                    color: @if($invoice->weight > 30) white @else black @endif; text-align: center">
                                                     {{ $invoice->weight ?? 0 }}
                                                 </td>
 {{--                                                <td style="vertical-align: middle; text-align: center">--}}
