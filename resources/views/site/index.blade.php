@@ -129,6 +129,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{asset('admin-assets/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dave - Cargo</title>
     <style>
@@ -206,10 +208,18 @@
 </head>
 <body>
 <div class="container" style="text-align: center; align-content: center; width: 100%; background-color: white">
-    <h1 id="dynamicH1" style="margin-left: 6%">Мы доставляем почтовые услуги из <strong>России</strong> в <strong>Узбекистан</strong>....
+    <h1 id="dynamicH1" style="margin-left: 6%">Доставка товаров и посылок <strong>Россия</strong> - <strong>Узбекистан</strong>...
     </h1>
     <img style="max-width: 80%; height: auto;" src="{{asset('site/assets/images/delivery1.jpg')}}">
-    <h2 style="color: #233863; ">+998(94)-476-52-41</h2>
+
+    <div class="row" style="display: flex; justify-content: center; align-items: center;">
+        <a href="https://t.me/davron_valiyevich" target="_blank"><i class="fa fa-telegram" style="font-size:24px; margin-right: 10px; color: #259CD8"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=998944765241" target="_blank"><i class="fa fa-whatsapp" style="font-size:24px; margin-right: 10px; color: green"></i></a>
+        <h2 style="color: #233863; margin-top: 10px; margin-bottom: 0;"> +998(94)-476-52-41</h2>
+    </div>
+
+
+
 </div>
 <script>
     // JavaScript to change h1 content on mobile
