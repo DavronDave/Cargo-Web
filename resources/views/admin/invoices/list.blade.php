@@ -196,7 +196,7 @@
                                                 <td style="vertical-align: middle; text-align: center">
 
                                                     @if($userPermission['Edit invoice']==1)
-                                                        <a href="{{route('admin.invoice.edit', ['invoice' => $invoice->id, 'project' => $project->id])}}"
+                                                        <a href="{{route('admin.invoice.edit', ['invoice' => $invoice->id, 'project' => $project_id])}}"
                                                            class=" btn btn-xs btn-info"
                                                            title="Изменить">
                                                             <i class="fa fa-pencil-square-o"></i>
