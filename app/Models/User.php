@@ -8,6 +8,7 @@ use App\Models\Admin\RolePermission;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Cache;
 use Laravel\Sanctum\HasApiTokens;
 use Kyslik\ColumnSortable\Sortable;
 
@@ -45,16 +46,29 @@ class User extends Authenticatable
 
     public static function getCurrentPermissions()
     {
-        $objects = [];
+//        $user = self::getCurrentUser();
+//
+//        if ($user != null) {
+//            return RolePermission::leftJoin('permission', 'role_permission.permission_id', '=', 'permission.id')
+//                ->where('role_id', $user->role_id)
+//                ->select(['permission.key as key', 'role_permission.value as value'])
+//                ->pluck('value', 'key')->all();
+//        } else {
+//            // Handle the case where the user is null (e.g., not logged in)
+//            return [];
+//        }
         $user = self::getCurrentUser();
 
-        if ($user != null) {
-            return RolePermission::leftJoin('permission', 'role_permission.permission_id', '=', 'permission.id')
-                ->where('role_id', $user->role_id)
-                ->select(['permission.key as key', 'role_permission.value as value'])
-                ->pluck('value', 'key')->all();
+        if ($user) {
+            $cacheKey = 'user_permissions_' . $user->id;
+
+            return Cache::remember($cacheKey, now()->addMinutes(30), function () use ($user) {
+                return RolePermission::leftJoin('permission', 'role_permission.permission_id', '=', 'permission.id')
+                    ->where('role_id', $user->role_id)
+                    ->pluck('value', 'key')
+                    ->all();
+            });
         } else {
-            // Handle the case where the user is null (e.g., not logged in)
             return [];
         }
     }

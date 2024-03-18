@@ -15,24 +15,20 @@ class UserProviderService extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind('current_user', function ($app) {
+            return User::getCurrentUser();
+        });
 
-        //
+        $this->app->bind('userPermission', function ($app) {
+            return User::getCurrentPermissions();
+        });
     }
 
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
     public function boot()
     {
         View::composer(['admin.*'], function ($view) {
-            $view->with(
-                'current_user', User::getCurrentUser()
-            )
-                ->with(
-                    'userPermission', User::getCurrentPermissions()
-                );
+            $view->with('current_user', $this->app->make('current_user'))
+                ->with('userPermission', $this->app->make('userPermission'));
         });
     }
 }
