@@ -111,13 +111,13 @@
     <div class="header">
         <div class="sender-info">
             <h5>СТРАНА ОТПРАВИТЕЛЬ</h5>
-            <img src="{{ asset($RuCountry->emblem) }}" style="width: 80px; height: 80px;">
+            <img src="{{ asset($RuCountry->emblem) }}" style="height: 80px;">
             <h4>РОССИЙСКИЙ ФЕДЕРАЦИЯ</h4>
             <!-- Add sender information here -->
         </div>
         <div class="recipient-info">
             <h5>СТРАНА ПОЛУЧАТЕЛЬ</h5>
-            <img src="{{ asset($UzCountry->emblem) }}" style="width: 80px; height: 80px;">
+            <img src="{{ asset($UzCountry->emblem) }}" style=" height: 80px;">
             <h4>РЕСПУБЛИКА УЗБЕКИСТАН</h4>
             <!-- Add recipient information here -->
         </div>

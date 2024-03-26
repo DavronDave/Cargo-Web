@@ -26,8 +26,8 @@ class PDFController extends Controller
         $invoice = Invoice::with('invoiceProducts', 'address', 'project')->where('id','=',$invoice->id)->first();
         $invoice_products = InvoiceProduct::with('invoice', 'product')->where('invoice_id' , '=', $invoice->id)->get();
 
-        $RuCountry = Country::where('id',1)->first();
-        $UzCountry = Country::where('id',2)->first();
+        $RuCountry = Country::where('id',2)->first();
+        $UzCountry = Country::where('id',1)->first();
 
 //        dd($RuCountry);
         $loopLimit = 12;
@@ -330,8 +330,8 @@ class PDFController extends Controller
             ->orderBy('number', 'asc')
             ->get();
 
-        $RuCountry = Country::where('id',1)->first();
-        $UzCountry = Country::where('id',2)->first();
+        $RuCountry = Country::where('id',2)->first();
+        $UzCountry = Country::where('id',1)->first();
 
         $options = new Options();
         $options->set('isHtml5ParserEnabled', true);
