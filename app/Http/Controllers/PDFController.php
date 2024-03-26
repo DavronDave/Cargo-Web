@@ -26,7 +26,11 @@ class PDFController extends Controller
         $invoice = Invoice::with('invoiceProducts', 'address', 'project')->where('id','=',$invoice->id)->first();
         $invoice_products = InvoiceProduct::with('invoice', 'product')->where('invoice_id' , '=', $invoice->id)->get();
 
-        $loopLimit = 15;
+        $RuCountry = Country::where('id',1)->first();
+        $UzCountry = Country::where('id',2)->first();
+
+//        dd($RuCountry);
+        $loopLimit = 12;
         $totalQuantity = $invoice_products->sum('quantity');
         $totalPrice = $invoice_products->sum('price');
         $options = new Options();
@@ -38,11 +42,12 @@ class PDFController extends Controller
         $pdf->setOptions($options);
         $pdf->setPaper('A4');
         $pdf->set_option('isPhpEnabled', true);
+        $pdf->set_option('isRemoteEnabled', true);
 
         $formattedInvoiceNumber = sprintf("Invoice %04d", $invoice->number);
 //        $view = view('admin.pdf.invoice')->with('invoice', $invoice)->with('invoice_products', $invoice_products);
         $view = view('admin.pdf.invoice',
-            compact('invoice_products', 'invoice', 'loopLimit','totalQuantity', 'totalPrice'));
+            compact('invoice_products', 'invoice', 'loopLimit','totalQuantity', 'totalPrice', 'RuCountry', 'UzCountry'));
         $pdf->loadHtml($view);
 
         $pdf->render();
@@ -325,6 +330,9 @@ class PDFController extends Controller
             ->orderBy('number', 'asc')
             ->get();
 
+        $RuCountry = Country::where('id',1)->first();
+        $UzCountry = Country::where('id',2)->first();
+
         $options = new Options();
         $options->set('isHtml5ParserEnabled', true);
         $options->set('isPhpEnabled', true);
@@ -334,6 +342,9 @@ class PDFController extends Controller
         $pdf->setOptions($options);
         $pdf->setPaper('A4');
         $pdf->set_option('isPhpEnabled', true);
+
+        $pdf->set_option('isRemoteEnabled', true);
+
 
 //        foreach ($invoices as $invoice) {
 //            $invoice_products = InvoiceProduct::with('invoice', 'product')
@@ -356,7 +367,7 @@ class PDFController extends Controller
         $pdfName = "Invoice {$firstInvoiceNumber}-{$lastInvoiceNumber}.pdf";
 
         $view = View::make('admin.pdf.invoices')
-            ->with(compact('invoices'))
+            ->with(compact('invoices', 'RuCountry', 'UzCountry'))
             ->render();
         $pdf->loadHtml($view);
         $pdf->render();
