@@ -17,6 +17,8 @@ use Carbon\Traits\Date;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Termwind\Components\Dd;
 
 class InvoiceController extends Controller
 {
@@ -140,8 +142,8 @@ class InvoiceController extends Controller
         $invoice = new Invoice();
 
         $invoice->number = $validatedData['number'];
-        $invoice->sender_fullname = $validatedData['sender_fullname'];
-        $invoice->receiver_fullname = $validatedData['receiver_fullname'];
+        $invoice->sender_fullname = Str::title(Str::words($validatedData['sender_fullname'], 2, ''));
+        $invoice->receiver_fullname = Str::title(Str::words($validatedData['receiver_fullname'], 2, ''));
         $invoice->address_id = $validatedData['address_id'];
         $invoice->weight = $validatedData['weight'];
         $invoice->project_id = $project->id;
@@ -259,8 +261,11 @@ class InvoiceController extends Controller
         {
             $invoice->isCompleted = 0;
         }
+//        dd($invoice);
+        $validatedData['sender_fullname'] = Str::title(Str::words($validatedData['sender_fullname'], 2, ''));
+        $validatedData['receiver_fullname'] = Str::title(Str::words($validatedData['receiver_fullname'], 2, ''));
         $invoice->update($validatedData);
-
+//        \dd($invoice);
         // Update the associated invoiceProducts
         $invoice->invoiceProducts()->delete(); // Remove existing associated products
 
