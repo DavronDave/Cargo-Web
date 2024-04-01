@@ -15,22 +15,22 @@ class DashboardController extends Controller
         $thisMonth = DataLog::join('users', 'data_logs.user_id', '=', 'users.id')
 //            ->where('users.id', '=', '3')
             ->whereMonth('data_logs.created_at', '=', now()->month)
-//            ->select(
-//                'users.full_name as full_name',
-////                DB::raw('TO_CHAR(data_logs.created_at, \'Month\') as month_name'),
-//                DB::raw('DATE_FORMAT(data_logs.created_at, \'%M\') as month_name'),
-//                DB::raw('SUM(CASE WHEN data_type = \'invoices\' THEN 1 ELSE 0 END) as total_invoices'),
-//                DB::raw('SUM(CASE WHEN data_type = \'passport\' THEN 1 ELSE 0 END) as total_passports')
-//            )
             ->select(
                 'users.full_name as full_name',
-                DB::raw('DATE_FORMAT(data_logs.created_at, \'%M\') as month_name'), // Use '%M' to get the full month name
-                DB::raw('EXTRACT(YEAR FROM data_logs.created_at) as year'), // Extract year
+//                DB::raw('TO_CHAR(data_logs.created_at, \'Month\') as month_name'),
+                DB::raw('DATE_FORMAT(data_logs.created_at, \'%M\') as month_name'),
                 DB::raw('SUM(CASE WHEN data_type = \'invoices\' THEN 1 ELSE 0 END) as total_invoices'),
-                DB::raw('SUM(CASE WHEN data_type = \'passports\' THEN 1 ELSE 0 END) as total_passports')
+                DB::raw('SUM(CASE WHEN data_type = \'passport\' THEN 1 ELSE 0 END) as total_passports')
             )
+//            ->select(
+//                'users.full_name as full_name',
+//                DB::raw('TO_CHAR(data_logs.created_at, \'%M\') as month_name'), // Use '%M' to get the full month name
+//                DB::raw('EXTRACT(YEAR FROM data_logs.created_at) as year'), // Extract year
+//                DB::raw('SUM(CASE WHEN data_type = \'invoices\' THEN 1 ELSE 0 END) as total_invoices'),
+//                DB::raw('SUM(CASE WHEN data_type = \'passports\' THEN 1 ELSE 0 END) as total_passports')
+//            )
 
-            ->groupBy('users.full_name', 'month_name', 'year')
+            ->groupBy('users.full_name', 'month_name')
             ->get();
 
 
@@ -39,7 +39,7 @@ class DashboardController extends Controller
             ->whereMonth('data_logs.created_at', '!=', now()->month) // Exclude the current month
             ->select(
                 'users.full_name as full_name',
-                DB::raw('DATE_FORMAT(data_logs.created_at, \'Month\') as month_name'),
+                DB::raw('DATE_FORMAT(data_logs.created_at, \'%M\') as month_name'),
                 DB::raw('EXTRACT(YEAR FROM data_logs.created_at) as year'), // Extract year
                 DB::raw('SUM(CASE WHEN data_type = \'invoices\' THEN 1 ELSE 0 END) as total_invoices'),
                 DB::raw('SUM(CASE WHEN data_type = \'passports\' THEN 1 ELSE 0 END) as total_passports')
@@ -65,7 +65,7 @@ class DashboardController extends Controller
         ];
 
 
-//        dd($moderatorExcept);
+//        dd($monthIndices);
         return view('admin.dashboard.index', compact('thisMonth', 'exceptMonth', 'monthIndices'));
     }
 }
