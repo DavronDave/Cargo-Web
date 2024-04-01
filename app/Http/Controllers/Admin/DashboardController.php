@@ -42,7 +42,7 @@ class DashboardController extends Controller
                 DB::raw('DATE_FORMAT(data_logs.created_at, \'%M\') as month_name'),
                 DB::raw('EXTRACT(YEAR FROM data_logs.created_at) as year'), // Extract year
                 DB::raw('SUM(CASE WHEN data_type = \'invoices\' THEN 1 ELSE 0 END) as total_invoices'),
-                DB::raw('SUM(CASE WHEN data_type = \'passports\' THEN 1 ELSE 0 END) as total_passports')
+                DB::raw('SUM(CASE WHEN data_type = \'passport\' THEN 1 ELSE 0 END) as total_passports')
             )
             ->groupBy('users.full_name', 'month_name', 'year')
             ->orderBy('year', 'desc')

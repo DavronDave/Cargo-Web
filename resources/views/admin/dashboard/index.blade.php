@@ -89,7 +89,7 @@
                         <div class="stats-icon" style="opacity: 10 !important;"><i class="fa fa-user-circle"></i></div>
                         <div class="stats-info" style="margin-top: 60px">
                             <h2><strong>
-                                    @if(mb_strlen($log->full_name)>13)
+                                    @if(mb_strlen($log->full_name)>15)
                                         {{substr($log->full_name, strpos($log->full_name, ' ') + 1)}}
                                     @else
                                         {{$log->full_name}}
