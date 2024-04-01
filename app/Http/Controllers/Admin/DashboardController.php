@@ -30,7 +30,7 @@ class DashboardController extends Controller
                 DB::raw('SUM(CASE WHEN data_type = \'passports\' THEN 1 ELSE 0 END) as total_passports')
             )
 
-            ->groupBy('users.full_name', 'month_name')
+            ->groupBy('users.full_name', 'month_name', 'year')
             ->get();
 
 
