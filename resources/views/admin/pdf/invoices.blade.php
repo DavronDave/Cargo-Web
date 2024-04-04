@@ -119,14 +119,16 @@
             <h2 style="padding-bottom: 15px">Инвойс  <span style="margin-left: 15px; ">-</span>    <span style="margin-left: 30px">{{$invoice->number}}</span></h2>
             <div class="header">
                 <div class="sender-info">
-                    <h5>СТРАНА ОТПРАВИТЕЛЬ</h5>
                     <img src="{{ asset($RuCountry->emblem) }}" style=" height: 80px;">
+                    <h5>СТРАНА ОТПРАВИТЕЛЬ</h5>
+
                     <h4>РОССИЙСКИЙ ФЕДЕРАЦИЯ</h4>
                     <!-- Add sender information here -->
                 </div>
                 <div class="recipient-info">
-                    <h5>СТРАНА ПОЛУЧАТЕЛЬ</h5>
                     <img src="{{ asset($UzCountry->emblem) }}" style="height: 80px;">
+                    <h5>СТРАНА ПОЛУЧАТЕЛЬ</h5>
+
                     <h4>РЕСПУБЛИКА УЗБЕКИСТАН</h4>
                     <!-- Add recipient information here -->
                 </div>
