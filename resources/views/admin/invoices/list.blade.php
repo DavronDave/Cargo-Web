@@ -28,12 +28,12 @@
                                     style="margin: 7px !important; height: 36px;">Импорть <i class="fa fa-plus"></i>
                             </button>
                             <input type="number" name="passport_number"
-                                   style="margin: 8px !important; height: 35px; width: 100px; font-size: 15px;"
-                                   class="pull-right" placeholder="Кол. паспортов" required>
+                                   style="margin: 8px !important; height: 35px; width: 50px; font-size: 15px;"
+                                   class="pull-right" placeholder="Кол." required>
 
                             <select name="driver_id" id="create_incoterm_id" class="pull-right form-control"
-                                    style="width: 165px; margin: 8px !important" required>
-                                <option value="">Выбрать водителя ...</option>
+                                    style="width: 135px; margin: 8px !important" required>
+                                <option value="">Выб. водителя</option>
                                 @foreach ($drivers as $key => $driver)
                                     <option value="{{$driver->id}}">{{$driver->name}}</option>
                                 @endforeach
@@ -47,23 +47,38 @@
                                     style="margin: 7px !important; height: 36px;">PDF <i class="fa fa-download"></i>
                             </button>
                             <input type="number" name="last"
-                                   style="margin: 8px !important; height: 35px; width: 100px; font-size: 15px;"
+                                   style="margin: 8px !important; height: 35px; width: 80px; font-size: 15px;"
                                    class="pull-right" placeholder="Конец" required>
                             <input type="number" name="first"
-                                   style="margin: 8px !important; height: 35px; width: 100px; font-size: 15px;"
+                                   style="margin: 8px !important; height: 35px; width: 80px; font-size: 15px;"
                                    class="pull-right" placeholder="Начало" required>
                         </form>
                     @endif
+                        @if($userPermission['Move invoices']==1)
+                            <form action="{{ route('admin.copy-invoice', ['project_id' => $project->id]) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-success pull-right"
+                                        style=" margin-top:8px !important; height: 36px;"><i
+                                        class="fa fa-chevron-circle-right"></i>
+                                </button>
+                                <input type="text" name="editable_invoices"
+                                       style="margin: 8px !important; height: 35px; width: 170px; font-size: 15px;"
+                                       class="pull-right" placeholder="До" required>
+                                <input type="number" name="selected_invoice"
+                                       style="margin: 8px !important; height: 35px; width: 65px; font-size: 15px;"
+                                       class="pull-right" placeholder="От" required>
+                            </form>
+                        @endif
                     @if($userPermission['Move invoices']==1)
                         <form action="{{ route('admin.move-invoices') }}" method="POST">
                             @csrf
                             <button type="submit" class="btn btn-success pull-right"
-                                    style="margin: 7px !important; height: 36px;">Переместить <i
+                                    style="margin: 7px !important; height: 36px;"> <i
                                     class="fa fa-upload"></i>
                             </button>
                             <select name="project_id" id="create_project_id" class="pull-right form-control"
-                                    style="width: 145px; margin: 8px !important" required>
-                                <option value="">Выбрать проект ...</option>
+                                    style="width: 120px; margin: 8px !important" required>
+                                <option value="">Выб. проект</option>
                                 @foreach ($projects as $key => $project)
                                     <option value="{{$project->id}}">{{$project->code}} - {{$project->name}}</option>
                                 @endforeach
@@ -71,7 +86,7 @@
                     @endif
 
                     <div class="panel-heading" style="height: 50px; background-color: #242A30">
-                        <h4 class="panel-title" style="color: white">Список</h4>
+                        <h4 class="panel-title" style="color: white"></h4>
                     </div>
                     <div class="panel-body">
                         <div id="data-table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">

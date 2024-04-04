@@ -395,4 +395,99 @@ class InvoiceController extends Controller
         return redirect()->back()->with('success', 'Invoislar utkazildi.');
     }
 
+//    public function copyInvoices(Request $request)
+//    {
+////        dd($request->all());
+//
+//        $request->validate([
+//            'project_id' => 'required|exists:projects,id',
+//            'selected_invoice' => 'required',
+//            'editable_invoices' => 'required',
+//        ]);
+//
+//        $projectID = $request->input('project_id');
+//        $selectedInvoiceIDs = $request->input('selected_ids');
+////        $invoices = explode(',', $request->editable_invoices);
+//        $foundInvoice = Invoice::where('project_id', $projectID)->first();
+//        $invoices = preg_split('/[\s,]+/', $request->editable_invoices);
+//
+//        foreach ($invoices as $invoice)
+//        {
+//            $editableInvoice = Invoice::where('number', $invoice)->first();
+//            $editableInvoice->sender_fullname = $foundInvoice->sender_fullname;
+//            $editableInvoice->receiver_fullname = $foundInvoice->receiver_fullname;
+//            $editableInvoice->receiver_passport = $foundInvoice->receiver_passport;
+//            $editableInvoice->receiver_date = $foundInvoice->receiver_date;
+//            $editableInvoice->receiver_phone = $foundInvoice->receiver_phone;
+//            $editableInvoice->address_id = $foundInvoice->address_id;
+//            $editableInvoice->project_id = $foundInvoice->project_id;
+//            $editableInvoice->weight = null;
+//            $editableInvoice->isCompleted = false;
+//
+////            \dd($editableInvoice);
+//            $editableInvoice->update();
+//
+//        }
+//
+//        return redirect()->back()->with('success', 'Invoislar utkazildi.');
+//    }
+
+    public function copyInvoices(Request $request)
+    {
+        $request->validate([
+            'project_id' => 'required|exists:projects,id',
+            'selected_invoice' => 'required',
+            'editable_invoices' => 'required',
+        ]);
+
+        $projectID = $request->input('project_id');
+        $selectedInvoiceNumber = $request->input('selected_invoice');
+
+        $foundInvoice = Invoice::where('project_id', $projectID)
+            ->where('number',$selectedInvoiceNumber )
+            ->first();
+//        \dd($foundInvoice);
+        if (!$foundInvoice) {
+            return redirect()->back()->with('error', 'Project not found.');
+        }
+
+        $invoices = preg_split('/[\s,]+/', $request->editable_invoices);
+
+//        \dd($invoices);
+        foreach ($invoices as $invoice) {
+            $editableInvoice = Invoice::where('number', $invoice)
+                ->where('project_id', $projectID)
+                ->first();
+            if ($editableInvoice) {
+                $editableInvoice->update([
+                    'sender_fullname' => $foundInvoice->sender_fullname,
+                    'receiver_fullname' => $foundInvoice->receiver_fullname,
+                    'receiver_passport' => $foundInvoice->receiver_passport,
+                    'receiver_date' => $foundInvoice->receiver_date,
+                    'receiver_phone' => $foundInvoice->receiver_phone,
+                    'address_id' => $foundInvoice->address_id,
+                    'project_id' => $foundInvoice->project_id,
+                    'weight' => null,
+                    'isCompleted' => false,
+                ]);
+            }else {
+                Invoice::create([
+                    'number' => $invoice,
+                    'sender_fullname' => $foundInvoice->sender_fullname,
+                    'receiver_fullname' => $foundInvoice->receiver_fullname,
+                    'receiver_passport' => $foundInvoice->receiver_passport,
+                    'receiver_date' => $foundInvoice->receiver_date,
+                    'receiver_phone' => $foundInvoice->receiver_phone,
+                    'address_id' => $foundInvoice->address_id,
+                    'project_id' => $foundInvoice->project_id,
+                    'weight' => null,
+                    'isCompleted' => false,
+                ]);
+            }
+        }
+
+        return redirect()->back();
+    }
+
+
 }
