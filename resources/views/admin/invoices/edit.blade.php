@@ -30,7 +30,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group" >
                                         <label for="number">Номер invoice</label><br>
-                                        <input type="number" name="number" id="number" placeholder="Введите Код" class="form-control" value="{{ old('number') ?? $invoice->number }}">
+                                        <input type="number" step="0.1" name="number" id="number" placeholder="Введите Код" class="form-control" value="{{ old('number') ?? $invoice->number }}">
                                         <br>
                                         @error('number')
                                         <span class="text-danger">{{$message}}</span>
