@@ -467,8 +467,8 @@ class InvoiceController extends Controller
                     'receiver_phone' => $foundInvoice->receiver_phone,
                     'address_id' => $foundInvoice->address_id,
                     'project_id' => $foundInvoice->project_id,
-                    'weight' => null,
-                    'isCompleted' => false,
+//                    'weight' => null,
+//                    'isCompleted' => false,
                 ]);
             }else {
                 Invoice::create([
