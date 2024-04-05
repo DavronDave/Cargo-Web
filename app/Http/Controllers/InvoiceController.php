@@ -446,7 +446,7 @@ class InvoiceController extends Controller
         $foundInvoice = Invoice::where('project_id', $projectID)
             ->where('number',$selectedInvoiceNumber )
             ->first();
-//        \dd($foundInvoice);
+        \dd($foundInvoice);
         if (!$foundInvoice) {
             return redirect()->back()->with('error', 'Project not found.');
         }
@@ -481,7 +481,7 @@ class InvoiceController extends Controller
                     'address_id' => $foundInvoice->address_id,
                     'project_id' => $foundInvoice->project_id,
                     'weight' => null,
-                    'isCompleted' => false,
+                    'isCompleted' => 0,
                 ]);
             }
         }
