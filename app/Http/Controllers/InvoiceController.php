@@ -432,21 +432,22 @@ class InvoiceController extends Controller
 //        return redirect()->back()->with('success', 'Invoislar utkazildi.');
 //    }
 
-    public function copyInvoices(Request $request)
+    public function copyInvoices(Request $request, $project_id)
     {
+//        \dd($project_id);
         $request->validate([
-            'project_id' => 'required|exists:projects,id',
+//            'project_id' => 'required|exists:projects,id',
             'selected_invoice' => 'required',
             'editable_invoices' => 'required',
         ]);
 
-        $projectID = $request->input('project_id');
+//        $projectID = $request->input('project_id');
         $selectedInvoiceNumber = $request->input('selected_invoice');
 
-        $foundInvoice = Invoice::where('project_id', $projectID)
+        $foundInvoice = Invoice::where('project_id', $project_id)
             ->where('number',$selectedInvoiceNumber )
             ->first();
-        \dd($foundInvoice);
+//        \dd($foundInvoice);
         if (!$foundInvoice) {
             return redirect()->back()->with('error', 'Project not found.');
         }
@@ -456,7 +457,7 @@ class InvoiceController extends Controller
 //        \dd($invoices);
         foreach ($invoices as $invoice) {
             $editableInvoice = Invoice::where('number', $invoice)
-                ->where('project_id', $projectID)
+                ->where('project_id', $project_id)
                 ->first();
             if ($editableInvoice) {
                 $editableInvoice->update([
@@ -485,6 +486,7 @@ class InvoiceController extends Controller
                 ]);
             }
         }
+//        \dd($editableInvoice);
 
         return redirect()->back();
     }
