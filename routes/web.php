@@ -108,7 +108,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.', ],
         Route::post('/invoices/{project}', [InvoiceController::class, 'importPassports'])->name('invoice.import');
 
         Route::post('/move-invoices', [InvoiceController::class, 'moveInvoices'])->name('move-invoices');
-        Route::post('/copy-invoices/{project-id}', [InvoiceController::class, 'copyInvoices'])->name('copy-invoice');
+        Route::post('/copy-invoices/{project_id}', [InvoiceController::class, 'copyInvoices'])->name('copy-invoice');
 
 
         Route::post('/copy-list-products-to-invoice', [InvoiceController::class, 'copyListProductsToInvoice'])->name('copy-invoices');
