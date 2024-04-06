@@ -217,8 +217,9 @@ class InvoiceController extends Controller
         $products = Product::all();
         $invoice_products = InvoiceProduct::where('invoice_id','=',$invoice->id)->get();
 
+        $drivers = Driver::orderBy('id', 'desc')->select('*')->get();
         return view('admin.invoices.edit',
-            compact('project','invoice', 'regions', 'products','invoice_products'));
+            compact('project','invoice', 'regions', 'products','invoice_products', 'drivers'));
     }
 
     /**
@@ -226,7 +227,7 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, Invoice $invoice , Project $project)
     {
-//        dd($request);
+//        dd($invoice);
         $validatedData = $request->validate([
             'number' => 'required',
             'sender_fullname' => 'required|string',
@@ -279,6 +280,28 @@ class InvoiceController extends Controller
 
             // Associate the InvoiceProduct with the Invoice
             $invoice->invoiceProducts()->save($invoiceProduct);
+        }
+
+        // update qilyotganda passport bazada bo'lmasa bazaga qo'shib ketadi
+        $exists = ReceiverPerson::where('passport', $invoice->receiver_passport)->exists();
+//        \dd($exists);
+
+        if (!$exists) {
+            $cleanedPhoneNumber = preg_replace('/[^0-9]/', '', $invoice->receiver_phone);
+            $receiverPerson = new ReceiverPerson();
+            $receiverPerson->full_name =Str::title(Str::words($invoice->receiver_fullname, 2, ''));
+            $receiverPerson->passport = strtoupper($invoice->receiver_passport);
+            $receiverPerson->birthdate = $invoice->receiver_date;
+            $receiverPerson->phone =$cleanedPhoneNumber ;
+            $receiverPerson->address_id = $invoice->address_id;
+            $receiverPerson->driver_id = $request->driver_id;
+            $receiverPerson->save();
+
+            DataLog::create([
+                'user_id' => Auth::id(),
+                'action_type' => 'save', // or 'update'
+                'data_type' => 'passport',
+            ]);
         }
 
         return redirect()->route('admin.invoice.index', ['project' => $project->id]);

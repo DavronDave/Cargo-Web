@@ -20,6 +20,13 @@
 {{--                    <a href="" class="btn btn-success pull-left m-5" style="width: 160px; height: 30px; margin-left: 200px" onclick="importProducts()">Импорт продукти <i class="fa fa-plus"></i>--}}
 {{--                    </a>--}}
                     <a href="#" id="importButton" class="btn btn-success pull-left m-5" style="width: 160px; height: 30px; margin-left: 200px">Импорт продукти <i class="fa fa-plus"></i></a>
+                    <select name="driver_id" id="create_incoterm_id" class="pull-right form-control"
+                            style="width: 135px; margin-top: 8px !important">
+                        <option value="">Выб. водителя</option>
+                        @foreach ($drivers as $key => $driver)
+                            <option value="{{$driver->id}}">{{$driver->name}}</option>
+                        @endforeach
+                    </select>
 
                     <div class="panel-heading" style="height: 40px">
 {{--                        <h4 class="panel-title"></h4>--}}
