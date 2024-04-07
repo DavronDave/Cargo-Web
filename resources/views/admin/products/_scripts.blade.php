@@ -28,10 +28,8 @@
                     if (xhr.status == 422) {
                         $('#add_region').find('.parsley-errors-list').remove();
                         $.each(errors, function (key, err_values) {
-                                $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_admin_' + key);
-                                $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_name');
-                            }
-                        );
+                            $('#add_region').find('[name="' + key + '"]').after('<span class="parsley-errors-list filled">' + err_values + '</span>');
+                        });
                     }
                 }
             });

@@ -60,10 +60,16 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 ui-sortable">
+                        <div class="col-md-6 ui-sortable">
                             <div class="form-group" >
                                 <label for="edit_name">Название проекта</label>
                                 <input type="text" name="name" id="edit_name" class="form-control" placeholder="Введите название проекта">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" >
+                                <label for="edit_phone">Показать номер телефона</label> <br>
+                                <input type="checkbox" name="isDisplayPhone" id="edit_phone" value="1" style="width: 25px; height: 25px">
                             </div>
                         </div>
                     </div>

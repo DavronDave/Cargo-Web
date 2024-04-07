@@ -28,15 +28,8 @@
                     if (xhr.status == 422) {
                         $('#add_project').find('.parsley-errors-list').remove();
                         $.each(errors, function (key, err_values) {
-                                $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_code');
-                                $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_name');
-                                $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_company_id');
-                                $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_company_contract_id');
-                                $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_incoterm_id');
-                                $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_status');
-                                $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_ready_date');
-                            }
-                        );
+                            $('#add_project').find('[name="' + key + '"]').after('<span class="parsley-errors-list filled">' + err_values + '</span>');
+                        });
                     }
                 }
             });
@@ -63,8 +56,9 @@
                     $('#edit_ready_date').val(response.project.ready_date);
                     $('#edit_status').val(response.project.status);
 
-                    $('#edit_epi').prop('checked', response.project.epi_code === true);
-                    $('#edit_mnf').prop('checked', response.project.manifest_code === true);
+                    $('#edit_epi').prop('checked', response.project.epi_code === 1);
+                    $('#edit_mnf').prop('checked', response.project.manifest_code === 1);
+                    $('#edit_phone').prop('checked', response.project.isDisplayPhone === 1);
 
                     console.log(response.project.epi_code);
                      $('#edit_id').val(response.project.id);

@@ -28,10 +28,8 @@
                     if (xhr.status == 422) {
                         $('#add_productCategories').find('.parsley-errors-list').remove();
                         $.each(errors, function (key, err_values) {
-                                $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_code');
-                                // $('<span class="parsley-errors-list filled">' + err_values + '</span>').insertAfter('#create_name');
-                            }
-                        );
+                            $('#add_productCategories').find('[name="' + key + '"]').after('<span class="parsley-errors-list filled">' + err_values + '</span>');
+                        });
                     }
                 }
             });

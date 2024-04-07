@@ -103,7 +103,9 @@
         <th style="width: 40px">1. Тижорат хужжатининг раками</th>
         <th style="width: 100px;">2. Халкаро курьерлик жунатмасининг жунатувчиси</th>
         <th style="width: 100px;">3. Халкаро курьерлик жунатмасининг кабул килувчиси</th>
-        <th>TEL</th>
+        @if($project->isDisplayPhone)
+            <th>ТЕЛ</th>
+        @endif
         <th>манзили</th>
         <th style="width: 330px;">4. Халкаро курьерликнинг жунатмасидаги товарларнинг кискача номи</th>
         <th style="width: 50px;">5. Халкаро курьерлик жунатмасининг брутто вазни (кг)</th>
@@ -127,7 +129,9 @@
             <td>{{ $invoice->number }}</td>
             <td style="text-align: left !important;">{{ $invoice->sender_fullname }}</td>
             <td style="text-align: left !important;">{{ $invoice->receiver_fullname }}</td>
-            <td>{{ $invoice->receiver_phone }}</td>
+            @if($project->isDisplayPhone!=null)
+                <td>{{ $invoice->receiver_phone }}</td>
+            @endif
             <td>{{ $invoice->address->name }}</td>
             <td style="text-align: left !important;">
                 @foreach ($invoice->invoiceProducts as $product)
@@ -144,7 +148,9 @@
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
+        @if($project->isDisplayPhone)
+            <td></td>
+        @endif
         <td></td>
         <td>Total:</td>
         <td>{{ $totalWeight }}</td>

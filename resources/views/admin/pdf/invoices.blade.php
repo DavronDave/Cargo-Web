@@ -154,10 +154,12 @@
                     <td><strong>Адрес получателя:</strong></td>
                     <td>{{$invoice->address->name}}</td>
                 </tr>
-                <tr>
-                    <td><strong>Контакт получателя:</strong></td>
-                    <td>{{$invoice->receiver_phone}}</td>
-                </tr>
+                @if($invoice->project->isDisplayPhone)
+                    <tr>
+                        <td><strong>Контакт получателя:</strong></td>
+                        <td>{{$invoice->receiver_phone}}</td>
+                    </tr>
+                @endif
             </table>
             <div>
                 <div class="details">

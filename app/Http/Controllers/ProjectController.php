@@ -50,7 +50,9 @@ class ProjectController extends Controller
             'sender_id' => 'required',
             'receiver_id' => 'required',
             'incoterm_id' => 'required',
-
+            'company_contract_id' => 'required',
+            'ready_date' => 'required',
+            'status' => 'required'
         ]);
 
         //dd($request);
@@ -63,6 +65,7 @@ class ProjectController extends Controller
         $project->company_contract_id = $request->company_contract_id;
         $project->incoterm_id = $request->incoterm_id;
         $project->status = $request->status;
+        $project->isDisplayPhone = $request->isDisplayPhone;
 
         $project->save();
         return response()->json([
@@ -100,24 +103,29 @@ class ProjectController extends Controller
             'sender_id' => 'required',
             'receiver_id' => 'required',
             'incoterm_id' => 'required',
+            'isDisplayPhone' => 'nullable|boolean', // Add validation for isDisplayPhone
         ]);
 
+        // Update project properties
         $project->code = $request->code;
-        $project->name=$request->name;
+        $project->name = $request->name;
         $project->ready_date = $request->ready_date;
         $project->sender_id = $request->sender_id;
-        $project->receiver_id=$request->receiver_id;
+        $project->receiver_id = $request->receiver_id;
         $project->company_contract_id = $request->company_contract_id;
         $project->incoterm_id = $request->incoterm_id;
         $project->status = $request->status;
-        $project->epi_code=$request->epi_code;
-        $project->manifest_code=$request->manifest_code;
+        $project->epi_code = $request->epi_code;
+        $project->manifest_code = $request->manifest_code;
+        $project->isDisplayPhone = $request->isDisplayPhone; // Assign isDisplayPhone
+
         $project->update();
 
         return response()->json([
             'status' => 200
         ]);
     }
+
 
     /**
      * Remove the specified resource from storage.

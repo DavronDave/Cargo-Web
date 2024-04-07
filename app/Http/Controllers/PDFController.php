@@ -24,6 +24,7 @@ class PDFController extends Controller
     public function PDFInvoice(Invoice $invoice)
     {
         $invoice = Invoice::with('invoiceProducts', 'address', 'project')->where('id','=',$invoice->id)->first();
+//        dd($invoice->project->isDisplayPhone);
         $invoice_products = InvoiceProduct::with('invoice', 'product')->where('invoice_id' , '=', $invoice->id)->get();
 
         $RuCountry = Country::where('id',2)->first();
@@ -254,6 +255,7 @@ class PDFController extends Controller
     {
         $project = Project::with(['sender', 'receiver', 'invoices.invoiceProducts'])->find($project->id);
 
+//        dd($project);
         $options = new Options();
         $options->set('isHtml5ParserEnabled', true);
         $options->set('isPhpEnabled', true);
