@@ -140,6 +140,9 @@ class RoleController extends Controller
         ], [
             'value' => $value,
         ]);
+        cache()->flush();
+//        cache()->tags(['permissions'])->forget('permissions_' . $request['role_id']);
+
         return __('Разрешение изменено');
     }
 
