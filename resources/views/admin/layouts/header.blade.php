@@ -4,7 +4,8 @@
 		<!-- begin mobile sidebar expand / collapse button -->
 		<div class="navbar-header">
 			<div>
-                <p  style="font-size: 40px; align-content: center; padding: 3px; color: white" >Dave Cargo</p>
+{{--                <p  style="font-size: 40px; align-content: center; padding: 3px; color: white" >Dave Cargo</p>--}}
+                <img src="{{asset('admin-assets/img/dave-cargo.png')}}" alt="" style="width: 240px; margin: -15px -15px -15px -25px">
             </div>
 			<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 				<span class="icon-bar"></span>
