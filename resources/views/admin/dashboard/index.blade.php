@@ -76,38 +76,38 @@
             <!-- end col-3 -->
             <!-- begin col-3 -->
 {{--        </div>--}}
-        <div class="row">
-            @php
-                $colors = ['bg-blue', 'bg-green', 'bg-purple', 'bg-info'];
-            @endphp
-            @foreach ($sortedExceptMonth as $log)
-                <div class="col-md-3 col-sm-6">
-                    @php
-                        $trimmedMonth = trim($log->month_name);
-                    @endphp
-                    <div class="widget widget-stats {{ $colors[$monthIndices[$trimmedMonth] % count($colors)] }}" style="border-radius: 3px; height: 270px">
-                        <div class="stats-icon" style="opacity: 10 !important;"><i class="fa fa-user-circle"></i></div>
-                        <div class="stats-info" style="margin-top: 60px">
-                            <h2><strong>
-                                    @if(mb_strlen($log->full_name)>15)
-                                        {{substr($log->full_name, strpos($log->full_name, ' ') + 1)}}
-                                    @else
-                                        {{$log->full_name}}
-                                    @endif
-                                </strong></h2>
-                            <p style="text-align: center;">
-                                <span style="font-size: 30px; font-weight: bold; color: white">{{ $log->month_name }} </span>
-                            </p>
-                            <p>
-                                Invoices: {{ $log->total_invoices }}
-                                <br> Passports: {{ $log->total_passports }}
-                            </p>
+            <div class="row">
+                @php
+                    $colors = ['bg-blue', 'bg-green', 'bg-purple', 'bg-info'];
+                @endphp
+                @foreach ($sortedExceptMonth as $log)
+                    <div class="col-md-3 col-sm-6">
+                        @php
+                            $trimmedMonth = trim($log['month_name']);
+                        @endphp
+                        <div class="widget widget-stats {{ $colors[$monthIndices[$trimmedMonth] % count($colors)] }}" style="border-radius: 3px; height: 270px">
+                            <div class="stats-icon" style="opacity: 10 !important;"><i class="fa fa-user-circle"></i></div>
+                            <div class="stats-info" style="margin-top: 60px">
+                                <h2><strong>
+                                        @if(mb_strlen($log['full_name']) > 15)
+                                            {{ substr($log['full_name'], strpos($log['full_name'], ' ') + 1) }}
+                                        @else
+                                            {{ $log['full_name'] }}
+                                        @endif
+                                    </strong></h2>
+                                <p style="text-align: center;">
+                                    <span style="font-size: 30px; font-weight: bold; color: white">{{ $log['month_name'] }}</span>
+                                </p>
+                                <p>
+                                    Invoices: {{ $log['total_invoices'] }}
+                                    <br> Passports: {{ $log['total_passports'] }}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-        </div>
-{{--        <div class="row">--}}
+                @endforeach
+            </div>
+            {{--        <div class="row">--}}
 {{--            <div class="col-md-8">--}}
 {{--                <div class="widget-chart with-sidebar bg-black">--}}
 {{--                    <div class="widget-chart-content">--}}
