@@ -70,7 +70,7 @@ class DashboardController extends Controller
 // Sort the data by year and month index
         usort($dataArray, function ($a, $b) use ($monthIndices) {
             if ($a['year'] == $b['year']) {
-                return $monthIndices[$a['month_name']] <=> $monthIndices[$b['month_name']];
+                return $monthIndices[$b['month_name']] <=> $monthIndices[$a['month_name']];
             }
             return $b['year'] <=> $a['year'];
         });
