@@ -26,7 +26,7 @@ class ProjectController extends Controller
     {
         $projects = Project::with(['sender', 'receiver'])->sortable()->orderBy('created_at', 'DESC')->paginate(10);
         $companies = Company::all();
-        $company_contracts = CompanyContract::all();
+        $company_contracts = CompanyContract::where('status', true);
         $incoterms = Incoterm::all();
         return view('admin.projects.index', compact('projects', 'companies', 'company_contracts', 'incoterms'));
     }

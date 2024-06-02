@@ -78,9 +78,9 @@
 {{--        </div>--}}
         <div class="row">
             @php
-                $colors = ['bg-blue', 'bg-green', 'bg-purple'];
+                $colors = ['bg-blue', 'bg-green', 'bg-purple', 'bg-info'];
             @endphp
-            @foreach ($exceptMonth as $log)
+            @foreach ($sortedExceptMonth as $log)
                 <div class="col-md-3 col-sm-6">
                     @php
                         $trimmedMonth = trim($log->month_name);

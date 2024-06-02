@@ -64,8 +64,21 @@ class DashboardController extends Controller
             'December' => 11,
         ];
 
+        // Convert the collection to an array for sorting
+        $dataArray = $exceptMonth->toArray();
+
+// Sort the data by year and month index
+        usort($dataArray, function ($a, $b) use ($monthIndices) {
+            if ($a['year'] == $b['year']) {
+                return $monthIndices[$a['month_name']] <=> $monthIndices[$b['month_name']];
+            }
+            return $b['year'] <=> $a['year'];
+        });
+
+// Optionally, convert back to a collection
+        $sortedExceptMonth = collect($dataArray);
 
 //        dd($monthIndices);
-        return view('admin.dashboard.index', compact('thisMonth', 'exceptMonth', 'monthIndices'));
+        return view('admin.dashboard.index', compact('thisMonth', 'sortedExceptMonth', 'monthIndices'));
     }
 }
