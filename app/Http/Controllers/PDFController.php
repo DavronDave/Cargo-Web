@@ -251,30 +251,66 @@ class PDFController extends Controller
         return $pdf->stream('Proforma.pdf');
     }
 
+//    public function PDFManifest(Project $project)
+//    {
+//        $project = Project::with(['sender', 'receiver', 'invoices.invoiceProducts'])->find($project->id);
+//
+////        dd($project);
+//        $options = new Options();
+//        $options->set('isHtml5ParserEnabled', true);
+//        $options->set('isPhpEnabled', true);
+//        $options->set('defaultFont', 'Arial'); // Use a font that supports the characters you need
+//        PDF::setOptions(['dpi' => 150, 'isHtml5ParserEnabled' => true, 'defaultFont' => 'sans-serif']);
+//        $pdf = new Dompdf($options);
+//        $pdf->setOptions($options);
+//        $pdf->setPaper('A4', 'landscape');
+//        $pdf->set_option('isPhpEnabled', true);
+//
+////        $view = view('admin.pdf.invoice')->with('invoice', $invoice)->with('invoice_products', $invoice_products);
+//        $view = view('admin.pdf.manifest',
+//                compact('project'));
+//        $pdf->loadHtml($view);
+//
+//        $pdf->render();
+//
+//        return $pdf->stream('Manifest.pdf');
+//    }
+
     public function PDFManifest(Project $project)
     {
+        // Increase memory limit and execution time
+        ini_set('memory_limit', '512M');
+        ini_set('max_execution_time', '300');
+
+        // Load project with related data
         $project = Project::with(['sender', 'receiver', 'invoices.invoiceProducts'])->find($project->id);
 
-//        dd($project);
+        // Check if the project is loaded properly
+        if (!$project) {
+            abort(404, 'Project not found');
+        }
+
+        // Set PDF options
         $options = new Options();
         $options->set('isHtml5ParserEnabled', true);
         $options->set('isPhpEnabled', true);
         $options->set('defaultFont', 'Arial'); // Use a font that supports the characters you need
-        PDF::setOptions(['dpi' => 150, 'isHtml5ParserEnabled' => true, 'defaultFont' => 'sans-serif']);
+
         $pdf = new Dompdf($options);
         $pdf->setOptions($options);
         $pdf->setPaper('A4', 'landscape');
-        $pdf->set_option('isPhpEnabled', true);
 
-//        $view = view('admin.pdf.invoice')->with('invoice', $invoice)->with('invoice_products', $invoice_products);
-        $view = view('admin.pdf.manifest',
-                compact('project'));
+        // Load view with project data
+        $view = view('admin.pdf.manifest', compact('project'))->render();
         $pdf->loadHtml($view);
 
+        // Render the PDF
         $pdf->render();
 
+        // Stream the PDF to the browser
         return $pdf->stream('Manifest.pdf');
     }
+
 
 //    public function PDFInvoices(Project $project)
 //    {

@@ -42,7 +42,6 @@ class CompanyContractController extends Controller
         $companyContract->code= $request->code;
         $companyContract->status= $request->status;
         $companyContract->save();
-
         return response()->json([
             'status' => 200
         ]);
