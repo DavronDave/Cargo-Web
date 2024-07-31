@@ -79,8 +79,8 @@ class InvoiceController extends Controller
                 ];
             });
 
-        $projects = Project::all();
-        $drivers = Driver::all();
+        $projects = Project::all(['id', 'name', 'code']);
+        $drivers = Driver::all(['id', 'name']);
         $invoices = Invoice::where('project_id', '=', $project->id)
             ->orderBy('isCompleted')
             ->orderBy('number', 'asc')
