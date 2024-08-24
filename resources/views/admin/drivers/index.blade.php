@@ -18,6 +18,18 @@
                            data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
                         </a>
                     @endif
+
+                    @if($userPermission['Add driver']==1)
+                        <form action="{{route('admin.driver-receiver.search')}}" method="GET">
+                            <button type="submit" class="btn btn-success pull-right"
+                                    style="margin: 8px !important; height: 24px; width: 80px; font-size: 14px; padding: 0;">Поиск <i class="fa fa-search"></i>
+                            </button>
+                            <input type="text" name="name"
+                                   style="margin: 8px !important; height: 24px; width: 170px; font-size: 15px;"
+                                   class="pull-right form-control" placeholder="Пасспорт, имя" required
+                                   value="{{request('name')}}">
+                        </form>
+                    @endif
                     <div class="panel-heading">
                         <h4 class="panel-title">Список</h4>
                     </div>
@@ -41,19 +53,17 @@
                                                     <input style="width: 100%;" type="text" class="form-control"
                                                            id="filter"
                                                            name="name" placeholder="Имя водителя..."
-                                                           value="{{request('name')}}">
+                                                           value="{{request('driver_name')}}">
                                                 </td>
                                                 <td>
                                                     <input style="width: 100%;" type="text" class="form-control"
                                                            id="filter"
-                                                           name="name" placeholder="Компания..."
-                                                           value="{{request('name')}}">
+                                                           name="name" placeholder="Компания...">
                                                 </td>
                                                 <td>
                                                     <input style="width: 100%;" type="text" class="form-control"
                                                            id="filter"
-                                                           name="name" placeholder="Количество инвойс..."
-                                                           value="{{request('name')}}">
+                                                           name="name" placeholder="Количество инвойс...">
                                                 </td>
                                                 <td>
                                                     <button type="submit" class="btn btn-warning">

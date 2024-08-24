@@ -123,7 +123,8 @@
                                                     @if($userPermission['Edit passport']==1)
                                                         <a href="#modal-dialog-edit" class="btn btn-xs btn-info"
                                                            title="Изменить"
-                                                           onclick="getDriverReceiverData({{$driver->id}}, {{$receiverPerson->id}})">
+                                                           onclick="getDriverReceiverData({{$driver->id}}, {{$receiverPerson->id}})"
+                                                        >
                                                             <i class="fa fa-pencil-square-o"></i>
                                                         </a>
                                                     @endif

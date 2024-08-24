@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin\DataLog;
+use App\Models\Company;
 use App\Models\Driver;
 use App\Models\ReceiverPerson;
 use App\Models\Region;
@@ -132,25 +133,38 @@ class ReceiverPersonController extends Controller
 
     public function moveDriverReceivers(Request $request)
     {
-//        dd($request->all());
-
         $request->validate([
             'driver_id' => 'required|exists:drivers,id',
             'selected_ids' => 'required|array',
         ]);
 
-//        dd($request->all());
         // Get the selected project ID and invoice IDs from the form
         $driverID = $request->input('driver_id');
         $selectedReceiverIDs = $request->input('selected_ids');
 
-//        dd($driverID);
         // Update the invoices with the new project ID
         ReceiverPerson::whereIn('id', $selectedReceiverIDs)->update(['driver_id' => $driverID]);
 
-//        dd('ad');
         // Redirect back with a success message or handle the response as needed
         return redirect()->back()->with('success', 'Invoislar utkazildi.');
     }
+
+    public function search(Request $request)
+    {
+        $name = $request->input('name');
+        $receiverPeople = ReceiverPerson::where('full_name', 'LIKE', '%' . $name . '%')
+            ->orWhere('passport', 'LIKE', '%' . $name . '%')
+            ->orderBy('id', 'DESC')
+            ->first();
+//        dd($receiverPeople);
+
+        // Retrieve other necessary data for the view
+        $drivers = Driver::sortable()->where('id',$receiverPeople->driver_id )->orderBy('id', 'DESC')->paginate(10);
+        $companies = Company::all();
+
+        return view('admin.drivers.index', compact('drivers', 'companies'));
+    }
+
+
 
 }
