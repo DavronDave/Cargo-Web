@@ -258,9 +258,12 @@ class InvoiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Invoice $invoice , Project $project)
+    public function update(Request $request, Invoice $invoice, Project $project)
     {
-//        dd($invoice);
+        // Debugging request data
+//        dd($request);
+
+        // Validate the request data
         $validatedData = $request->validate([
             'number' => 'required',
             'sender_fullname' => 'required|string',
@@ -269,76 +272,77 @@ class InvoiceController extends Controller
             'receiver_date' => 'required|date',
             'receiver_phone' => 'required|string',
             'address_id' => 'required|numeric',
-//            'ready_date' => 'required|date',
             'weight' => 'required',
-//            'product_id' => 'required|array',
-//            'product_id.*' => 'required|numeric',
-//            'quantity' => 'required|array',
-//            'quantity.*' => 'required|numeric',
-//            'price' => 'required|array',
-//            'price.*' => 'required|numeric',
         ]);
-        if ($invoice->isCompleted==0 and $request->weight!=null)
-        {
+
+        // Log data if invoice is not completed and weight is provided
+        if ($invoice->isCompleted == 0 && $request->weight != null) {
             DataLog::create([
                 'user_id' => Auth::id(),
-                'action_type' => 'update', // or 'update'
+                'action_type' => 'update',
                 'data_type' => 'invoices',
             ]);
         }
-        // Update the existing Invoice instance with the validated data
-        if ($request->weight!=null)
-        {
-            $invoice->isCompleted = 1;
-        }
-        else
-        {
-            $invoice->isCompleted = 0;
-        }
-//        dd($invoice);
+
+        // Update isCompleted based on weight
+        $invoice->isCompleted = $request->weight != null ? 1 : 0;
+
+        // Capitalize names
         $validatedData['sender_fullname'] = Str::title(Str::words($validatedData['sender_fullname'], 2, ''));
         $validatedData['receiver_fullname'] = Str::title(Str::words($validatedData['receiver_fullname'], 2, ''));
+
+        // Update the Invoice with validated data
         $invoice->update($validatedData);
-//        \dd($invoice);
-        // Update the associated invoiceProducts
-        $invoice->invoiceProducts()->delete(); // Remove existing associated products
+
+        // Delete existing associated InvoiceProducts
+        $invoice->invoiceProducts()->delete();
 
         // Loop through the product data and associate them with the Invoice
         foreach ($request->input('product_id') as $key => $productId) {
+            // Set default values if quantity or price is null
+            $quantity = $request->input('quantity')[$key] ?? 1;
+            $price = $request->input('price')[$key] ?? 6;
+            $product_id = $request->input('product_id')[$key] ?? 20;
+
             $invoiceProduct = new InvoiceProduct([
-                'product_id' => $productId,
-                'quantity' => $request->input('quantity')[$key],
-                'price' => $request->input('price')[$key],
+                'product_id' => $product_id,
+                'quantity' => $quantity,
+                'price' => $price,
             ]);
 
             // Associate the InvoiceProduct with the Invoice
             $invoice->invoiceProducts()->save($invoiceProduct);
         }
 
-        // update qilyotganda passport bazada bo'lmasa bazaga qo'shib ketadi
+        // Check if receiver's passport exists in the database
         $exists = ReceiverPerson::where('passport', $invoice->receiver_passport)->exists();
-//        \dd($exists);
 
         if (!$exists) {
+            // Clean phone number
             $cleanedPhoneNumber = preg_replace('/[^0-9]/', '', $invoice->receiver_phone);
+
+            // Create a new ReceiverPerson
             $receiverPerson = new ReceiverPerson();
-            $receiverPerson->full_name =Str::title(Str::words($invoice->receiver_fullname, 2, ''));
+            $receiverPerson->full_name = Str::title(Str::words($invoice->receiver_fullname, 2, ''));
             $receiverPerson->passport = strtoupper($invoice->receiver_passport);
             $receiverPerson->birthdate = $invoice->receiver_date;
-            $receiverPerson->phone =$cleanedPhoneNumber ;
+            $receiverPerson->phone = $cleanedPhoneNumber;
             $receiverPerson->address_id = $invoice->address_id;
             $receiverPerson->driver_id = $request->driver_id;
             $receiverPerson->save();
 
+            // Log data for the new passport entry
             DataLog::create([
                 'user_id' => Auth::id(),
-                'action_type' => 'save', // or 'update'
+                'action_type' => 'save',
                 'data_type' => 'passport',
             ]);
         }
 
+        // Redirect to the invoice index page for the project
         return redirect()->route('admin.invoice.index', ['project' => $project->id]);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -546,6 +550,5 @@ class InvoiceController extends Controller
 
         return redirect()->back();
     }
-
 
 }
