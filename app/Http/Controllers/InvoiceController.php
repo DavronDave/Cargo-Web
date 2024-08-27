@@ -494,59 +494,106 @@ class InvoiceController extends Controller
 
     public function copyInvoices(Request $request, $project_id)
     {
-//        \dd($project_id);
+//        \dd($request);
+        $action = $request->input('action'); // 'copy' or 'move'
         $request->validate([
 //            'project_id' => 'required|exists:projects,id',
             'selected_invoice' => 'required',
             'editable_invoices' => 'required',
         ]);
-
-//        $projectID = $request->input('project_id');
         $selectedInvoiceNumber = $request->input('selected_invoice');
 
-        $foundInvoice = Invoice::where('project_id', $project_id)
-            ->where('number',$selectedInvoiceNumber )
-            ->first();
-//        \dd($foundInvoice);
-        if (!$foundInvoice) {
-            return redirect()->back()->with('error', 'Project not found.');
-        }
+        if ($action == 'copy') {
 
-        $invoices = preg_split('/[\s,]+/', $request->editable_invoices);
+
+            $foundInvoice = Invoice::where('project_id', $project_id)
+                ->where('number',$selectedInvoiceNumber )
+                ->first();
+//        \dd($foundInvoice);
+            if (!$foundInvoice) {
+                return redirect()->back()->with('error', 'Project not found.');
+            }
+
+            $invoices = preg_split('/[\s,]+/', $request->editable_invoices);
 
 //        \dd($invoices);
-        foreach ($invoices as $invoice) {
-            $editableInvoice = Invoice::where('number', $invoice)
-                ->where('project_id', $project_id)
-                ->first();
-            if ($editableInvoice) {
-                $editableInvoice->update([
-                    'sender_fullname' => $foundInvoice->sender_fullname,
-                    'receiver_fullname' => $foundInvoice->receiver_fullname,
-                    'receiver_passport' => $foundInvoice->receiver_passport,
-                    'receiver_date' => $foundInvoice->receiver_date,
-                    'receiver_phone' => $foundInvoice->receiver_phone,
-                    'address_id' => $foundInvoice->address_id,
-                    'project_id' => $foundInvoice->project_id,
-//                    'weight' => null,
-//                    'isCompleted' => false,
-                ]);
-            }else {
-                Invoice::create([
-                    'number' => $invoice,
-                    'sender_fullname' => $foundInvoice->sender_fullname,
-                    'receiver_fullname' => $foundInvoice->receiver_fullname,
-                    'receiver_passport' => $foundInvoice->receiver_passport,
-                    'receiver_date' => $foundInvoice->receiver_date,
-                    'receiver_phone' => $foundInvoice->receiver_phone,
-                    'address_id' => $foundInvoice->address_id,
-                    'project_id' => $foundInvoice->project_id,
-                    'weight' => null,
-                    'isCompleted' => 0,
-                ]);
+            foreach ($invoices as $invoice) {
+                $editableInvoice = Invoice::where('number', $invoice)
+                    ->where('project_id', $project_id)
+                    ->first();
+                if ($editableInvoice) {
+                    $editableInvoice->update([
+                        'sender_fullname' => $foundInvoice->sender_fullname,
+                        'receiver_fullname' => $foundInvoice->receiver_fullname,
+                        'receiver_passport' => $foundInvoice->receiver_passport,
+                        'receiver_date' => $foundInvoice->receiver_date,
+                        'receiver_phone' => $foundInvoice->receiver_phone,
+                        'address_id' => $foundInvoice->address_id,
+                        'project_id' => $foundInvoice->project_id,
+                    ]);
+                }else {
+                    Invoice::create([
+                        'number' => $invoice,
+                        'sender_fullname' => $foundInvoice->sender_fullname,
+                        'receiver_fullname' => $foundInvoice->receiver_fullname,
+                        'receiver_passport' => $foundInvoice->receiver_passport,
+                        'receiver_date' => $foundInvoice->receiver_date,
+                        'receiver_phone' => $foundInvoice->receiver_phone,
+                        'address_id' => $foundInvoice->address_id,
+                        'project_id' => $foundInvoice->project_id,
+                        'weight' => null,
+                        'isCompleted' => 0,
+                    ]);
+                }
             }
         }
-//        \dd($editableInvoice);
+        elseif ($action == 'move') {
+
+            $foundInvoice = Invoice::where('project_id', $project_id)
+                ->where('number', $selectedInvoiceNumber)
+                ->first();
+
+//            \dd($foundInvoice);
+            if (!$foundInvoice) {
+                return redirect()->back()->with('error', 'Project not found.');
+            }
+
+            $invoices = preg_split('/[\s,]+/', $request->editable_invoices);
+
+            foreach ($invoices as $invoice) {
+                $editableInvoice = Invoice::where('number', $invoice)
+                    ->where('project_id', $project_id)
+                    ->first();
+
+                if ($editableInvoice) {
+                    // Find all products in the found invoice
+                    $foundInvoiceProducts = $foundInvoice->invoiceProducts;
+
+                    foreach ($foundInvoiceProducts as $product) {
+                        // Update or create the corresponding product_id in the editable invoice
+                        InvoiceProduct::updateOrCreate(
+                            [
+                                'invoice_id' => $editableInvoice->id, // Include the invoice_id in the search criteria
+                                'product_id' => $product->product_id,
+                                'quantity' => $product->quantity,
+                                'price' => $product->price
+                            ],
+                            [
+                                'invoice_id' => $editableInvoice->id, // Ensure invoice_id is also set in the values to be inserted/updated
+                                'product_id' => $product->product_id,
+                                'quantity' => $product->quantity,
+                                'price' => $product->price
+                            ]
+                        );
+                    }
+                }
+                else {
+                    return redirect()->back()->with('error', 'Invoice not found.');
+                    // Handle the case where the editable invoice doesn't exist
+                    // Create a new invoice here if needed, or handle as you prefer
+                }
+            }
+        }
 
         return redirect()->back();
     }

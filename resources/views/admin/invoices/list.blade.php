@@ -18,7 +18,7 @@
                     @if($userPermission['Add invoice']==1)
                         <a href="{{route('admin.invoice.create', ['project' => $project->id])}}"
                            class="btn btn-success pull-right"
-                           style="margin: 7px !important; height: 36px;">Добавить <i class="fa fa-plus"></i>
+                           style="margin: 7px !important; height: 36px;"> <i class="fa fa-plus"></i>
                         </a>
                     @endif
                     @if($userPermission['Import']==1)
@@ -58,10 +58,16 @@
                         @if($userPermission['Move invoices']==1)
                             <form action="{{ route('admin.copy-invoice', ['project_id' => $project->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-success pull-right"
-                                        style=" margin-top:8px !important; height: 36px;"><i
-                                        class="fa fa-chevron-circle-right"></i>
+                                <button type="submit" name="action" value="move" class="btn btn-warning pull-right"
+                                        style="margin-top:8px !important; height: 36px;">
+                                    <i class="fa fa-arrow-circle-right"></i>
                                 </button>
+
+                                <button type="submit" name="action" value="copy" class="btn btn-success pull-right"
+                                        style="margin-top:8px !important; height: 36px; margin-right: 10px;">
+                                    <i class="fa fa-chevron-circle-right"></i>
+                                </button>
+
                                 <input type="text" name="editable_invoices"
                                        style="margin: 8px !important; height: 35px; width: 170px; font-size: 15px;"
                                        class="pull-right" placeholder="До" required>
@@ -70,6 +76,7 @@
                                        class="pull-right" placeholder="От" required>
                             </form>
                         @endif
+
                     @if($userPermission['Move invoices']==1)
                         <form action="{{ route('admin.move-invoices') }}" method="POST">
                             @csrf
