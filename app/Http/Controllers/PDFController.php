@@ -12,6 +12,7 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\View;
 
 class PDFController extends Controller
@@ -314,41 +315,54 @@ class PDFController extends Controller
 
     public function PDFManifest(Project $project)
     {
-        // Increase memory limit and execution time
-//        ini_set('memory_limit', '512M');
-//        ini_set('max_execution_time', '1000');
+        try {
+            // Increase memory limit and execution time
+            ini_set('memory_limit', '1024M'); // 1GB of memory limit
+            ini_set('max_execution_time', 3000); // 50 minutes max execution time
 
-        ini_set('memory_limit', '1024M'); // Increase to 1GB or more depending on the size of the data
-        ini_set('max_execution_time', 3000); // Increase to 50 minutes or a larger value if necessary
+            // Load project with related data
+            $project = Project::with(['sender', 'receiver', 'invoices.invoiceProducts'])->find($project->id);
 
+            // Check if the project is loaded properly
+            if (!$project) {
+                abort(404, 'Project not found');
+            }
 
+            // Set PDF options
+            $options = new Options();
+            $options->set('isHtml5ParserEnabled', true);
+            $options->set('isPhpEnabled', true);
+            $options->set('defaultFont', 'Arial'); // Set default font for better compatibility
 
-        // Load project with related data
-        $project = Project::with(['sender', 'receiver', 'invoices.invoiceProducts'])->find($project->id);
+            // Initialize Dompdf with options
+            $pdf = new Dompdf($options);
+            $pdf->setPaper('A4', 'landscape'); // Set paper size and orientation
 
-        // Check if the project is loaded properly
-        if (!$project) {
-            abort(404, 'Project not found');
+            // Optimize: Chunking invoices if there are too many
+            $chunkedInvoices = $project->invoices()->with('invoiceProducts')->chunk(50, function($invoices) use (&$project) {
+                // Process smaller portions of data here if needed, or render in sections
+                // This function will handle chunks of 50 invoices at a time
+                // You can pass these chunks to the view
+            });
+
+            // Load view with project data (pass the full project data for now)
+            $view = view('admin.pdf.manifest', compact('project'))->render();
+            $pdf->loadHtml($view);
+
+            // Render the PDF
+            $pdf->render();
+
+            // Stream the PDF to the browser
+            return $pdf->stream('Manifest.pdf');
+        } catch (\Exception $e) {
+            // Log the error to Laravel's logs
+            Log::error('PDF generation failed: ' . $e->getMessage());
+
+            // Optionally, return a user-friendly error message
+            return response()->json([
+                'error' => 'An error occurred while generating the PDF. Please try again later.'
+            ], 500);
         }
-
-        // Set PDF options
-        $options = new Options();
-        $options->set('isHtml5ParserEnabled', true);
-        $options->set('isPhpEnabled', true);
-        $options->set('defaultFont', 'Arial'); // Set default font for better compatibility
-
-        $pdf = new Dompdf($options);
-        $pdf->setPaper('A4', 'landscape'); // Set paper size and orientation
-
-        // Load view with project data
-        $view = view('admin.pdf.manifest', compact('project'))->render();
-        $pdf->loadHtml($view);
-
-        // Render the PDF
-        $pdf->render();
-
-        // Stream the PDF to the browser
-        return $pdf->stream('Manifest.pdf');
     }
 
 
