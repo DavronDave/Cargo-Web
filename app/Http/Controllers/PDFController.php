@@ -315,8 +315,13 @@ class PDFController extends Controller
     public function PDFManifest(Project $project)
     {
         // Increase memory limit and execution time
-        ini_set('memory_limit', '512M');
-        ini_set('max_execution_time', '1000');
+//        ini_set('memory_limit', '512M');
+//        ini_set('max_execution_time', '1000');
+
+        ini_set('memory_limit', '1024M'); // Increase to 1GB or more depending on the size of the data
+        ini_set('max_execution_time', 3000); // Increase to 50 minutes or a larger value if necessary
+
+
 
         // Load project with related data
         $project = Project::with(['sender', 'receiver', 'invoices.invoiceProducts'])->find($project->id);
