@@ -365,7 +365,6 @@ class PDFController extends Controller
 //        }
 //    }
 
-
     public function PDFManifest(Project $project)
     {
         try {
@@ -374,12 +373,20 @@ class PDFController extends Controller
             ini_set('max_execution_time', 3000); // 50 minutes max execution time
 
             // Load project with related data
-            $project = Project::with(['sender', 'receiver'])->find($project->id);
+            $project = Project::with(['sender', 'receiver', 'invoices.invoiceProducts'])->find($project->id);
 
             // Check if the project is loaded properly
             if (!$project) {
                 abort(404, 'Project not found');
             }
+
+            // Accumulate invoices data
+            $invoices = [];
+            $project->invoices()->with('invoiceProducts')->chunk(50, function($chunk) use (&$invoices) {
+                foreach ($chunk as $invoice) {
+                    $invoices[] = $invoice;
+                }
+            });
 
             // Set PDF options
             $options = new Options();
@@ -391,18 +398,9 @@ class PDFController extends Controller
             $pdf = new Dompdf($options);
             $pdf->setPaper('A4', 'landscape'); // Set paper size and orientation
 
-            // Collect the view sections for each chunk
-            $finalHtml = ''; // This will hold the HTML content for the entire PDF
-
-            // Chunking invoices and generating sections
-            $project->invoices()->with('invoiceProducts')->chunk(50, function($invoices) use ($project, &$finalHtml) {
-                // For each chunk, render a separate part of the view
-                $chunkHtml = view('admin.pdf.invoice_chunk', compact('project', 'invoices'))->render();
-                $finalHtml .= $chunkHtml; // Append each chunk to the final HTML
-            });
-
-            // Load view with the full collected HTML
-            $pdf->loadHtml($finalHtml);
+            // Load view with accumulated data
+            $view = view('admin.pdf.manifest', ['project' => $project, 'invoices' => $invoices])->render();
+            $pdf->loadHtml($view);
 
             // Render the PDF
             $pdf->render();
