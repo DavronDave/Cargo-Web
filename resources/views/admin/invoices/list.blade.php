@@ -197,13 +197,22 @@
 {{--                                                    {{ $totalPrice ?? 0 }}--}}
 
 {{--                                                </td>--}}
+{{--                                                <td style="background-color:--}}
+{{--                                                    @if(($totalPrice = $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? null) >= 1000) red--}}
+{{--                                                    @else--}}
+{{--                                                    @endif;--}}
+{{--                                                    color: @if(($totalPrice ?? 0) >= 1000) white @else black @endif; text-align: center">--}}
+{{--                                                    {{ $totalPrice ?? 0 }}--}}
+{{--                                                </td>--}}
                                                 <td style="background-color:
                                                     @if(($totalPrice = $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? null) >= 1000) red
+                                                    @elseif(($totalPrice ?? 0) >= 800) yellow
                                                     @else
                                                     @endif;
-                                                    color: @if(($totalPrice ?? 0) >= 1000) white @else black @endif; text-align: center">
+                                                    color: @if(($totalPrice ?? 0) >= 800) white @else black @endif; text-align: center">
                                                     {{ $totalPrice ?? 0 }}
                                                 </td>
+
                                                 {{--                                                <td>{{$invoice->ready_date}}</td>--}}
                                                 {{--                                                <td><i class="fa fa" style="font-size: 2rem; color: red;"></i></td>--}}
                                                 <td style="vertical-align: middle; text-align: center">@if($invoice->isCompleted==1)
