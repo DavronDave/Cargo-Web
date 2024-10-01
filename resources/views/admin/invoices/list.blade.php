@@ -206,7 +206,7 @@
 {{--                                                </td>--}}
                                                 <td style="background-color:
                                                     @if(($totalPrice = $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? null) >= 1000) red
-                                                    @elseif(($totalPrice ?? 0) >= 800) yellow
+                                                    @elseif(($totalPrice ?? 0) >= 800) #F59C1A
                                                     @else
                                                     @endif;
                                                     color: @if(($totalPrice ?? 0) >= 800) white @else black @endif; text-align: center">
