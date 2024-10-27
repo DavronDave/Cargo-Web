@@ -257,17 +257,17 @@
                                 </div>
                             </div>
 
-                            {{--                            <div class="row">--}}
-                            {{--                                <div class="col-sm-12">--}}
-                            {{--                                    <div class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">--}}
-                            {{--                                        <ul class="pagination pull-right">--}}
-                            {{--                                            <li>--}}
-                            {{--                                                {{$countries->links()}}--}}
-                            {{--                                            </li>--}}
-                            {{--                                        </ul>--}}
-                            {{--                                    </div>--}}
-                            {{--                                </div>--}}
-                            {{--                            </div>--}}
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <div class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">
+                                                                    <ul class="pagination pull-right">
+                                                                        <li>
+                                                                            {{$invoices->links()}}
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                         </div>
                     </div>
                     </form>
