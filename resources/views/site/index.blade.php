@@ -151,48 +151,65 @@
             position: relative;
             color: #233863;
             font-weight: bold;
-            letter-spacing: 7px;
+            /*letter-spacing: 7px;*/
             overflow: hidden;
             border-right: 2px solid hsl(0, 0%, 80%);
-            white-space: nowrap;
+            white-space: pre-wrap;
             animation: typewriter 4s steps(85) 1s 1 normal both,
             blinkTextCursor 500ms infinite;
         }
 
-        @keyframes typewriter {
-            from {
-                width: 0;
-            }
-            to {
-                width: 90%;
-            }
-        }
+        /*@keyframes typewriter {*/
+        /*    from {*/
+        /*        width: 0;*/
+        /*    }*/
+        /*    to {*/
+        /*        width: 90%;*/
+        /*    }*/
+        /*}*/
 
-        @keyframes blinkTextCursor {
-            from {
-                border-right-color: hsl(0, 0%, 100%);
-            }
-            to {
-                border-right-color: transparent;
-            }
-        }
+        /*@keyframes blinkTextCursor {*/
+        /*    from {*/
+        /*        border-right-color: hsl(0, 0%, 100%);*/
+        /*    }*/
+        /*    to {*/
+        /*        border-right-color: transparent;*/
+        /*    }*/
+        /*}*/
 
         /* Mobile Styles */
-        @media (max-width: 414px) { /* Adjust this breakpoint for iPhone 12 */
+        @media (max-width: 414px) {
             h1 {
-                font-size: 17px; /* Adjust the font size for smaller screens */
-                letter-spacing: 3px; /* Adjust letter spacing for better readability */
-                overflow-wrap: break-word; /* Allow text to wrap on smaller screens */
-                animation: none; /* Remove typewriter animation on mobile */
-                border-right: none; /* Remove the typing cursor on mobile */
+                font-size: 20px; /* Slightly larger for readability */
+                /*letter-spacing: 2px; !* More compact spacing *!*/
+                text-align: center; /* Center align */
+                animation: none; /* Remove animation for simplicity */
+                border-right: none; /* Hide typewriter effect */
+                white-space: pre-wrap;
             }
-            image{
-                margin-top: 15px;
+
+            img {
+                margin: 15px auto; /* Add vertical spacing */
+                display: block; /* Center image */
+                max-width: 90%; /* Slightly smaller for mobile */
             }
-            h2{
-                margin-top: 15px;
+
+            h2 {
+                font-size: 16px; /* Smaller text for phone screens */
+                margin: 10px auto; /* Adjust margins */
+                text-align: center; /* Center text */
+            }
+
+            .row {
+                flex-direction: column; /* Stack icons and text */
+                align-items: center; /* Center icons */
+            }
+
+            .fa {
+                margin: 10px; /* Space between icons */
             }
         }
+
 
         img {
 
@@ -207,15 +224,18 @@
     </style>
 </head>
 <body>
+
 <div class="container" style="text-align: center; align-content: center; width: 100%; background-color: white">
-    <h1 id="dynamicH1" style="margin-left: 6%">Доставка товаров и посылок <strong>Россия</strong> - <strong>Узбекистан</strong>...
+{{--    <h1 style="margin-top: -200px">DAVE CARGO</h1>--}}
+    <img style="max-width: 60%; background-color: blue" src="{{asset('site/assets/images/dave-logo.png')}}">
+    <h1 id="dynamicH1" style="margin-left: 6%; margin-top: 150px"><strong>Россия</strong> - <strong>Узбекистан</strong> <span style="font-size: 24px">служба доставки товаров и посылок ...</span>
     </h1>
     <img style="max-width: 80%; height: auto;" src="{{asset('site/assets/images/delivery1.jpg')}}">
 
     <div class="row" style="display: flex; justify-content: center; align-items: center;">
-        <a href="https://t.me/davron_valiyevich" target="_blank"><i class="fa fa-telegram" style="font-size:24px; margin-right: 10px; color: #259CD8"></i></a>
-        <a href="https://api.whatsapp.com/send?phone=998944765241" target="_blank"><i class="fa fa-whatsapp" style="font-size:24px; margin-right: 10px; color: green"></i></a>
-        <h2 style="color: #233863; margin-top: 10px; margin-bottom: 0;"> +998(94)-476-52-41</h2>
+        <a href="https://t.me/davecargo_admin" target="_blank"><i class="fa fa-telegram" style="font-size:24px; margin-right: 10px; color: #259CD8"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=998773667788" target="_blank"><i class="fa fa-whatsapp" style="font-size:24px; margin-right: 10px; color: green"></i></a>
+        <h2 style="color: #233863; margin-top: 10px; margin-bottom: 0;"> +998(77)-366-77-88</h2>
     </div>
 
 
@@ -223,9 +243,9 @@
 </div>
 <script>
     // JavaScript to change h1 content on mobile
-    if (window.innerWidth <= 414) { // Adjust this breakpoint for iPhone 12
-        document.getElementById('dynamicH1').textContent = 'Почта из России в Узбекистан';
-    }
+    // if (window.innerWidth <= 414) { // Adjust this breakpoint for iPhone 12
+    //     document.getElementById('dynamicH1').textContent = 'Почта из России в Узбекистан';
+    // }
 </script>
 </body>
 </html>
