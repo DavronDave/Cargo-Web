@@ -262,7 +262,7 @@
                                                                 <div class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">
                                                                     <ul class="pagination pull-right">
                                                                         <li>
-                                                                            {{$countries->links()}}
+                                                                            {{-- {{$countries->links()}} --}}
                                                                         </li>
                                                                     </ul>
                                                                 </div>

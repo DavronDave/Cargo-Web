@@ -21,6 +21,7 @@ use App\Http\Controllers\ExportController;
 use App\Http\Controllers\IncotermController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\Order\OrderController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProductCategoriesController;
 use App\Http\Controllers\ProductController;
@@ -156,6 +157,11 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin', 'as' => 'admin.', ],
         Route::get('/index', [ProjectController::class, 'index'])->name('index');
     });*/
 
+    Route::prefix('orders')->name('orders.')->group(function(){
+        // Route::get('/index', [ClientController::class, 'index'])->name('index');
+        Route::post('/import', [OrderController::class, 'import'])->name('import');
+        Route::post('/products/import', [OrderController::class, 'importProducts'])->name('importProducts');
+    });
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 

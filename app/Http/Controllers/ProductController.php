@@ -52,6 +52,7 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->save();
 
+        // dd($product, $request->all());
         return response()->json([
             'status' => 200
         ]);

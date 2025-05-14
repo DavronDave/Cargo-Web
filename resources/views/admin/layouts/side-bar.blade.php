@@ -157,6 +157,15 @@
 					</li>
 				</ul>
 			</li>
+
+                {{-- <li class="@yield('incoterms')">
+                    @can('view', \App\Models\Product::class)
+                        <a href="{{route('admin.orders.index')}}">
+                            <i class="fa fa-list-alt"></i>
+                            <span>ORDERS</span>
+                        </a>
+                    @endcan
+                </li> --}}
             @endif
 {{--            <li class="@yield('contact')">--}}
 {{--                <a href="{{route('admin.contact.index')}}">--}}

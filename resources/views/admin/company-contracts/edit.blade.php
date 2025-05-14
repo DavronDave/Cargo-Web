@@ -38,7 +38,7 @@
                         <div class="col-md-5 ui-sortable">
                             <div class="form-group" >
                                 <label for="edit_date">Дата</label>
-                                <input type="date" name="from_date" value="{{$company->from_date}}" id="edit_date" placeholder="Введите Адрес" class="form-control">
+                                {{-- <input type="date" name="from_date" value="{{$company->from_date}}" id="edit_date" placeholder="Введите Адрес" class="form-control"> --}}
                             </div>
                         </div>
                         <div class="col-md-5 ui-sortable">
@@ -50,7 +50,7 @@
                         <div class="col-md-2 ui-sortable">
                             <div class="form-group" >
                                 <label for="edit_status">Статус</label>
-                                <input type="checkbox" @if($company->status==1) checked @endif name="status" id="edit_status" style="width: 50px; margin: 0px" class="form-control">
+                                {{-- <input type="checkbox" @if($company->status==1) checked @endif name="status" id="edit_status" style="width: 50px; margin: 0px" class="form-control"> --}}
                             </div>
                         </div>
                     </div>

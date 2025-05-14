@@ -36,7 +36,8 @@ class RegionController extends Controller
         ]);
         $region = new Region();
         $region->name=$request->name;
-        $region->country_id= $request->country_id;
+        // $region->country_id= $request->country_id;
+        $region->country_id= 1;
         $region->save();
 
         return response()->json([

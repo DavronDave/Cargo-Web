@@ -17,6 +17,28 @@
                            style="margin: 8px !important"
                            data-toggle="modal" data-target="#modal-dialog-create">Добавить <i class="fa fa-plus"></i>
                         </a>
+                        <form action="{{ route('admin.orders.import') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label for="file">Excel faylni tanlang:</label>
+                                <input type="file" name="file" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                Import qilish <i class="fa fa-upload"></i>
+                            </button>
+                        </form>
+
+                        <form action="{{ route('admin.orders.importProducts') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label for="file">Excel faylni tanlang:</label>
+                                <input type="file" name="file" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                Product Import qilish <i class="fa fa-upload"></i>
+                            </button>
+                        </form>
+                        
                     @endif
                     <div class="panel-heading">
                         <h4 class="panel-title">Список</h4>

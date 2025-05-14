@@ -23,12 +23,12 @@
                                 <div class="form-group" >
                                     <div class="form-group" >
                                         <label for="edit_region_id">Страны</label>
-                                        <select name="region_id" id="edit_region_id" class="form-control">
+                                        {{-- <select name="region_id" id="edit_region_id" class="form-control">
                                             <option value="">Выбрать...</option>
                                             @foreach ($regions as $key => $region)
                                                 <option value="{{$region->id}}" @if($region->id == $district->region_id) selected @endif>{{$region->name}}</option>
                                             @endforeach
-                                        </select>
+                                        </select> --}}
                                     </div>
                                 </div>
                             </div>
