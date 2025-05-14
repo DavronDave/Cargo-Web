@@ -64,7 +64,7 @@ class InvoiceController extends Controller
         // dd($project);
         $project_id = $project->id;
 
-        $threeMonthsAgo = Carbon::now()->subMonths(3);
+        $threeMonthsAgo = Carbon::now()->subMonths(1);
 
         $receiverPeopleWithTotalPrice = ReceiverPerson::with(['invoices' => function ($query) use ($threeMonthsAgo) {
             $query->where('created_at', '>=', $threeMonthsAgo)
