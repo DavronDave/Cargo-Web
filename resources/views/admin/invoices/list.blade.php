@@ -68,10 +68,10 @@
                                     <i class="fa fa-chevron-circle-right"></i>
                                 </button>
 
-                                <input type="text" name="editable_invoices"
+                                <input type="text" name="editable_invoices" step="0.001"
                                        style="margin: 8px !important; height: 35px; width: 170px; font-size: 15px;"
                                        class="pull-right" placeholder="До" required>
-                                <input type="number" name="selected_invoice"
+                                <input type="number" name="selected_invoice" step="0.001"
                                        style="margin: 8px !important; height: 35px; width: 65px; font-size: 15px;"
                                        class="pull-right" placeholder="От" required>
                             </form>
