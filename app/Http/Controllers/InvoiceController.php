@@ -356,83 +356,168 @@ class InvoiceController extends Controller
     }
 
 
-    public function importPassports(Project $project, Request $request)
-    {
-//        $receiverPeople = ReceiverPerson::where('driver_id', $request->driver_id)
-//            ->take($request->passport_number)->get();
-//        $senderPeople = SenderPerson::take($request->passport_number)->get();
-        $receiverPeople = ReceiverPerson::where('driver_id', $request->driver_id)
-            ->inRandomOrder()
-            ->take($request->passport_number)
-            ->get();
+//     public function importPassports(Project $project, Request $request)
+//     {
+// //        $receiverPeople = ReceiverPerson::where('driver_id', $request->driver_id)
+// //            ->take($request->passport_number)->get();
+// //        $senderPeople = SenderPerson::take($request->passport_number)->get();
+//         $receiverPeople = ReceiverPerson::where('driver_id', $request->driver_id)
+//             ->inRandomOrder()
+//             ->take($request->passport_number)
+//             ->get();
 
-        $senderPeople = SenderPerson::inRandomOrder()
-            ->take($request->passport_number)
-            ->get();
+//         $senderPeople = SenderPerson::inRandomOrder()
+//             ->take($request->passport_number)
+//             ->get();
 
-        $invoice = Invoice::where('project_id', '=', $project->id)->orderBy('id', 'desc')->first();
+//         $invoice = Invoice::where('project_id', '=', $project->id)->orderBy('id', 'desc')->first();
 
-        if($invoice && $invoice->number != null){
-            // agar invoice bolsa
-            $number = $invoice->number;
-//        dd($number);
-//        $number = 1;
-//        dd($number);
-            // Create invoices based on the retrieved receiver_people data
-            foreach ($receiverPeople as $key => $receiverPerson)
-            {
-                // agar invoice bolsa
+//         if($invoice && $invoice->number != null){
+//             // agar invoice bolsa
+//             $number = $invoice->number;
+// //        dd($number);
+// //        $number = 1;
+// //        dd($number);
+//             // Create invoices based on the retrieved receiver_people data
+//             foreach ($receiverPeople as $key => $receiverPerson)
+//             {
+//                 // agar invoice bolsa
+//                 $number++;
+//                 $formattedNumber = sprintf('%04d', $number);
+// //            dd($formattedNumber);
+//                 $invoiceData = [
+//                     'number' => $formattedNumber, // Set the invoice number to the passport
+//                     'sender_fullname' => $senderPeople[$key]->full_name, // You can set these values as per your requirements
+//                     'receiver_fullname' => $receiverPerson->full_name,
+//                     'receiver_passport' => $receiverPerson->passport,
+//                     'receiver_date' => $receiverPerson->birthdate,
+//                     'receiver_phone' => $receiverPerson->phone,
+//                     'address_id' => $receiverPerson->address_id,
+//                     'project_id' => $project->id,
+//                     'isCompleted' =>0,
+//                 ];
+//                 // Create a new invoice record
+//                 Invoice::create($invoiceData);
+// //            $number++;
+//             }
+//         }
+//         else{
+//             // agar invoice bolsa
+// //            $number = $invoice->number;
+// //        dd($number);
+//             $number = 1;
+// //        dd($number);
+//             // Create invoices based on the retrieved receiver_people data
+//             foreach ($receiverPeople as $key => $receiverPerson)
+//             {
+//                 // agar invoice bolsa
+// //                $number++;
+//                 $formattedNumber = sprintf('%04d', $number);
+// //            dd($formattedNumber);
+//                 $invoiceData = [
+//                     'number' => $formattedNumber, // Set the invoice number to the passport
+//                     'sender_fullname' => $senderPeople[$key]->full_name, // You can set these values as per your requirements
+//                     'receiver_fullname' => $receiverPerson->full_name,
+//                     'receiver_passport' => $receiverPerson->passport,
+//                     'receiver_date' => $receiverPerson->birthdate,
+//                     'receiver_phone' => $receiverPerson->phone,
+//                     'address_id' => $receiverPerson->address_id,
+//                     'project_id' => $project->id,
+//                     'isCompleted' =>0,
+//                 ];
+//                 // Create a new invoice record
+//                 Invoice::create($invoiceData);
+//                 $number++;
+//             }
+//         }
+//         return redirect()->route('admin.invoice.index', ['project' => $project->id]);
+//     }
+
+public function importPassports(Project $project, Request $request)
+{
+    $receiverPeople = ReceiverPerson::where('driver_id', $request->driver_id)
+        ->inRandomOrder()
+        ->take($request->passport_number)
+        ->get();
+
+    $senderPeople = SenderPerson::inRandomOrder()
+        ->take($request->passport_number)
+        ->get();
+
+    $lastInvoice = Invoice::where('project_id', $project->id)
+        ->orderBy('id', 'desc')
+        ->first();
+
+    if ($lastInvoice && $lastInvoice->number != null) {
+        $lastNumber = $lastInvoice->number;
+
+        if (strpos($lastNumber, '.') !== false) {
+            // Misol: 0004.1 bo'lsa
+            [$base, $sub] = explode('.', $lastNumber);
+            $base = intval($base);
+            $sub = intval($sub);
+
+            for ($i = 1; $i <= count($receiverPeople); $i++) {
+                $sub++;
+                $formattedNumber = sprintf('%04d', $base) . '.' . $sub;
+
+                Invoice::create([
+                    'number' => $formattedNumber,
+                    'sender_fullname' => $senderPeople[$i - 1]->full_name,
+                    'receiver_fullname' => $receiverPeople[$i - 1]->full_name,
+                    'receiver_passport' => $receiverPeople[$i - 1]->passport,
+                    'receiver_date' => $receiverPeople[$i - 1]->birthdate,
+                    'receiver_phone' => $receiverPeople[$i - 1]->phone,
+                    'address_id' => $receiverPeople[$i - 1]->address_id,
+                    'project_id' => $project->id,
+                    'isCompleted' => 0,
+                ]);
+            }
+        } else {
+            // Misol: 0004 bo'lsa
+            $number = intval($lastNumber);
+
+            for ($i = 1; $i <= count($receiverPeople); $i++) {
                 $number++;
                 $formattedNumber = sprintf('%04d', $number);
-//            dd($formattedNumber);
-                $invoiceData = [
-                    'number' => $formattedNumber, // Set the invoice number to the passport
-                    'sender_fullname' => $senderPeople[$key]->full_name, // You can set these values as per your requirements
-                    'receiver_fullname' => $receiverPerson->full_name,
-                    'receiver_passport' => $receiverPerson->passport,
-                    'receiver_date' => $receiverPerson->birthdate,
-                    'receiver_phone' => $receiverPerson->phone,
-                    'address_id' => $receiverPerson->address_id,
+
+                Invoice::create([
+                    'number' => $formattedNumber,
+                    'sender_fullname' => $senderPeople[$i - 1]->full_name,
+                    'receiver_fullname' => $receiverPeople[$i - 1]->full_name,
+                    'receiver_passport' => $receiverPeople[$i - 1]->passport,
+                    'receiver_date' => $receiverPeople[$i - 1]->birthdate,
+                    'receiver_phone' => $receiverPeople[$i - 1]->phone,
+                    'address_id' => $receiverPeople[$i - 1]->address_id,
                     'project_id' => $project->id,
-                    'isCompleted' =>0,
-                ];
-                // Create a new invoice record
-                Invoice::create($invoiceData);
-//            $number++;
+                    'isCompleted' => 0,
+                ]);
             }
         }
-        else{
-            // agar invoice bolsa
-//            $number = $invoice->number;
-//        dd($number);
-            $number = 1;
-//        dd($number);
-            // Create invoices based on the retrieved receiver_people data
-            foreach ($receiverPeople as $key => $receiverPerson)
-            {
-                // agar invoice bolsa
-//                $number++;
-                $formattedNumber = sprintf('%04d', $number);
-//            dd($formattedNumber);
-                $invoiceData = [
-                    'number' => $formattedNumber, // Set the invoice number to the passport
-                    'sender_fullname' => $senderPeople[$key]->full_name, // You can set these values as per your requirements
-                    'receiver_fullname' => $receiverPerson->full_name,
-                    'receiver_passport' => $receiverPerson->passport,
-                    'receiver_date' => $receiverPerson->birthdate,
-                    'receiver_phone' => $receiverPerson->phone,
-                    'address_id' => $receiverPerson->address_id,
-                    'project_id' => $project->id,
-                    'isCompleted' =>0,
-                ];
-                // Create a new invoice record
-                Invoice::create($invoiceData);
-                $number++;
-            }
+    } else {
+        // Hali hech qanday invoice yo'q — 0001, 0002, ...
+        $number = 0;
+
+        for ($i = 1; $i <= count($receiverPeople); $i++) {
+            $number++;
+            $formattedNumber = sprintf('%04d', $number);
+
+            Invoice::create([
+                'number' => $formattedNumber,
+                'sender_fullname' => $senderPeople[$i - 1]->full_name,
+                'receiver_fullname' => $receiverPeople[$i - 1]->full_name,
+                'receiver_passport' => $receiverPeople[$i - 1]->passport,
+                'receiver_date' => $receiverPeople[$i - 1]->birthdate,
+                'receiver_phone' => $receiverPeople[$i - 1]->phone,
+                'address_id' => $receiverPeople[$i - 1]->address_id,
+                'project_id' => $project->id,
+                'isCompleted' => 0,
+            ]);
         }
-        return redirect()->route('admin.invoice.index', ['project' => $project->id]);
     }
 
+    return redirect()->route('admin.invoice.index', ['project' => $project->id]);
+}
 
     public function moveInvoices(Request $request)
     {
