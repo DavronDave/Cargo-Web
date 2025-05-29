@@ -123,7 +123,7 @@
                     <img src="{{ asset('img/korea.png') }}" style="height: 80px;">
                     <h5>СТРАНА ОТПРАВИТЕЛЬ</h5>
 
-                    <h4>РОССИЙСКИЙ ФЕДЕРАЦИЯ</h4>
+                    <h4>РЕСПУБЛИКА КОРЕЯ</h4>
                     {{-- <h4>РЕСПУБЛИКА ФЕДЕРАЦИЯ</h4> --}}
                     <!-- Add sender information here -->
                 </div>
