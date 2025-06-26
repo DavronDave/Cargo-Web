@@ -523,7 +523,7 @@
             }
 
             .stat-number {
-                font-size: 2.0rem;
+                font-size: 2.2rem;
             }
 
             .stat-label {
@@ -531,7 +531,7 @@
             }
 
             .contact-item {
-                font-size: 0.7rem;
+                font-size: 0.8rem;
                 text-decoration: none;
                 text-underline-position: unset
             }
