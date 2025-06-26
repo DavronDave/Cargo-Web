@@ -523,7 +523,7 @@
             }
 
             .stat-number {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .stat-label {
@@ -531,7 +531,13 @@
             }
 
             .contact-item {
-                font-size: 1rem;
+                font-size: 0.8rem;
+                text-decoration: none;
+                text-underline-position: unset
+            }
+
+            .service-card {
+                background-color: #23365E !important; Temporary for testing
             }
         }
 
