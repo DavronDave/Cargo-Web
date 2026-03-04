@@ -61,9 +61,10 @@ class InvoiceController extends Controller
 
     public function index(Project $project)
     {
+        // dd($project);
         $project_id = $project->id;
 
-        $threeMonthsAgo = Carbon::now()->subMonths(3);
+        $threeMonthsAgo = Carbon::now()->subMonths(1);
 
         $receiverPeopleWithTotalPrice = ReceiverPerson::with(['invoices' => function ($query) use ($threeMonthsAgo) {
             $query->where('created_at', '>=', $threeMonthsAgo)
@@ -83,7 +84,7 @@ class InvoiceController extends Controller
         $drivers = Driver::all(['id', 'name']);
         $invoices = Invoice::where('project_id', '=', $project->id)
             ->orderBy('isCompleted')
-            ->orderBy('number', 'asc')
+            ->orderBy('created_at', 'asc')
             ->paginate(1000);
 
         return view('admin.invoices.list', compact(

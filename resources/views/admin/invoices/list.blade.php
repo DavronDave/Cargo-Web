@@ -205,11 +205,11 @@
 {{--                                                    {{ $totalPrice ?? 0 }}--}}
 {{--                                                </td>--}}
                                                 <td style="background-color:
-                                                    @if(($totalPrice = $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? null) >= 1000) red
-                                                    @elseif(($totalPrice ?? 0) >= 800) #F59C1A
+                                                    @if(($totalPrice = $receiverPeopleWithTotalPrice->where('passport', $invoice->receiver_passport)->first()['total_price'] ?? null) >= 200) red
+                                                    @elseif(($totalPrice ?? 0) >= 180) #F59C1A
                                                     @else
                                                     @endif;
-                                                    color: @if(($totalPrice ?? 0) >= 800) white @else black @endif; text-align: center">
+                                                    color: @if(($totalPrice ?? 0) >= 180) white @else black @endif; text-align: center">
                                                     {{ $totalPrice ?? 0 }}
                                                 </td>
 
@@ -257,17 +257,17 @@
                                 </div>
                             </div>
 
-                            {{--                            <div class="row">--}}
-                            {{--                                <div class="col-sm-12">--}}
-                            {{--                                    <div class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">--}}
-                            {{--                                        <ul class="pagination pull-right">--}}
-                            {{--                                            <li>--}}
-                            {{--                                                {{$countries->links()}}--}}
-                            {{--                                            </li>--}}
-                            {{--                                        </ul>--}}
-                            {{--                                    </div>--}}
-                            {{--                                </div>--}}
-                            {{--                            </div>--}}
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <div class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">
+                                                                    <ul class="pagination pull-right">
+                                                                        <li>
+                                                                            {{-- {{$countries->links()}} --}}
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                         </div>
                     </div>
                     </form>

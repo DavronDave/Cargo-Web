@@ -6,11 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
-class   Product extends Model
+class Product extends Model
 {
     use HasFactory, Sortable;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'code',
+        'position',
+        'category_id',
+        'created_at',
+        'updated_at',
+    ];
+
+    public $incrementing = true;
 
     public function category()
     {

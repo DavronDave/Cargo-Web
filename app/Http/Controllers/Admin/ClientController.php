@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Client;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -13,8 +14,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::latest()->paginate(5);;
-        return view('admin.countries.index', compact('clients'));
+        $countries = Country::latest()->paginate(5);;
+        return view('admin.countries.index', compact('countries'));
     }
 
     /**

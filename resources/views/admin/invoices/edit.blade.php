@@ -6,7 +6,7 @@
     <div id="content" class="content">
         <!-- begin breadcrumb -->
         <ol class="breadcrumb pull-left">
-            <li><a href="{{route('admin.dashboard')}}">Главная</a></li>
+            <li><a href="{{route('admin.dashboard')}}">Главная </a></li>
             <li class="active">Проекты</li>
         </ol>
         <div class="row">
@@ -37,7 +37,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group" >
                                         <label for="number">Номер invoice</label><br>
-                                        <input type="number" step="0.001" name="number" id="number" placeholder="Введите Код" class="form-control" value="{{ old('number') ?? $invoice->number }}">
+                                        <input type="text" step="0.001" name="number" id="number" placeholder="Введите Код" class="form-control" value="{{ old('number') ?? $invoice->number }}">
                                         <br>
                                         @error('number')
                                         <span class="text-danger">{{$message}}</span>

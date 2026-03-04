@@ -369,8 +369,10 @@ class PDFController extends Controller
     {
         try {
             // Increase memory limit and execution time
-            ini_set('memory_limit', '1024M'); // 1GB of memory limit
+//            ini_set('memory_limit', '1024M'); // 1GB of memory limit
             ini_set('max_execution_time', 3000); // 50 minutes max execution time
+            ini_set('memory_limit', '512M');
+
 
             // Load project with related data
             $project = Project::with(['sender', 'receiver', 'invoices.invoiceProducts'])->find($project->id);
